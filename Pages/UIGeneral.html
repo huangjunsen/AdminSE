@@ -1,0 +1,1200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminSE</title>
+    <!-- 站点定义 -->
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <style type="text/css">body{font-family:"Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;}</style>
+    <!-- 浏览器版本检测 -->
+    <script type="text/javascript">
+    var browser=navigator.appName;
+    var b_version=navigator.appVersion;
+    var version=parseFloat(b_version);
+    if ((browser=="Microsoft Internet Explorer") && (version<5))
+        location.href = 'BrownerToUpdate.html';
+    </script>
+
+    <!-- 第三方css -->
+    <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/highlight/styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- 页面专属css -->
+    <style>
+    
+    .color-palette {height: 35px;line-height: 35px;text-align: center;}
+    .color-palette-set {margin-bottom: 15px;}
+    .color-palette span {display:none;font-size:12px;}
+    .color-palette:hover span {display:block;}
+    .color-palette-box h4 {position: absolute;top: 100%;left: 25px;margin-top: -40px;
+      color: rgba(255, 255, 255, 0.8);font-size: 12px;display: block;z-index: 7;}
+
+    #BGColorList [class^=bg-], #TEXTColorList [class^=text-]{margin:5px 0;padding:5px;}
+    </style>
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="overlay" style="display:none;">
+      <div class="loading">
+        <div class="loading-center">
+          <div class="loading-center-absolute">
+            <div class="object object_four"></div>
+            <div class="object object_three"></div>
+            <div class="object object_two"></div>
+            <div class="object object_one"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-mini" title="AdminSE"><b>AdminSE</b></span>
+          <span class="logo-lg"><b>Admin</b>SE</span>
+        </a>
+        <!-- 导航头部 -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- 左侧边栏触发按钮-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="收缩/展开">
+            <span class="sr-only">收缩/展开导航</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- 用户帐户栏 -->
+              <li class="dropdown user user-menu">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="static/dist/img/DefaultHead.png" class="user-image" alt="头像"/>
+                  <span class="hidden-xs">用户名</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- 用户简介 -->
+                  <li class="user-header">
+                    <a href="#" style="background-color: transparent" title="更换头像">
+                      <img src="static/dist/img/DefaultHead.png" class="img-circle" alt="User Image" />
+                    </a>
+                    <p>
+                      自定义用户信息
+                      <small>备注等内容</small>
+                    </p>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-primary">编辑</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-primary">注销</a>
+                    </div>
+                  </li>
+                </ul>
+              </li> <!-- end 用户帐户栏 -->
+              <!-- 右侧边栏触发按钮 -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li> <!-- end 右侧边栏触发按钮 -->
+            </ul>
+          </div>
+        </nav> <!-- end 导航头部 -->
+      </header>
+
+      <!-- 左侧菜单栏 -->
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- 搜索栏 -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group" title="功能未开放">
+              <input type="text" name="q" class="form-control" placeholder="请输入搜索内容"/>
+              <span class="input-group-btn">
+                <button type='button' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form><!-- end 搜索栏 -->
+
+          <!-- 菜单栏主体 -->
+          <ul class="sidebar-menu"></ul>
+
+        </section>
+      </aside> <!-- end 左侧菜单栏 -->
+
+      <!-- 页面主体内容 -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            样式和JS部件
+          </h1>
+        </section>
+
+        <!-- content -->
+        <section class="content" id="DashBoardCharts">
+          <div class="row">
+            <section class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">AdminLTE Style</h3>
+                </div>
+                <div class="box-body">
+                  <h4 id="AdminLTE-ThumbColor">一、主题色块</h4>
+                  <div class="row color-palette-box">
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Primary</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-light-blue disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-light-blue color-palette"><span>#3c8dbc</span></div>
+                        <div class="bg-light-blue-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Info</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-aqua disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-aqua color-palette"><span>#00c0ef</span></div>
+                        <div class="bg-aqua-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Success</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-green disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-green color-palette"><span>#00a65a</span></div>
+                        <div class="bg-green-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Warning</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-yellow disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-yellow color-palette"><span>#f39c12</span></div>
+                        <div class="bg-yellow-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Danger</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-red disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-red color-palette"><span>#f56954</span></div>
+                        <div class="bg-red-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Gray</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-gray disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-gray color-palette"><span>#d2d6de</span></div>
+                        <div class="bg-gray-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row color-palette-box">
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Navy</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-navy disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-navy color-palette"><span>#001F3F</span></div>
+                        <div class="bg-navy-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Teal</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-teal disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-teal color-palette"><span>#39CCCC</span></div>
+                        <div class="bg-teal-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Purple</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-purple disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-purple color-palette"><span>#605ca8</span></div>
+                        <div class="bg-purple-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Orange</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-orange disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-orange color-palette"><span>#ff851b</span></div>
+                        <div class="bg-orange-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Maroon</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-maroon disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-maroon color-palette"><span>#D81B60</span></div>
+                        <div class="bg-maroon-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                      <h4 class="text-center">Black</h4>
+                      <div class="color-palette-set">
+                        <div class="bg-black disabled color-palette"><span>Disabled</span></div>
+                        <div class="bg-black color-palette"><span>#111111</span></div>
+                        <div class="bg-black-active color-palette"><span>Active</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <p>&nbsp;</p>
+                  <h4 id="AdminLTE-BgNTextColor">二、背景及前景色</h4>
+                  <div class="row">
+                    <div class="col-xs-6" id="BGColorList">
+                      bg-颜色列表：<br />
+                      <hr />
+                      <div class="bg-red">bg-red</div>
+                      <div class="bg-yellow">bg-yellow</div>
+                      <div class="bg-aqua">bg-aqua</div>
+                      <div class="bg-blue">bg-blue</div>
+                      <div class="bg-light-blue">bg-light-blue</div>
+                      <div class="bg-green">bg-green</div>
+                      <div class="bg-navy">bg-navy</div>
+                      <div class="bg-teal">bg-teal</div>
+                      <div class="bg-olive">bg-olive</div>
+                      <div class="bg-lime">bg-lime</div>
+                      <div class="bg-orange">bg-orange</div>
+                      <div class="bg-fuchsia">bg-fuchsia</div>
+                      <div class="bg-purple">bg-purple</div>
+                      <div class="bg-maroon">bg-maroon</div>
+                      <div class="bg-black">bg-black</div>
+                      <div class="bg-red-active">bg-red-active</div>
+                      <div class="bg-yellow-active">bg-yellow-active</div>
+                      <div class="bg-aqua-active">bg-aqua-active</div>
+                      <div class="bg-blue-active">bg-blue-active</div>
+                      <div class="bg-light-blue-active">bg-light-blue-active</div>
+                      <div class="bg-green-active">bg-green-active</div>
+                      <div class="bg-navy-active">bg-navy-active</div>
+                      <div class="bg-teal-active">bg-teal-active</div>
+                      <div class="bg-olive-active">bg-olive-active</div>
+                      <div class="bg-lime-active">bg-lime-active</div>
+                      <div class="bg-orange-active">bg-orange-active</div>
+                      <div class="bg-fuchsia-active">bg-fuchsia-active</div>
+                      <div class="bg-purple-active">bg-purple-active</div>
+                      <div class="bg-maroon-active">bg-maroon-active</div>
+                      <div class="bg-black-active">bg-black-active</div>
+                      <div class="bg-teal-gradient">bg-teal-gradient</div>
+                      <div class="bg-light-blue-gradient">bg-light-blue-gradient</div>
+                      <div class="bg-blue-gradient">bg-blue-gradient</div>
+                      <div class="bg-aqua-gradient">bg-aqua-gradient</div>
+                      <div class="bg-yellow-gradient">bg-yellow-gradient</div>
+                      <div class="bg-purple-gradient">bg-purple-gradient</div>
+                      <div class="bg-green-gradient">bg-green-gradient</div>
+                      <div class="bg-red-gradient">bg-red-gradient</div>
+                      <div class="bg-black-gradient">bg-black-gradient</div>
+                      <div class="bg-maroon-gradient">bg-maroon-gradient</div>
+                    </div>
+                    <div class="col-xs-6" id="TEXTColorList">
+                      text-颜色列表：<br />
+                      <hr />
+                      <div class="text-red">text-red</div>
+                      <div class="text-yellow">text-yellow</div>
+                      <div class="text-aqua">text-aqua</div>
+                      <div class="text-blue">text-blue</div>
+                      <div class="text-light-blue">text-light-blue</div>
+                      <div class="text-green">text-green</div>
+                      <div class="text-navy">text-navy</div>
+                      <div class="text-teal">text-teal</div>
+                      <div class="text-olive">text-olive</div>
+                      <div class="text-lime">text-lime</div>
+                      <div class="text-orange">text-orange</div>
+                      <div class="text-fuchsia">text-fuchsia</div>
+                      <div class="text-purple">text-purple</div>
+                      <div class="text-maroon">text-maroon</div>
+                      <div class="text-black">text-black</div>
+                      <div class="text-gray">text-gray</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="box">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">Bootstrap JS部件</h3>
+                </div>
+                <div class="box-body">
+                  <h4 id="transition">一、过渡效果<small>transition.js</small></h4>
+                  <p>
+                    作为过渡效果而存在，并无实际操作语句，一旦加载该js<a href="#Comment1" title="注释1">[1]</a>，则过渡效果开启，可以关闭过渡效果：
+                    <pre><code class="JavaScript">$.support.transition = false</code></pre>
+                  </p>
+                  <hr />
+                  <h4 id="modal">二、模态框<small>modal.js</small></h4>
+                  <p>
+                    详见 <a href="UISliderAndModal.html">滑动条和模态框</a>
+                  </p>
+                  <hr />
+                  <h4 id="scrollspy">三、滚动监听<small>scrollspy.js</small></h4>
+                  <p>滚动监听（Scrollspy）插件，即自动更新导航插件，会根据滚动条的位置自动更新对应的导航目标。其基本的实现是随着您的滚动，基于滚动条的位置向导航栏添加 .active class。</p>
+                  <p>效果参考本页右侧的导航栏</p>
+                  <p>3.1 非js方式：</p>
+                  <p>通过 data 属性：向您想要监听的元素（通常是 body）添加 data-spy="scroll"。然后添加带有 Bootstrap .nav 组件的父元素的 ID 或 class 的属性 data-target。为了它能正常工作，您必须确保页面主体中有匹配您所要监听链接的 ID 的元素存在。</p>
+                  <div>
+                    <pre><code class="Html">&lt;body data-spy="scroll" data-target="#navbar-example"&gt;
+  ...
+  &lt;div id="navbar-example"&gt;
+    &lt;ul class="nav nav-tabs" role="tablist"&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  ...
+&lt;/body&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>3.2 js方式：</p>
+                  <p>在 CSS 中添加 position: relative; 之后，通过 JavaScript 代码启动滚动监听插件。target用于指定导航。</p>
+                  <div>
+                    <pre><code class="JavaScript">$('body').scrollspy({ target: '#navbar-example' })</code></pre>
+                  </div>
+                  <br />
+                  <p>方法</p>
+                  <p>.scrollspy('refresh')</p>
+                  <p>当使用滚动监听插件的同时在 DOM 中添加或删除元素后，你需要像下面这样调用此刷新（ refresh） 方法：</p>
+                  <div>
+                    <pre><code class="JavaScript">$('[data-spy="scroll"]').each(function () {
+  var $spy = $(this).scrollspy('refresh')
+})</code></pre>
+                  </div>
+                  <br />
+                  <p>参数</p>
+                  <p>可以通过 data 属性或 JavaScript 传递参数。对于 data 属性，其名称是将参数名附着到 data- 后面组成，例如 data-offset=""。</p>
+                  <br />
+                  <p>事件</p>
+                  <p>activate.bs.scrollspy<br />每当一个新条目被激活后都将由滚动监听插件触发此事件。</p>
+                  <hr />
+                  <h4 id="tab">四、标签页<small>tab.js</small></h4>
+                  <p>4.1 非js方式：</p>
+                  <ul id="myTabs1" class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#myTabs1-home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Home</a></li>
+                    <li role="presentation"><a href="#myTabs1-profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Profile</a></li>
+                    <li role="presentation" class="dropdown">
+                      <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Dropdown <span class="caret"></span></a>
+                      <ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+                        <li><a href="#myTabs1-dropdown1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">@fat</a></li>
+                        <li><a href="#myTabs1-dropdown2" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">@mdo</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div id="myTabContent" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="myTabs1-home" aria-labelledBy="home-tab">
+                      <p>内容1</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="myTabs1-profile" aria-labelledBy="profile-tab">
+                      <p>内容2</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="myTabs1-dropdown1" aria-labelledBy="dropdown1-tab">
+                      <p>内容3-1</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="myTabs1-dropdown2" aria-labelledBy="dropdown2-tab">
+                      <p>内容3-2</p>
+                    </div>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;ul id="myTabs" class="nav nav-tabs" role="tablist"&gt;
+  &lt;li role="presentation" class="active"&gt;&lt;a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li role="presentation"&gt;&lt;a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+  &lt;li role="presentation" class="dropdown"&gt;
+    &lt;a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents"&gt;Dropdown &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+    &lt;ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents"&gt;
+      &lt;li&gt;&lt;a href="#dropdown1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1"&gt;@fat&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#dropdown2" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2"&gt;@mdo&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id="myTabContent" class="tab-content"&gt;
+  &lt;div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledBy="home-tab"&gt;
+    &lt;p&gt;内容1&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledBy="profile-tab"&gt;
+    &lt;p&gt;内容2&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role="tabpanel" class="tab-pane fade" id="dropdown1" aria-labelledBy="dropdown1-tab"&gt;
+    &lt;p&gt;内容3-1&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role="tabpanel" class="tab-pane fade" id="dropdown2" aria-labelledBy="dropdown2-tab"&gt;
+    &lt;p&gt;内容3-2&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                  </div>
+                  <p>4.2 js方式：</p>
+                  <ul id="myTabs2" class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="#myTabs2-home">Home</a></li>
+                    <li role="presentation"><a href="#myTabs2-profile">Profile</a></li>
+                    <li role="presentation" class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop2-contents">Dropdown <span class="caret"></span></a>
+                      <ul class="dropdown-menu" id="myTabDrop2-contents">
+                        <li><a href="#myTabs2-dropdown1" role="tab" data-toggle="tab">@fat</a></li>
+                        <li><a href="#myTabs2-dropdown2" role="tab" data-toggle="tab">@mdo</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="myTabs2-home" aria-labelledBy="home-tab">
+                      <p>内容1</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="myTabs2-profile" aria-labelledBy="profile-tab">
+                      <p>内容2</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="myTabs2-dropdown1" aria-labelledBy="dropdown1-tab">
+                      <p>内容3-1</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="myTabs2-dropdown2" aria-labelledBy="dropdown2-tab">
+                      <p>内容3-2</p>
+                    </div>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None">
+Html：
+<code class="Html">&lt;ul id="myTabs2" class="nav nav-tabs"&gt;
+  &lt;li role="presentation" class="active"&gt;&lt;a href="#myTabs2-home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li role="presentation"&gt;&lt;a href="#myTabs2-profile"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+  &lt;li role="presentation" class="dropdown"&gt;
+    &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop2-contents"&gt;Dropdown &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+    &lt;ul class="dropdown-menu" id="myTabDrop2-contents"&gt;
+      &lt;li&gt;&lt;a href="#myTabs2-dropdown1" role="tab" data-toggle="tab"&gt;@fat&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#myTabs2-dropdown2" role="tab" data-toggle="tab"&gt;@mdo&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="tab-content"&gt;
+  &lt;div role="tabpanel" class="tab-pane fade in active" id="myTabs2-home" aria-labelledBy="home-tab"&gt;
+    &lt;p&gt;内容1&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role="tabpanel" class="tab-pane fade" id="myTabs2-profile" aria-labelledBy="profile-tab"&gt;
+    &lt;p&gt;内容2&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role="tabpanel" class="tab-pane fade" id="myTabs2-dropdown1" aria-labelledBy="dropdown1-tab"&gt;
+    &lt;p&gt;内容3-1&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role="tabpanel" class="tab-pane fade" id="myTabs2-dropdown2" aria-labelledBy="dropdown2-tab"&gt;
+    &lt;p&gt;内容3-2&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+JavaScript：
+<code class="JavaScript">$('#myTabs2 a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+</code></pre>
+                  </div>
+                  <p>方法列表：（下同，不再过多解释）</p>
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-striped bs-events-table">
+                      <thead>
+                       <tr>
+                         <th>事件名</th>
+                         <th>描述</th>
+                       </tr>
+                      </thead>
+                      <tbody>
+                       <tr>
+                         <td>show.bs.tab</td>
+                         <td>当标签页开始显示之时执行事件。</td>
+                      </tr>
+                      <tr>
+                         <td>shown.bs.tab</td>
+                         <td>当标签页显示完成之后执行事件。</td>
+                       </tr>
+                       <tr>
+                         <td>hide.bs.tab</td>
+                         <td>当标签页开始关闭之时执行事件。</td>
+                       </tr>
+                       <tr>
+                         <td>hidden.bs.tab</td>
+                         <td>当标签页关闭完成之后执行事件。</td>
+                       </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p>
+                    使用方法：<br />
+                    <pre><code class="JavaScript">$('JQSelector').on('show.bs.tab', function () {
+  // do something…
+})</code></pre>
+                  </p>
+                  <hr />
+                  <h4 id="tooltip">五、工具提示<small>tooltip.js</small></h4>
+                  <p>鼠标经过（或者触发）则显示提示，title的进化版。</p>
+                  <p>使用很简单，为任意HtmlDom添加 data-toggle="tooltip" 和 title 即可。</p>
+                  <div class="text-center">
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip居左</button>
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip居上</button>
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip居下</button>
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip居右</button>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None">
+Html：
+<code class="Html">&lt;button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left"&gt;Tooltip居左&lt;/button&gt;
+&lt;button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top"&gt;Tooltip居上&lt;/button&gt;
+&lt;button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"&gt;Tooltip居下&lt;/button&gt;
+&lt;button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right"&gt;Tooltip居右&lt;/button&gt;
+</code></pre>
+                  </div>
+                  <br />
+                  <p>JS调用：</p><pre><code class="JavaScript">$('#example').tooltip(options)</code></pre>
+                  <p>选项（options）：</p>
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-striped js-options-table">
+                      <thead>
+                        <tr>
+                          <th>选项</th>
+                          <th>参数类型</th>
+                          <th>默认值</th>
+                          <th>描述</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>animation</td>
+                          <td>boolean</td>
+                          <td>true</td>
+                          <td>是否显示动画</td>
+                        </tr>
+                        <tr>
+                          <td>container</td>
+                          <td>string | false</td>
+                          <td>false</td>
+                          <td>
+                            可以指定需要依附的元素，例如 <span class="text-red">body</span> ，此参数多用来避免浏览器大小变化导致工具提示浮动错误的问题。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>delay</td>
+                          <td>number | object</td>
+                          <td>0</td>
+                          <td>
+                            <p>单位：ms。当值大于0，则延迟显示/隐藏工具提示，当然，也可以传入一个字典对象，分别定义显示、隐藏的时间。</p>
+                            <p>对象格式：<code class="JavaScript">delay: { "show": 500, "hide": 100 }</code></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>html</td>
+                          <td>boolean</td>
+                          <td>false</td>
+                          <td>向提示工具插入 HTML。如果为 false，jQuery 的 text 方法将被用于向 dom 插入内容。如果您担心 XSS 攻击，请使用 text。</td>
+                        </tr>
+                        <tr>
+                          <td>placement</td>
+                          <td>string | function</td>
+                          <td>'top'</td>
+                          <td>
+                            规定如何定位提示工具（即 top|bottom|left|right|auto）。当指定为 auto 时，会动态调整提示工具。例如，如果 placement 是 "auto left"，提示工具将会尽可能显示在左边，在情况不允许的情况下它才会显示在右边。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>selector</td>
+                          <td>string</td>
+                          <td>false</td>
+                          <td>如果提供了一个选择器，提示工具对象将被委派到指定的目标。</td>
+                        </tr>
+                        <tr>
+                          <td>template</td>
+                          <td>string</td>
+                          <td><code>'&lt;div class="tooltip" role="tooltip"&gt;&lt;div class="tooltip-arrow"&gt;&lt;/div&gt;&lt;div class="tooltip-inner"&gt;&lt;/div&gt;&lt;/div&gt;'</code></td>
+                          <td>
+                            工具提示的显示模板。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>title</td>
+                          <td>string | function</td>
+                          <td>''</td>
+                          <td>
+                            如果未指定 title 属性，则 title 选项是默认的 title 值。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>trigger</td>
+                          <td>string</td>
+                          <td>'hover focus'</td>
+                          <td>定义如何触发提示工具： click| hover | focus | manual。您可以传递多个触发器，每个触发器之间用空格分隔。</td>
+                        </tr>
+                        <tr>
+                          <td>viewport</td>
+                          <td>string | object | function</td>
+                          <td>{ selector: 'body', padding: 0 }</td>
+                          <td>
+                            <p>不知道怎么用，请看英文原文：</p>
+                            <p>Keeps the tooltip within the bounds of this element. Example: <code>viewport: '#viewport'</code> or <code>{ "selector": "#viewport", "padding": 0 }</code></p>
+                            <p>If a function is given, it is called with the triggering element DOM node as its only argument. The <code>this</code> context is set to the tooltip instance.</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p>方法（Methods）：</p>
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-striped js-options-table">
+                      <thead>
+                        <tr><th>方法</th><th>描述</th><th>实例</th></tr>
+                      <tbody>
+                        <tr>
+                            <td><b>Options:</b> .tooltip(options)</td>
+                            <td>向元素集合附加提示工具句柄。</td>
+                            <td><pre><code class="JavaScript">$().tooltip(options)</code></pre></td>
+                        </tr>
+                        <tr>
+                            <td><b>Toggle:</b> .tooltip('toggle')</td>
+                            <td>切换显示/隐藏元素的提示工具。</td>
+                            <td><pre><code class="JavaScript">$('#element').tooltip('toggle')</code></pre></td>
+                        </tr>
+                        <tr>
+                            <td><b>Show:</b> .tooltip('show')</td>
+                            <td>显示元素的提示工具。</td>
+                            <td><pre><code class="JavaScript">$('#element').tooltip('show')</code></pre></td>
+                        </tr>
+                        <tr>
+                            <td><b>Hide:</b> .tooltip('hide')</td>
+                            <td>隐藏元素的提示工具。</td>
+                            <td><pre><code class="JavaScript">$('#element').tooltip('hide')</code></pre></td>
+                        </tr>
+                        <tr>
+                            <td><b>Destroy:</b> .tooltip('destroy')</td>
+                            <td>隐藏并销毁元素的提示工具。</td>
+                            <td><pre><code class="JavaScript">$('#element').tooltip('destroy')</code></pre></td>
+                        </tr>
+                    </tbody>
+                    </table>
+                  </div>
+                  <p>事件（Events）：</p>
+                  <p>show.bs.tooltip、shown.bs.tooltip、hide.bs.tooltip、hidden.bs.tooltip、inserted.bs.tooltip</p>
+                  <hr />
+                  <h4 id="popover">六、弹出框<small>popover.js</small></h4>
+                  <p>
+                    为任意元素添加一小块浮层，就像 iPad 上一样，用于存放非主要信息。<br />
+                    P.S.: <br />1. 弹出框的标题和内容的长度都是零的话将永远不会被显示出来。<br />
+                    2. 依赖 tooltips.js ，所以请保证一起编译进 bootstrap.js中<br />
+                    3. 由于性能的原因，工具提示和弹出框的 data 编程接口（data api）是必须要手动初始化的。
+                  </p>
+                  <p>6.1 朴素弹出框</p>
+                  <button type="button" class="btn btn-success" data-toggle="popover" data-placement="right" title="标题" data-content="例子是向右弹出的弹出框，可选：left/top(默认)/bottom/right">点我弹出/隐藏弹出框</button><br />
+                  <br />
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None">
+Html：
+<code class="Html">&lt;button type="button" class="btn btn-lg btn-danger" data-toggle="popover" data-placement="right" title="标题" data-content="例子是向右弹出的弹出框">点我弹出/隐藏弹出框&lt;/button&gt;
+</code>
+JavaScript:
+<code class="JavaScript">$('[data-toggle="popover"]').popover();
+</code></pre>
+                  </div>
+                  <p>6.2 可消失弹出框。通过添加 data-trigger="focus" 可以使弹出框自动消失。</p>
+                  <a tabindex="0" class="btn btn-primary" role="button" data-toggle="popover" data-trigger="focus" title="标题" data-content="这里其实可以添加任何html内容">可消失的弹出框</a><br />
+                  <p>6.3 复杂的弹出框内容。通过 html 和 title/content 参数可以显示复杂的内容</p>
+                  <button type="button" class="btn btn-warning" data-toggle="popover" id="popover3">复杂的弹出框</button><br />
+                  <p>选项（options）：</p>
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-striped js-options-table">
+                      <thead>
+                        <tr>
+                          <th>选项</th>
+                          <th>参数类型</th>
+                          <th>默认值</th>
+                          <th>描述</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>animation</td>
+                          <td>boolean</td>
+                          <td>true</td>
+                          <td>为弹出框赋予淡出的 CSS 动画效果。</td>
+                        </tr>
+                        <tr>
+                          <td>container</td>
+                          <td>string | false</td>
+                          <td>false</td>
+                          <td>
+                            向指定元素追加弹出框。实例： container: 'body'
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>content</td>
+                          <td>string | function</td>
+                          <td>''</td>
+                          <td>
+                            如果 data-content 无内容，则可以附加这个内容作为 data-content 内容，当 html=true 时，允许插入Html语句。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>delay</td>
+                          <td>number | object</td>
+                          <td>0</td>
+                          <td>
+                           延迟显示和隐藏弹出框的毫秒数 - 对 manual 手动触发类型不适用。如果提供的是一个数字，那么延迟将会应用于显示和隐藏。如果提供的是对象，结构如下所示：<code>delay: { "show": 500, "hide": 100 }</code>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>html</td>
+                          <td>boolean</td>
+                          <td>false</td>
+                          <td>向弹出框插入 HTML。如果为 false，jQuery 的 text 方法将被用于向 dom 插入内容。如果您担心 XSS 攻击，请使用 text。</td>
+                        </tr>
+                        <tr>
+                          <td>placement</td>
+                          <td>string | function</td>
+                          <td>'right'</td>
+                          <td>
+                            规定如何定位弹出框（即 top|bottom|left|right|auto）。当指定为 auto 时，会动态调整弹出框。例如，如果 placement 是 "auto left"，弹出框将会尽可能显示在左边，在情况不允许的情况下它才会显示在右边。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>selector</td>
+                          <td>string</td>
+                          <td>false</td>
+                          <td>如果提供了一个选择器，弹出框对象将被委派到指定的目标。</td>
+                        </tr>
+                        <tr>
+                          <td>template</td>
+                          <td>string</td>
+                          <td><code>'&lt;div class="popover" role="tooltip"&gt;&lt;div class="arrow"&gt;&lt;/div&gt;&lt;h3 class="popover-title"&gt;&lt;/h3&gt;&lt;div class="popover-content"&gt;&lt;/div&gt;&lt;/div&gt;'</code></td>
+                          <td>
+                            Html 模板
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>title</td>
+                          <td>string | function</td>
+                          <td>''</td>
+                          <td>
+                            如果 title 无内容，则可以附加这个内容作为 title 内容，当 html=true 时，允许插入Html语句。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>trigger</td>
+                          <td>string</td>
+                          <td>'click'</td>
+                          <td>定义如何触发弹出框： click| hover | focus | manual。您可以传递多个触发器，每个触发器之间用空格分隔。</td>
+                        </tr>
+                        <tr>
+                          <td>viewport</td>
+                          <td>string | object | function</td>
+                          <td>{ selector: 'body', padding: 0 }</td>
+                          <td>
+                            <p>Keeps the popover within the bounds of this element. Example: <code>viewport: '#viewport'</code> or <code>{ "selector": "#viewport", "padding": 0 }</code></p>
+                            <p>If a function is given, it is called with the triggering element DOM node as its only argument. The <code>this</code> context is set to the popover instance.</p>
+                          </td>
+                       </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p>方法和事件基本和tooltip一致</p>
+                  <p>$().popover(options)、.popover('show')、.popover('hide')、.popover('toggle')、.popover('destroy')</p>
+                  <p>show.bs.tooltip、shown.bs.tooltip、hide.bs.tooltip、hidden.bs.tooltip、inserted.bs.tooltip</p>
+                  <hr />
+                  <h4 id="alert">七、警告信息<small>alert.js</small></h4>
+                  <div class="alert alert-info alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>警告信息!</strong> 通过此插件可以为警告信息添加点击并消失的功能。
+                  </div>
+                  <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4>注意了！</h4>
+                    <p>当使用 .close 按钮时，它必须是 .alert-dismissible 的第一个子元素，并且在它之前不能有任何文本内容。</p>
+                    <p>
+                      <button type="button" class="btn btn-warning">确认</button>
+                      <button type="button" class="btn btn-default">第二个button</button>
+                    </p>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div class="alert alert-info alert-dismissible fade in" role="alert"&gt;
+  &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;/button&gt;
+  &lt;strong&gt;警告信息!&lt;/strong&gt; 通过此插件可以为警告信息添加点击并消失的功能。
+&lt;/div&gt;
+&lt;div class="alert alert-danger alert-dismissible fade in" role="alert"&gt;
+  &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;/button&gt;
+  &lt;h4&gt;注意了！&lt;/h4&gt;
+  &lt;p&gt;当使用 .close 按钮时，它必须是 .alert-dismissible 的第一个子元素，并且在它之前不能有任何文本内容。&lt;/p&gt;
+  &lt;p&gt;
+    &lt;button type="button" class="btn btn-warning"&gt;确认&lt;/button&gt;
+    &lt;button type="button" class="btn btn-default"&gt;第二个button&lt;/button&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+                  </div>
+                  <br />
+                  <p>方法：</p>
+                  <pre><code class="JavaScript">$().alert()</code></pre>
+                  <p>让警告框监听具有 data-dismiss="alert" 属性的后裔元素的点击（click）事件。（如果是通过 data 属性进行的初始化则无需使用）</p>
+                  <pre><code class="JavaScript">$().alert('close')</code></pre>
+                  <p>关闭警告框并从 DOM 中将其删除。如果警告框被赋予了 .fade 和 .in 类，那么，警告框在淡出之后才会被删除。</p>
+                  <br />
+                  <p>事件：</p>
+                  <p>close.bs.alert、closed.bs.alert</p>
+                  <hr />
+                  <h4 id="collapse">八、折叠<small>collapse.js</small></h4>
+                  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Link with href
+                  </a>
+                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Button with data-target
+                  </button>
+                  <div class="collapse" id="collapseExample">
+<pre><code class="Html">&lt;a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"&gt;
+  Link with href
+&lt;/a&gt;
+&lt;button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"&gt;
+  Button with data-target
+&lt;/button&gt;
+&lt;div class="collapse" id="collapseExample"&gt;
+  &lt;div class="well"&gt;
+    被折叠的内容
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                  </div>
+                  <br />
+                  <br />
+                  百叶窗效果<br />
+                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            百叶窗 Item #1
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                          1. 这里是一段内容，自己发挥。
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            百叶窗 Item #2
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                          2. 这里是一段内容，自己发挥。
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            百叶窗 Item #3
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+<pre><code class="Html">&lt;div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"&gt;
+  &lt;div class="panel panel-default"&gt;
+    &lt;div class="panel-heading" role="tab" id="headingOne"&gt;
+      &lt;h4 class="panel-title"&gt;
+        &lt;a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"&gt;
+          百叶窗 Item #1
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne"&gt;
+      &lt;div class="panel-body"&gt;
+        1. 这里是一段内容，自己发挥。
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="panel panel-default"&gt;
+    &lt;div class="panel-heading" role="tab" id="headingTwo"&gt;
+      &lt;h4 class="panel-title"&gt;
+        &lt;a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"&gt;
+          百叶窗 Item #2
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo"&gt;
+      &lt;div class="panel-body"&gt;
+        2. 这里是一段内容，自己发挥。
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="panel panel-default"&gt;
+    &lt;div class="panel-heading" role="tab" id="headingThree"&gt;
+      &lt;h4 class="panel-title"&gt;
+        &lt;a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"&gt;
+          百叶窗 Item #3
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree"&gt;
+      &lt;div class="panel-body"&gt;
+        3. 这里是一段内容，自己发挥。
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <p>参数：</p>
+                  <p>parent</p>
+                  <p>如果提供了一个选择器，当可折叠项目显示时，指定父元素下的所有可折叠的元素将被关闭。这与创痛的折叠面板（accordion）的行为类似 - 这依赖于 accordion-group 类。</p>
+                  <p>toggle</p>
+                  <p>切换调用可折叠元素。</p>
+                  <br />
+                  <p>方法：</p>
+                  <p>.collapse(options)、.collapse('toggle')、.collapse('show')、.collapse('hide')</p>
+                  <br />
+                  <p>事件：</p>
+                  <p>show.bs.collapse、shown.bs.collapse、hide.bs.collapse、hidden.bs.collapse</p>
+                  <hr />
+                  <h4 id="Carousel">九、轮播<small>Carousel.js</small></h4>
+                  <p> 轮播（Carousel）插件是一种灵活的响应式的向站点添加滑块的方式。除此之外，内容也是足够灵活的，可以是图像、内嵌框架、视频或者其他您想要放置的任何类型的内容。</p>
+                  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                        <img options="size=1000x500&text=I%20am%20the%20one!" class="placeholder">
+                        <div class="carousel-caption">
+                          The First Image
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img options="size=1000x500&text=I%20am%20the%20two!" class="placeholder">
+                        <div class="carousel-caption">
+                          The Second Image
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img options="size=1000x500&text=I%20am%20the%20three!" class="placeholder">
+                        <div class="carousel-caption">
+                          The Third Image
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div id="carousel-example-generic" class="carousel slide" data-ride="carousel"&gt;
+  &lt;ol class="carousel-indicators"&gt;
+    &lt;li data-target="#carousel-example-generic" data-slide-to="0" class="active"&gt;&lt;/li&gt;
+    &lt;li data-target="#carousel-example-generic" data-slide-to="1"&gt;&lt;/li&gt;
+    &lt;li data-target="#carousel-example-generic" data-slide-to="2"&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;div class="carousel-inner" role="listbox"&gt;
+    &lt;div class="item active"&gt;
+      &lt;img options="size=1000x500&text=I am the one!" class="placeholder"&gt;
+      &lt;div class="carousel-caption"&gt;
+        The First Image
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="item"&gt;
+      &lt;img options="size=1000x500&text=I am the two!" class="placeholder"&gt;
+      &lt;div class="carousel-caption"&gt;
+        The Second Image
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="item"&gt;
+      &lt;img options="size=1000x500&text=I am the three!" class="placeholder"&gt;
+      &lt;div class="carousel-caption"&gt;
+        The Third Image
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"&gt;
+    &lt;span class="glyphicon glyphicon-chevron-left" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;span class="sr-only"&gt;Previous&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"&gt;
+    &lt;span class="glyphicon glyphicon-chevron-right" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;span class="sr-only"&gt;Next&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+                  </div>
+                  <br />
+                  <p>参数：</p>
+                  <p>interval</p>
+                  <p>number 默认值：5000。自动循环每个项目之间延迟的时间量。如果为 false，轮播将不会自动循环。</p>
+                  <p>pause</p>
+                  <p>string 默认值："hover"。鼠标进入时暂停轮播循环，鼠标离开时恢复轮播循环。</p>
+                  <p>wrap</p>
+                  <p>boolean 默认值：true。轮播是否连续循环。</p>
+                  <p>keyboard</p>
+                  <p>boolean 默认值：true。是否响应键盘事件。</p>
+                  <br />
+                  <p>方法：</p>
+                  <p>
+                    .carousel(options): 初始化轮播为可选的 options 对象，并开始循环项目。<br />
+                    .carousel('cycle'): 从左到右循环轮播项目。<br />
+                    .carousel('pause'): 停止轮播循环项目。<br />
+                    .carousel(number): 循环轮播到某个特定的帧（从 0 开始计数，与数组类似）。<br />
+                    .carousel('prev'): 循环轮播到上一个项目。<br />
+                    .carousel('next'): 循环轮播到下一个项目。<br />
+                  </p>
+                  <br />
+                  <p>事件：</p>
+                  <p>slide.bs.carousel、slid.bs.carousel</p>
+                  <hr />
+                  <h4 id="affix">十、附加导航<small>affix.js</small></h4>
+                  <p> 附加导航（Affix）插件允许某个 &lt;div&gt; 固定在页面的某个位置。您也可以在打开或关闭使用该插件之间进行切换。一个常见的例子是社交图标。它们将在某个位置开始，但当页面点击某个标记，该  &lt;div&gt;会锁定在某个位置，不会随着页面其他部分一起滚动。</p>
+                  <p>
+                    使用方法：<br />
+                    添加含有 .Affix 类的Html代码即可，AdminSE已经为附加导航添加对应的js实现<br />
+                    显示样式见本页右侧的导航
+                  </p>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div class="col-xs-3 Affix"&gt;
+  &lt;ul class="nav nav-tabs nav-stacked"&gt;
+    &lt;li&gt;&lt;a href="#AdminLTE-ThumbColor"&gt;主题色块&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#AdminLTE-BgNTextColor"&gt;背景及前景色&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#transition"&gt;过渡效果&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#modal"&gt;模态框&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#scrollspy"&gt;滚动监听&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#tab"&gt;标签页&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#tooltip"&gt;工具提示&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#popover"&gt;弹出框&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#alert"&gt;警告信息&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#collapse"&gt;折叠&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Carousel"&gt;轮播&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#affix"&gt;附加导航&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+                  </div>
+                  <br />
+                  <p>基于自动化产生的原因，附加导航并不支持自定义，因此此处省略响应的参数、事件等内容。</p>
+                  <hr />
+                  
+
+                  注释：<br />
+                  <p id="Comment1">
+                    1. 所谓“加载该js”并非一定要单独写上这个js的加载语句，如果使用了完整版的 bootstrap.min.js ，则里面已经包括该 js 了，就没有必要再次加载这个js。
+                  </p>
+                </div>
+              </div>
+
+            </section>
+            <div class="Affix">
+              <ul class="nav nav-tabs nav-stacked">
+                <li><a href="#AdminLTE-ThumbColor">主题色块</a></li>
+                <li><a href="#AdminLTE-BgNTextColor">背景及前景色</a></li>
+                <li><a href="#transition">过渡效果</a></li>
+                <li><a href="#modal">模态框</a></li>
+                <li><a href="#scrollspy">滚动监听</a></li>
+                <li><a href="#tab">标签页</a></li>
+                <li><a href="#tooltip">工具提示</a></li>
+                <li><a href="#popover">弹出框</a></li>
+                <li><a href="#alert">警告信息</a></li>
+                <li><a href="#collapse">折叠</a></li>
+                <li><a href="#Carousel">轮播</a></li>
+                <li><a href="#affix">附加导航</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </section><!-- end content -->
+      </div>
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> <span>1.0</span>
+        </div>
+        <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+      </footer>
+      
+      <!-- 右侧配置栏 -->      
+      <aside class="control-sidebar control-sidebar-dark">                
+        <!-- 组合表 -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <!-- 默认包含一个control-sidebar-theme-setting-tab，通过theme_setting.js控制 -->
+          <!-- 另外，control-sidebar-home-tab是必须存在的，因为是默认表的依赖 -->
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        </ul>
+        <!-- 表内容 -->
+        <div class="tab-content">
+          <!-- 第一个表主体 -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">附加信息</h3>
+            <ul class='control-sidebar-menu'>
+              <li>
+                <p style="margin: 10px;">
+                  <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+
+                </p>
+              </li>
+            </ul>
+          </div><!-- end 第一个表主体 -->
+        </div>
+      </aside><!-- end 右侧配置栏 -->
+      <div class='control-sidebar-bg'></div>
+    </div><!-- ./wrapper -->
+
+    <div class="modal fade modal-danger" id="ErrorModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">错误</h4>
+          </div>
+          <div class="modal-body" id="ErrorModalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="location.reload()">刷新页面</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 开始加载js脚本 -->
+    <script src="static/plugins/jquery/jquery.min.js"></script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src='static/plugins/fastclick/fastclick.min.js'></script>
+    <script src='static/plugins/iCheck/icheck.min.js'></script>
+    <script src="static/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+    <script src="static/plugins/highlight/highlight.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/base.js" type="text/javascript"></script>
+    <script src="static/dist/js/mainmenu.js" type="text/javascript"></script>
+
+    <!-- 页面专属js -->
+    <script src="static/plugins/placeholder/placeholder.min.js"></script>
+    <script src="static/dist/js/pages/UIGeneral.js" type="text/javascript"></script>
+
+    <!-- 基础功能及皮肤js，由于依赖的关系，需要页面完全生成完毕才能加载，故放在最后 -->
+    <script src="static/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/theme_setting.min.js" type="text/javascript"></script>
+  </body>
+</html>

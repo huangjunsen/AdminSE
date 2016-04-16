@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminSE</title>
+    <!-- 站点定义 -->
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <style type="text/css">body{font-family:"Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;}</style>
+    <!-- 浏览器版本检测 -->
+    <script type="text/javascript">
+    var browser=navigator.appName;
+    var b_version=navigator.appVersion;
+    var version=parseFloat(b_version);
+    if ((browser=="Microsoft Internet Explorer") && (version<5))
+        location.href = 'BrownerToUpdate.html';
+    </script>
+
+    <!-- 第三方css -->
+    <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/highlight/styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- 页面专属css -->
+    <link href="static/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/bootstrap-slider/bootstrap-slider.min.css" rel="stylesheet" type="text/css" />
+    <style>
+    .slider-handle.custom {
+      background: transparent none;
+    }
+    .slider-handle.custom::before {
+      line-height: 20px;
+      font-size: 20px;
+      content: '\2605'; /*unicode star character*/
+      color: #726204;
+    }
+    </style>
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="overlay" style="display:none;">
+      <div class="loading">
+        <div class="loading-center">
+          <div class="loading-center-absolute">
+            <div class="object object_four"></div>
+            <div class="object object_three"></div>
+            <div class="object object_two"></div>
+            <div class="object object_one"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-mini" title="AdminSE"><b>AdminSE</b></span>
+          <span class="logo-lg"><b>Admin</b>SE</span>
+        </a>
+        <!-- 导航头部 -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- 左侧边栏触发按钮-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="收缩/展开">
+            <span class="sr-only">收缩/展开导航</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- 用户帐户栏 -->
+              <li class="dropdown user user-menu">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="static/dist/img/DefaultHead.png" class="user-image" alt="头像"/>
+                  <span class="hidden-xs">用户名</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- 用户简介 -->
+                  <li class="user-header">
+                    <a href="#" style="background-color: transparent" title="更换头像">
+                      <img src="static/dist/img/DefaultHead.png" class="img-circle" alt="User Image" />
+                    </a>
+                    <p>
+                      自定义用户信息
+                      <small>备注等内容</small>
+                    </p>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-primary">编辑</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-primary">注销</a>
+                    </div>
+                  </li>
+                </ul>
+              </li> <!-- end 用户帐户栏 -->
+              <!-- 右侧边栏触发按钮 -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li> <!-- end 右侧边栏触发按钮 -->
+            </ul>
+          </div>
+        </nav> <!-- end 导航头部 -->
+      </header>
+
+      <!-- 左侧菜单栏 -->
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- 搜索栏 -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group" title="功能未开放">
+              <input type="text" name="q" class="form-control" placeholder="请输入搜索内容"/>
+              <span class="input-group-btn">
+                <button type='button' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form><!-- end 搜索栏 -->
+
+          <!-- 菜单栏主体 -->
+          <ul class="sidebar-menu"></ul>
+
+        </section>
+      </aside> <!-- end 左侧菜单栏 -->
+
+      <!-- 页面主体内容 -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            滑动条和模态框
+          </h1>
+        </section>
+
+        <!-- content -->
+        <section class="content">
+          <div class="row">
+            <section class="col-xs-12">
+              <div class="box" id="JquerySliderBox">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">Jquery Slider</h3>
+                </div>
+                <div class="box-body">
+                  <p>Jquery Slider 是 Jquery UI 中的一部分，Jquery UI是一个包含拖动、放置、缩放排序等操作的高级UI工具合集，其中的 slider 控件也是拥有较好的用户体验的。</p>
+                  <p>1. 使用方法：</p>
+                  <p>
+                    1.1. 添加css及js：<br />
+                    <pre><code class="Html">&lt;link href="static/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" /&gt;<br />&lt;script src="static/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+                    1.2. 产生以 div 为基础的 HtmlDom：<br />
+                    <pre><code class="Html">&lt;div id="JquerySlider1"&gt;&lt;/div&gt;</code></pre>
+                    1.3. 激活 Jquery slider 控件：<br />
+                    <pre><code class="JavaScript">$('#JquerySlider1').slider();</code></pre>
+                    <span class="text-red"><b>特别提醒：</b></span><br />
+                    由于 Jquery Slider 和 Bootstrap Slider 中 slider 方法冲突，Bootstrap Slider会自动将命名空间更换为 bootstrapSlider ，因此，同时加入这两个slider的时候，注意要将 Jquery UI 放在前面。
+                  </p>
+                  <p>
+                    2. 颜色主题：<br />
+                    白色/primary/success/info/warning/danger/default 7种颜色主题。<br />
+                    HtmlDom 添加 class="slider-primary", 并在js初始化的时候加上 range 参数即可修改主题，不加则使用白色主题
+                  </p>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      1. 朴素滑动条<br />
+                      <div id="JquerySlider1" class="slider-default"></div>
+                      2. 定义滑动条步长<br />
+                      <div id="JquerySlider2" class="slider-primary"></div>
+                      3. 范围滑动条<br />
+                      <div id="JquerySlider3" class="slider-success"></div>
+                    </div>
+                    <div class="col-xs-6">
+                      垂直滑动条<br />
+                      <div id="JquerySlider4" class="slider-info pull-left" style="margin:0 10px"></div>
+                      <div id="JquerySlider5" class="slider-warning pull-left" style="margin:0 10px"></div>
+                      <div id="JquerySlider6" class="slider-danger pull-left" style="margin:0 10px"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                      <pre style="display:None"><code class="Html">&lt;div id="JquerySlider1" class="slider-default"&gt;&lt;/div&gt;<br />&lt;div id="JquerySlider2" class="slider-primary"&gt;&lt;/div&gt;<br />&lt;div id="JquerySlider3" class="slider-success"&gt;&lt;/div&gt;</code><code class="JavaScript">&lt;script&gt;<br />$('#JquerySlider1').slider({<br />&nbsp;&nbsp;range: "min",<br />&nbsp;&nbsp;max: 10,<br />&nbsp;&nbsp;value: 1,<br />});<br />$('#JquerySlider2').slider({<br />&nbsp;&nbsp;range: "min",<br />&nbsp;&nbsp;max: 10,<br />&nbsp;&nbsp;value: 2,<br />&nbsp;&nbsp;step: 2,<br />});<br />$('#JquerySlider3').slider({<br />&nbsp;&nbsp;range: "min",<br />&nbsp;&nbsp;max: 10,<br />&nbsp;&nbsp;range: true,<br />&nbsp;&nbsp;values: [3,5],<br />});<br />&lt;/script&gt;</code></pre>
+                    </div>
+                    <div class="col-xs-6">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                      <pre style="display:None"><code class="Html">&lt;div id="JquerySlider4" class="slider-info pull-left" style="margin:0 10px"&gt;&lt;/div&gt;<br />&lt;div id="JquerySlider5" class="slider-warning pull-left" style="margin:0 10px"&gt;&lt;/div&gt;<br />&lt;div id="JquerySlider6" class="slider-danger pull-left" style="margin:0 10px"&gt;&lt;/div&gt;</code><code class="JavaScript">&lt;script&gt;<br />$('#JquerySlider4').slider({<br />&nbsp;&nbsp;range: "min",<br />&nbsp;&nbsp;max: 10,<br />&nbsp;&nbsp;value: 3,<br />&nbsp;&nbsp;orientation: "vertical",<br />});<br />$('#JquerySlider5').slider({<br />&nbsp;&nbsp;range: "min",<br />&nbsp;&nbsp;max: 10,<br />&nbsp;&nbsp;value: 4,<br />&nbsp;&nbsp;step: 2,<br />&nbsp;&nbsp;orientation: "vertical",<br />});<br />$('#JquerySlider6').slider({<br />&nbsp;&nbsp;range: "min",<br />&nbsp;&nbsp;max: 10,<br />&nbsp;&nbsp;range: true,<br />&nbsp;&nbsp;values: [3,7],<br />&nbsp;&nbsp;orientation: "vertical",<br />});<br />&lt;/script&gt;</code></pre>
+                    </div>
+                  </div>
+                  <br />
+                  3. 参数列表：<br />
+                  <div class="table-responsive">
+                    <table class="table table-hover table-border">
+                      <thead>
+                        <th>参数</th>
+                        <th>默认值</th>
+                        <th>说明</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>animate</td><td>false</td><td>使用动画，一般仅用于配合value/values方法：true/false</td>
+                        </tr>
+                        <tr>
+                          <td>distance</td><td>0</td><td>迷之参数</td>
+                        </tr>
+                        <tr>
+                          <td>max</td><td>100</td><td>滑动条最大值</td>
+                        </tr>
+                        <tr>
+                          <td>min</td><td>0</td><td>滑动条最小值</td>
+                        </tr>
+                        <tr>
+                          <td>step</td><td>1</td><td>拖动步长</td>
+                        </tr>
+                        <tr>
+                          <td>orientation</td><td>'horizontal'</td><td>水平还是垂直：horizontal/vertical</td>
+                        </tr>
+                        <tr>
+                          <td>range</td><td>false</td>
+                          <td>
+                            是否是范围滑动条：false/true <br />
+                            作为范围滑动条仅显示一端（搭配6色主题必须）：'min'/'max'
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>value</td><td>0</td><td>滑动条当前值</td>
+                        </tr>
+                        <tr>
+                          <td>values</td><td>null</td><td>range=true的时候，这个参数接受一个两个元素的数组，用于指定数组两端的值</td>
+                        </tr>
+                        
+                        <tr>
+                          <td>change</td><td>null</td>
+                          <td>
+                            可以添加值变化的回调函数，如：<br />
+                            <pre><code class="JavaScript">change: function(){<br />  console.log('change:',$(this).slider('value'));<br />}</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>slide</td><td>null</td><td>可以添加滑动时的回调函数</td>
+                        </tr>
+                        <tr>
+                          <td>start</td><td>null</td><td>可以添加滑动开始的回调函数</td>
+                        </tr>
+                        <tr>
+                          <td>stop</td><td>null</td><td>可以添加滑动停止的回调函数</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p>4. 方法列表：</p>
+                  <p>
+                    4.1 <span class="text-red"><b>value</b></span>： 仅当 range!=true 时有意义。<br />
+                    4.1.1 取值： jquerySliderObj.slider('value');  //4<br />
+                    4.1.2 赋值： jquerySliderObj.slider('value', 5); or $('JuqerySelector').slider('value', 5);<br />
+                    4.2 <span class="text-red"><b>values</b></span>： 仅当 range==true 时有意义。<br />
+                    4.2.1 取值： jquerySliderObj.slider('values');  //[2,9]<br />
+                    4.2.2 赋值： jquerySliderObj.slider('values', [3,6]); or $('JuqerySelector').slider('values', [3,6]);<br />
+                  </p>
+                </div>
+              </div>
+
+              <div class="box" id="BootstrapSliderBox">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">Bootstrap Slider</h3>
+                </div>
+                <div class="box-body">
+                  <p>Bootstrap Slider 是 Jquery UI Bootstrap 中的一部分，CSS 4kb，js 21kb，是轻量的 slider UI插件。</p>
+                  <p>1. 使用方法：</p>
+                  <p>
+                    1.1. 添加css及js：<br />
+                    <pre><code class="Html">&lt;link href="static/plugins/bootstrap-slider/bootstrap-slider.min.css" rel="stylesheet" type="text/css" /&gt;<br />&lt;script src="static/plugins/bootstrap-slider/bootstrap-slider.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+                    1.2. 产生以 input 为基础的 HtmlDom：<br />
+                    <pre><code class="Html">&lt;input id="BootstrapSlider1" type="text"/&gt;</code></pre>
+                    1.3. 激活 bootstrap slider 控件：<br />
+                    <pre><code class="JavaScript">$('#BootstrapSlider1').bootstrapSlider();</code></pre>
+                    <span class="text-red"><b>特别提醒：</b></span><br />
+                    如果同时加入 Juqery UI 和 Bootstrap Slider （注意先后顺序），命名空间才会变成 bootstrapSlider ，否则就是 slider。
+                  </p>
+                  <p>
+                    2. 颜色主题：<br />
+                    白色/primary/success/info/warning/danger/purple 7种颜色主题。<br />
+                    添加 data-slider-id="primary" 即可修改主题，不加则使用白色主题
+                  </p>
+                  <br />
+                  <p>Html赋值方式：</p>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      1. 水平--朴素滑动条<br />
+                      <input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="20" data-slider-tooltip="hide" data-slider-id="primary"><br /><br />
+                      2. 水平--带标签滑动条三角形把手<br />
+                      <input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="30" data-slider-tooltip="show" data-slider-handle="triangle" data-slider-id="success"><br /><br />
+                      2. 水平--定义滑动条步长正方形把手<br />
+                      <input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="40" data-slider-step="10" data-slider-tooltip="show" data-slider-handle="square" data-slider-id="info"><br /><br />
+                      4. 水平--双侧带标签定义步长滑动条自定义把手<br />
+                      <input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200" data-slider-step="10" data-slider-value="[-100,100]" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-handle="custom" data-slider-id="warning">
+                    </div>
+                    <div class="col-xs-6 bg-aqua">
+                      垂直滑动条<br />
+                      <input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="20" data-slider-orientation="vertical" data-slider-tooltip="hide" data-slider-id="danger">
+                        <input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="30" data-slider-orientation="vertical" data-slider-tooltip="show">
+                      <input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="40" data-slider-orientation="vertical" data-slider-step="5" data-slider-tooltip="show" data-slider-id="purple">
+                      <input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200" data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="vertical" data-slider-selection="before" data-slider-tooltip="always" data-slider-id="success">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                      <pre style="display:None"><code class="Html">&lt;input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="20" data-slider-tooltip="hide" data-slider-id="primary"&gt;&lt;br /&gt;&lt;br /&gt;<br />&lt;input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="30" data-slider-tooltip="show" data-slider-handle="triangle" data-slider-id="success"&gt;&lt;br /&gt;&lt;br /&gt;<br />&lt;input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="40" data-slider-step="10" data-slider-tooltip="show" data-slider-handle="square" data-slider-id="info"&gt;&lt;br /&gt;&lt;br /&gt;<br />&lt;input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200" data-slider-step="10" data-slider-value="[-100,100]" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-handle="custom" data-slider-id="warning"&gt;</code><code class="JavaScript">&lt;script&gt;<br />$('.slider').bootstrapSlider();<br />&lt;/script&gt;</code></pre>
+                    </div>
+                    <div class="col-xs-6">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                      <pre style="display:None"><code class="Html">&lt;input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="20" data-slider-orientation="vertical" data-slider-tooltip="hide" data-slider-id="danger"&gt;<br />&nbsp;&nbsp;&lt;input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="30" data-slider-orientation="vertical" data-slider-tooltip="show"&gt;<br />&lt;input type="text" value="" class="slider form-control" data-slider-max="100" data-slider-value="40" data-slider-orientation="vertical" data-slider-step="5" data-slider-tooltip="show" data-slider-id="purple"&gt;<br />&lt;input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200" data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="vertical" data-slider-selection="before" data-slider-tooltip="always" data-slider-id="success"&gt;</code><code class="JavaScript">&lt;script&gt;<br />$('.slider').bootstrapSlider();<br />&lt;/script&gt;</code></pre>
+                    </div>
+                  </div>
+                  <p>js赋值方式：</p>
+                  <p>Html Dom非常简单，只需要在input上加上id即可，所有内容均可以在js中定义。</p>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      1. 水平--朴素滑动条<br />
+                      <input id="BootstrapSlider1" type="text"/><br /><br />
+                      2. 水平--带标签滑动条三角形把手<br />
+                      <input id="BootstrapSlider2" type="text"/><br /><br />
+                      2. 水平--定义滑动条步长正方形把手<br />
+                      <input id="BootstrapSlider3" type="text"/><br /><br />
+                      4. 水平--双侧带标签定义步长滑动条自定义把手<br />
+                      <input id="BootstrapSlider4" type="text"/>
+                    </div>
+                    <div class="col-xs-6 bg-aqua">
+                      垂直滑动条<br />
+                      <input id="BootstrapSlider5" type="text"/>
+                      <input id="BootstrapSlider6" type="text"/>
+                      <input id="BootstrapSlider7" type="text"/>
+                      <input id="BootstrapSlider8" type="text"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                      <pre style="display:None"><code class="Html">&lt;input id="BootstrapSlider1" type="text"/&gt;<br />&lt;input id="BootstrapSlider2" type="text"/&gt;<br />&lt;input id="BootstrapSlider3" type="text"/&gt;<br />&lt;input id="BootstrapSlider4" type="text"/&gt;</code><code class="JavaScript">&lt;script&gt;<br />$('#BootstrapSlider1').bootstrapSlider({<br />&nbsp;&nbsp;&nbsp;&nbsp;id: 'primary',<br />&nbsp;&nbsp;&nbsp;&nbsp;max: 100,<br />&nbsp;&nbsp;&nbsp;&nbsp;value: 20,<br />&nbsp;&nbsp;&nbsp;&nbsp;tooltip: 'hide',<br />&nbsp;&nbsp;});<br />&nbsp;&nbsp;$('#BootstrapSlider2').bootstrapSlider({<br />&nbsp;&nbsp;&nbsp;&nbsp;id: 'success',<br />&nbsp;&nbsp;&nbsp;&nbsp;max: 100,<br />&nbsp;&nbsp;&nbsp;&nbsp;value: 30,<br />&nbsp;&nbsp;&nbsp;&nbsp;tooltip: 'show',<br />&nbsp;&nbsp;&nbsp;&nbsp;handle: 'triangle',<br />&nbsp;&nbsp;});<br />&nbsp;&nbsp;$('#BootstrapSlider3').bootstrapSlider({<br />&nbsp;&nbsp;&nbsp;&nbsp;id: 'info',<br />&nbsp;&nbsp;&nbsp;&nbsp;max: 100,<br />&nbsp;&nbsp;&nbsp;&nbsp;value: 40,<br />&nbsp;&nbsp;&nbsp;&nbsp;step: 10,<br />&nbsp;&nbsp;&nbsp;&nbsp;tooltip: 'show',<br />&nbsp;&nbsp;&nbsp;&nbsp;handle: 'square',<br />&nbsp;&nbsp;});<br />&nbsp;&nbsp;$('#BootstrapSlider4').bootstrapSlider({<br />&nbsp;&nbsp;&nbsp;&nbsp;id: 'warning',<br />&nbsp;&nbsp;&nbsp;&nbsp;min: -200,<br />&nbsp;&nbsp;&nbsp;&nbsp;max: 200,<br />&nbsp;&nbsp;&nbsp;&nbsp;range: true,<br />&nbsp;&nbsp;&nbsp;&nbsp;value: [-100,100],<br />&nbsp;&nbsp;&nbsp;&nbsp;step: 10,<br />&nbsp;&nbsp;&nbsp;&nbsp;tooltip: 'show',<br />&nbsp;&nbsp;&nbsp;&nbsp;handle: 'custom',<br />&nbsp;&nbsp;&nbsp;&nbsp;tooltip_split: true<br />&nbsp;&nbsp;});<br />&lt;/script&gt;</code></pre>
+                    </div>
+                    <div class="col-xs-6">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                      <pre style="display:None"><code class="Html">&lt;input id="BootstrapSlider5" type="text"/&gt;<br />&lt;input id="BootstrapSlider6" type="text"/&gt;<br />&lt;input id="BootstrapSlider7" type="text"/&gt;<br />&lt;input id="BootstrapSlider8" type="text"/&gt;</code><code class="JavaScript">&lt;script&gt;<br />$('#BootstrapSlider5').bootstrapSlider({<br />&nbsp;&nbsp;&nbsp;&nbsp;id: 'danger',<br />&nbsp;&nbsp;&nbsp;&nbsp;max: 100,<br />&nbsp;&nbsp;&nbsp;&nbsp;value: 20,<br />&nbsp;&nbsp;&nbsp;&nbsp;tooltip: 'hide',<br />&nbsp;&nbsp;&nbsp;&nbsp;orientation: 'vertical'<br />&nbsp;&nbsp;});<br />&nbsp;&nbsp;$('#BootstrapSlider6').bootstrapSlider({<br />&nbsp;&nbsp;&nbsp;&nbsp;max: 100,<br />&nbsp;&nbsp;&nbsp;&nbsp;value: 30,<br />&nbsp;&nbsp;&nbsp;&nbsp;tooltip: 'show',<br />&nbsp;&nbsp;&nbsp;&nbsp;orientation: 'vertical'<br />&nbsp;&nbsp;});<br />&nbsp;&nbsp;$('#BootstrapSlider7').bootstrapSlider({<br />&nbsp;&nbsp;&nbsp;&nbsp;id: 'purple',<br />&nbsp;&nbsp;&nbsp;&nbsp;max: 100,<br />&nbsp;&nbsp;&nbsp;&nbsp;value: 40,<br />&nbsp;&nbsp;&nbsp;&nbsp;step: 10,<br />&nbsp;&nbsp;&nbsp;&nbsp;tooltip: 'show',<br />&nbsp;&nbsp;&nbsp;&nbsp;orientation: 'vertical'<br />&nbsp;&nbsp;});<br />&nbsp;&nbsp;$('#BootstrapSlider8').bootstrapSlider({<br />&nbsp;&nbsp;&nbsp;&nbsp;id: 'success',<br />&nbsp;&nbsp;&nbsp;&nbsp;min: -200,<br />&nbsp;&nbsp;&nbsp;&nbsp;max: 200,<br />&nbsp;&nbsp;&nbsp;&nbsp;range: true,<br />&nbsp;&nbsp;&nbsp;&nbsp;value: [-100,100],<br />&nbsp;&nbsp;&nbsp;&nbsp;step: 10,<br />&nbsp;&nbsp;&nbsp;&nbsp;tooltip: 'always',<br />&nbsp;&nbsp;&nbsp;&nbsp;tooltip_split: true,<br />&nbsp;&nbsp;&nbsp;&nbsp;orientation: 'vertical'<br />&nbsp;&nbsp;});<br />&lt;/script&gt;</code></pre>
+                    </div>
+                  </div>
+                  <br />
+                  3. js赋值方式参数列表：<br />
+                  <div class="table-responsive">
+                    <table class="table table-hover table-border">
+                      <thead>
+                        <th>参数</th>
+                        <th>默认值</th>
+                        <th>说明</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>id</td><td>''</td><td>颜色主题，可选值为primary/success/info/warning/danger/purple</td>
+                        </tr>
+                        <tr>
+                          <td>min</td><td>0</td><td>滑动条最小值</td>
+                        </tr>
+                        <tr>
+                          <td>max</td><td>10</td><td>滑动条最大值</td>
+                        </tr>
+                        <tr>
+                          <td>step</td><td>1</td><td>拖动步长</td>
+                        </tr>
+                        <tr>
+                          <td>precision</td><td>0</td><td>小数位数（一般是配合步长使用）</td>
+                        </tr>
+                        <tr>
+                          <td>orientation</td><td>'horizontal'</td><td>水平还是垂直：horizontal/vertical</td>
+                        </tr>
+                        <tr>
+                          <td>value</td><td>5</td><td>滑动条当前值</td>
+                        </tr>
+                        <tr>
+                          <td>range</td><td>false</td><td>是否是范围滑动条：false/true</td>
+                        </tr>
+                        <tr>
+                          <td>selection</td><td>'before'</td><td>高亮滑动条是在前面还是后面：before/after</td>
+                        </tr>
+                        <tr>
+                          <td>tooltip</td><td>'show'</td><td>标签显示方式：show/hide/always</td>
+                        </tr>
+                        <tr>
+                          <td>tooltip_split</td><td>false</td><td>是否分裂标签，一般只在范围滑动条的情况下使用：true/false</td>
+                        </tr>
+                        <tr>
+                          <td>handle</td><td>'round'</td>
+                          <td>
+                            把手样式：round/trangle/square/custom <br />
+                            其中，如果选择 custom 则需要通过 CSS 为custom定义图标：<br />
+                            <pre><code class="CSS">.slider-handle.custom {<br />  /*此处可以添加png图像*/<br />  background: transparent none;<br />}<br />.slider-handle.custom::before {<br />  /*或者通过这种方式添加字体图标*/<br />  line-height: 20px;<br />  font-size: 20px;<br />  content: '\2605'; /*unicode star character*/<br />  color: #726204;<br />}</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>reversed</td><td>false</td><td>反转滑动条（从右往左/下往上显示）：false/true</td>
+                        </tr>
+                        <tr>
+                          <td>enabled</td><td>true</td><td>滑动条的生效状态：true/false</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p>
+                    4. 方法：<br />
+                    使用方式：<br />
+                    <pre><code class="JavaScript">$('JquerySeletor').bootstrapSlider('<span class="text-red">MethodName</span>'[,'<span class="text-red">Param1</span>'[,'<span class="text-red">Param2</span>']])</code></pre>
+                    方法列表：<br />
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table table-hover table-border">
+                      <thead>
+                        <th>名称</th>
+                        <th>示例</th>
+                        <th>说明</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>getValue</td><td>.bootstrapSlider('getValue')</td>
+                          <td>获取当前值，如果是范围滑动条，会得到一个两个元素的数组</td>
+                        </tr>
+                        <tr>
+                          <td>setValue</td><td>.bootstrapSlider('setValue',10)</td>
+                          <td>设置当前值，如果是范围滑动条，需要一个两个元素的数组</td>
+                        </tr>
+                        <tr>
+                          <td>destroy</td><td>.bootstrapSlider('destroy')</td>
+                          <td>销毁滑动条，变回input控件</td>
+                        </tr>
+                        <tr>
+                          <td>disable</td><td>.bootstrapSlider('disable')</td>
+                          <td>置为无效</td>
+                        </tr>
+                        <tr>
+                          <td>enable</td><td>.bootstrapSlider('enable')</td>
+                          <td>置为有效</td>
+                        </tr>
+                        <tr>
+                          <td>toggle</td><td>.bootstrapSlider('toggle')</td>
+                          <td>触发有效/无效状态</td>
+                        </tr>
+                        <tr>
+                          <td>isEnabled</td><td>.bootstrapSlider('isEnabled')</td>
+                          <td>获取生效状态</td>
+                        </tr>
+                        <tr>
+                          <td>getAttribute</td><td>.bootstrapSlider('getAttribute','id')</td>
+                          <td>获取所有配置/单个配置</td>
+                        </tr>
+                        <tr>
+                          <td>setAttribute</td><td>.bootstrapSlider('setAttribute','id','info')</td>
+                          <td>设置某个配置，注意，设置完之后需要使用 refresh 方法刷新滑动条</td>
+                        </tr>
+                        <tr>
+                          <td>refresh</td><td>.bootstrapSlider('setAttribute','id','info').bootstrapSlider('refresh')</td>
+                          <td>刷新滑动条，一般用于 setAttribute 之后</td>
+                        </tr>
+                        <tr>
+                          <td>relayout</td><td>.bootstrapSlider('relayout')</td>
+                          <td>重新布局——作用暂时未知，应该与隐藏/显示滑动条有关</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="box" id="BootstrapModalBox">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">Bootstrap Modal</h3>
+                </div>
+                <div class="box-body">
+                  <p>模态框是经过优化的弹出框</p>
+                  <p>
+                    1. 使用：<br />
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                      仅通过html就可以显示模态框
+                    </button>
+                    <button type="button" class="btn btn-primary" id="ShowModal">
+                      通过js显示模态框
+                    </button>
+                  </p>
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">代码</h4>
+                        </div>
+                        <div class="modal-body">
+                          <pre><code class="Html">&lt;button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"&gt;<br />&nbsp;&nbsp;仅通过html就可以显示模态框<br />&lt;/button&gt;<br />&lt;button type="button" class="btn btn-primary" id="ShowModal"&gt;<br />&nbsp;&nbsp;通过js显示模态框<br />&lt;/button&gt;<br />&lt;div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"&gt;<br />&nbsp;&nbsp;&lt;div class="modal-dialog"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-content"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-header"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h4 class="modal-title"&gt;Modal title&lt;/h4&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-body"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-footer"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button type="button" class="btn btn-default" data-dismiss="modal"&gt;关闭&lt;/button&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button type="button" class="btn btn-primary"&gt;确认&lt;/button&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;&lt;!-- /.modal-content --&gt;<br />&nbsp;&nbsp;&lt;/div&gt;&lt;!-- /.modal-dialog --&gt;<br />&lt;/div&gt;&lt;!-- /.modal --&gt;</code><code class="JavaScript">&lt;script&gt;<br />$('#ShowModal').click(function(event) {<br />&nbsp;&nbsp;$('#myModal').modal('show');<br />});<br />&lt;/script&gt;</code></pre>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                          <button type="button" class="btn btn-primary">确认</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+                  <br />
+                  <p>2. 尺寸</p>
+                  <p>为 .modal-dialog 类同时添加 .modal-sm/.modal-lg 可以增加小尺寸/大尺寸的模态框</p>
+                  <!-- Large modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">大尺寸</button>
+
+                  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          大尺寸
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Small modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">小尺寸</button>
+
+                  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          小尺寸
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <p>3. 禁止动画效果</p>
+                  <p>如果你不需要模态框弹出时的动画效果（淡入淡出效果），删掉 .fade 类即可。</p>
+                  <br />
+                  <p>4. 使用栅格系统</p>
+                  <p>
+                    如果要正常使用栅格系统，需要在 .modal-body 底下紧接着添加一个含有 .container-fluid 类的div：<br />
+                    <pre><code class="Html">&lt;div class="modal-body"&gt;<br />&nbsp;&nbsp;&lt;div class="container-fluid"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="row"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&lt;/div&gt;</code></pre>
+                  </p>
+                  <br />
+                  <p>
+                    5. 方法：<br />
+                    <pre><code class="JavaScript">.modal(<span class="text-red">options</span>)</code></pre>
+                  </p>
+                  <p>
+                    5.1 toggle：手动打开或关闭模态框。<br />
+                    5.2 show：手动打开模态框。<br />
+                    5.3 hide：手动隐藏模态框。<br />
+                    5.4 remote：如果提供的是 URL，将利用 jQuery 的 load 方法从此 URL 地址加载要展示的内容（只加载一次）并插入 .modal-content 内。如果使用的是 data 属性 API，还可以利用 href 属性指定内容来源地址。
+                  </p>
+                  <br />
+                  <p>6. 事件：</p>
+                  <pre><code class="JavaScript">$('#myModal').on('hidden.bs.modal', function (e) {<br />  /* do something...*/<br />})</code></pre>
+                  <p>
+                    6.1 show.bs.modal：show 方法调用之后立即触发该事件。如果是通过点击某个作为触发器的元素，则此元素可以通过事件的 relatedTarget 属性进行访问。<br />
+                    6.2 shown.bs.modal：此事件在模态框已经显示出来（并且同时在 CSS 过渡效果完成）之后被触发。如果是通过点击某个作为触发器的元素，则此元素可以通过事件的 relatedTarget 属性进行访问。<br />
+                    6.3 hide.bs.modal6.1 hide 方法调用之后立即触发该事件。<br />
+                    6.4 hidden.bs.modal6.1 此事件在模态框被隐藏（并且同时在 CSS 过渡效果完成）之后被触发。<br />
+                    6.5 loaded.bs.modal6.1 从远端的数据源加载完数据之后触发该事件。
+                  </p>
+                </div>
+              </div>
+
+            </section>
+            <div class="Affix">
+              <ul class="nav nav-tabs nav-stacked">
+                <li><a href="#JquerySliderBox">Jquery Slider</a></li>
+                <li><a href="#BootstrapSliderBox">Bootstrap Slider</a></li>
+                <li><a href="#BootstrapModalBox">Bootstrap Modal</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </section><!-- end content -->
+      </div>
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> <span>1.0</span>
+        </div>
+        <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+      </footer>
+      
+      <!-- 右侧配置栏 -->      
+      <aside class="control-sidebar control-sidebar-dark">                
+        <!-- 组合表 -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <!-- 默认包含一个control-sidebar-theme-setting-tab，通过theme_setting.js控制 -->
+          <!-- 另外，control-sidebar-home-tab是必须存在的，因为是默认表的依赖 -->
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home fa-fw"></i></a></li>
+        </ul>
+        <!-- 表内容 -->
+        <div class="tab-content">
+          <!-- 第一个表主体 -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">附加信息</h3>
+            <ul class='control-sidebar-menu'>
+              <li>
+                <p style="margin: 10px;">
+                  <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+
+                </p>
+              </li>
+            </ul>
+          </div><!-- end 第一个表主体 -->
+        </div>
+      </aside><!-- end 右侧配置栏 -->
+      <div class='control-sidebar-bg'></div>
+    </div><!-- ./wrapper -->
+
+    <div class="modal fade modal-danger" id="ErrorModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">错误</h4>
+          </div>
+          <div class="modal-body" id="ErrorModalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="location.reload()">刷新页面</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 开始加载js脚本 -->
+    <script src="static/plugins/jquery/jquery.min.js"></script>
+    <!-- 由于 Juqery UI 的 button 函数与 bootstrap 同名，因此如果页面需要调用 Jquery UI，则需要放在 bootstrap 之前，并重命名 button 函数为 uibutton -->
+    <script src="static/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script>
+      $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src='static/plugins/fastclick/fastclick.min.js'></script>
+    <script src='static/plugins/iCheck/icheck.min.js'></script>
+    <script src="static/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+    <script src="static/plugins/highlight/highlight.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/base.js" type="text/javascript"></script>
+    <script src="static/dist/js/mainmenu.js" type="text/javascript"></script>
+
+    <!-- 页面专属js -->
+    <script src="static/plugins/bootstrap-slider/bootstrap-slider.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/pages/UISliderAndModal.js" type="text/javascript"></script>
+
+    <!-- 基础功能及皮肤js，由于依赖的关系，需要页面完全生成完毕才能加载，故放在最后 -->
+    <script src="static/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/theme_setting.min.js" type="text/javascript"></script>
+  </body>
+</html>

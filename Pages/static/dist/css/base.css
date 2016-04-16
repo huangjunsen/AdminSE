@@ -1,0 +1,299 @@
+.content-wrapper,.datetimepicker.dropdown-menu,.user .dropdown-menu,.main-footer {
+    font-family: 'Open Sans', sans-serif;
+    color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px;
+    background: #092756;
+    background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+    background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+    background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+}
+.leftbox-float{
+    position: fixed;
+    z-index: 10;
+}
+.press{
+    cursor: pointer;
+}
+.press-on{
+    border:solid 1px #057D9F;
+}
+.press-hover{
+    cursor: pointer;
+}
+.press-hover:hover{
+    border:solid 1px #057D9F !important;
+}
+.border-red{
+    border:solid 1px #F00;
+}
+.border-green{
+    border:solid 1px #0F0;
+}
+.symbol{
+    border:solid 1px #057D9F;
+    margin:20px;
+    padding:10px;
+    text-align:center;
+}
+.visiable{
+    opacity:0;
+}
+.allinoneline{
+    padding:0;
+    margin:0 auto;
+}
+.allinoneline .lineitem{
+    display:inline-block;
+}
+.autowidth{
+    width:auto;
+}
+.zeropadding-h{
+    padding-left:0;padding-right:0;
+}
+.tab-col-1{width:8.33%;}
+.tab-col-2{width:16.67%;}
+.tab-col-3{width:25%;}
+.tab-col-4{width:33.33%;}
+.tab-col-5{width:41.67%;}
+.tab-col-6{width:50%;}
+.tab-col-7{width:58.33%;}
+.tab-col-8{width:66.67%;}
+.tab-col-9{width:75%;}
+.tab-col-10{width:83.33%;}
+.tab-col-11{width:91.67%;}
+.tab-col-12{width:100%;}
+
+
+/*Loading 动画*/
+/**
+* 覆盖层，用于显示loading画面，默认是不显示的
+* 显示: $('.overlay').show(); $('.overlay').fadeIn();
+* 隐藏: $('.overlay').hide(); $('.overlay').fadeOut();
+*/
+.overlay{
+    height: 100%;
+    width: 100%;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FFF;
+    z-index: 5000
+}
+.loading{
+    height: 150px;
+    width: 150px;
+}
+.loading .loading-center{
+    width: 100%;
+    height: 100%;
+    }
+.loading .loading-center-absolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 200px;
+    width: 200px;
+    margin-top: -100px;
+    margin-left: -100px;    
+
+}
+.loading .object{
+    -moz-border-radius: 50% 50% 50% 50%;
+    -webkit-border-radius: 50% 50% 50% 50%;
+    border-radius: 50% 50% 50% 50%;
+    position: absolute;
+    border-left: 5px solid #49A9DF;
+    border-right: 5px solid #49A9DF;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    -webkit-animation: loading_animate 2s infinite;
+    animation: loading_animate 2s infinite; 
+}
+
+.loading .object_one{
+    left: 75px;
+    top: 75px;
+    width: 50px;
+    height: 50px;
+}
+                            
+.loading .object_two{
+    left: 65px;
+    top: 65px;
+    width: 70px;
+    height: 70px;
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+        
+.loading .object_three{
+    left: 55px;
+    top: 55px;
+    width: 90px;
+    height: 90px;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+.loading .object_four{
+    left: 45px;
+    top: 45px;
+    width: 110px;
+    height: 110px;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}   
+@-webkit-keyframes loading_animate {
+    50% {
+        -ms-transform: rotate(180deg); 
+        -webkit-transform: rotate(180deg); 
+        transform: rotate(180deg); 
+    }
+    100% {
+        -ms-transform: rotate(0deg); 
+        -webkit-transform: rotate(0deg); 
+        transform: rotate(0deg); 
+    }
+}
+@keyframes loading_animate {
+    50% {
+        -ms-transform: rotate(180deg); 
+        -webkit-transform: rotate(180deg); 
+        transform: rotate(180deg); 
+    }
+    100% {
+        -ms-transform: rotate(0deg); 
+        -webkit-transform: rotate(0deg); 
+        transform: rotate(0deg); 
+    }
+}
+
+.Affix ul.nav-tabs{
+    width: 140px;
+    border-radius: 4px;
+    border: transparent;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+}
+.Affix ul.nav-tabs li{
+    margin: 0;
+    border-top: 1px solid #ddd;
+    background: #fff;
+}
+.Affix ul.nav-tabs li:first-child{
+    border-top: none;
+}
+.Affix ul.nav-tabs li a{
+    margin: 0;
+    padding: 8px 16px;
+    border-radius: 0;
+}
+.Affix ul.nav-tabs li:hover{
+    border: 1px solid #0088cc;
+}
+.Affix ul.nav-tabs li.active a,.Affix ul.nav-tabs li.active a:hover{
+    color: #fff;
+    background: #0088cc;
+    border: 1px solid #0088cc;
+}
+.Affix ul.nav-tabs li:first-child a{
+    border-radius: 4px 4px 0 0;
+}
+.Affix ul.nav-tabs li:last-child a{
+    border-radius: 0 0 4px 4px;
+}
+.Affix>.nav-control {
+    position:relative;
+    /*top:20px;*/
+    left:-26px;
+    z-index:9;
+    float: left!important;
+    cursor:pointer;
+    text-align:center;
+}
+.Affix>.nav-control>.nav-expand,.Affix>.nav-control>.nav-totop{
+    background:#3c8dbc !important;
+    color: #fff !important;
+    padding:5px;
+}
+
+/*2016-04-12 增加 bootstrap slider primary/success/info/warning/danger/purple 6种颜色主题*/
+#primary .slider-selection{background: #3c8dbc;}
+#info .slider-selection{background: #00c0ef;}
+#primary .slider-track,#info .slider-track{
+    background-image: -webkit-linear-gradient(top, #A9F2F5 0%, #66C7CF 100%);
+    background-image: -o-linear-gradient(top, #A9F2F5 0%, #66C7CF 100%);
+    background-image: linear-gradient(to bottom, #A9F2F5 0%, #66C7CF 100%);
+}
+#success .slider-selection{background: #00a65a;}
+#success .slider-track{
+    background-image: -webkit-linear-gradient(top, #A6FFAD 0%, #69DB64 100%);
+    background-image: -o-linear-gradient(top, #A6FFAD 0%, #69DB64 100%);
+    background-image: linear-gradient(to bottom, #A6FFAD 0%, #69DB64 100%);
+}
+#warning .slider-selection{background: #f39c12;}
+#warning .slider-track{
+    background-image: -webkit-linear-gradient(top, #FFE7B5 0%, #C5AC5B 100%);
+    background-image: -o-linear-gradient(top, #FFE7B5 0%, #C5AC5B 100%);
+    background-image: linear-gradient(to bottom, #FFE7B5 0%, #C5AC5B 100%);
+}
+#danger .slider-selection{background: #f56954;}
+#danger .slider-track{
+    background-image: -webkit-linear-gradient(top, #F5A9A9 0%, #CF6666 100%);
+    background-image: -o-linear-gradient(top, #F5A9A9 0%, #CF6666 100%);
+    background-image: linear-gradient(to bottom, #F5A9A9 0%, #CF6666 100%);
+}
+#purple .slider-selection{background: #932ab6;}
+#purple .slider-track{
+    background-image: -webkit-linear-gradient(top, #F2A9F5 0%, #C766CF 100%);
+    background-image: -o-linear-gradient(top, #F2A9F5 0%, #C766CF 100%);
+    background-image: linear-gradient(to bottom, #F2A9F5 0%, #C766CF 100%);
+}
+
+/*2016-04-12 增加 jquery slider primary/success/info/warning/danger/default 6种颜色主题*/
+.slider-default .ui-slider-range { background: #d2d6de; }
+.slider-default .ui-slider-handle { border-color: #d2d6de; }
+.slider-primary{background:#C2F5FF !important}
+.slider-primary .ui-slider-range { background: #3c8dbc; }
+.slider-primary .ui-slider-handle { border-color: #3c8dbc; }
+.slider-success{background:#C2FFC9 !important}
+.slider-success .ui-slider-range { background: #00a65a; }
+.slider-success .ui-slider-handle { border-color: #00a65a; }
+.slider-info{background:#C2F5FF !important}
+.slider-info .ui-slider-range { background: #00c0ef; }
+.slider-info .ui-slider-handle { border-color: #00c0ef; }
+.slider-warning{background:#FFE2C2 !important}
+.slider-warning .ui-slider-range { background: #f39c12; }
+.slider-warning .ui-slider-handle { border-color: #f39c12; }
+.slider-danger{background:#FFC2C2 !important}
+.slider-danger .ui-slider-range { background: #dd4b39; }
+.slider-danger .ui-slider-handle { border-color: #dd4b39; }
+
+
+/*bootstrap 修复*/
+/*用于修复 primary 样式的 modal 中 ul 字体显示为白色的bug*/
+.modal-primary .modal-body ul,
+.modal-primary .modal-body input,
+.modal-primary .modal-body select,
+.modal-primary .modal-body .popover{color:#333 !important}
+.allborder{border:1px solid;}
+/*修正 bootstrap 搭配datatables hove的样式问题*/
+.table-hover > tbody > tr:hover {
+  background-color: #94CCFF;
+  cursor: pointer;
+}
+.modal{color:#333}
+.popover{max-width:2000px;}
+/*修正 AdminLTE info-box icon 的垂直居中问题*/
+.info-box .info-box-icon i{line-height: 90px;}
+/*修正 bootstrap bg-* hr 的颜色问题*/
+hr,.bg-info hr,.bg-warning hr,.bg-danger hr,.bg-default hr{border-color:#aaa;}
+.bg-primary hr{border-color:#fff;}
+/*修正分列式下拉菜单按钮组的分裂按钮大小问题*/
+.btn-group .dropdown-toggle{height:34px;line-height:34px;}
+/*修复 Bootstrap has-feedback input 框右侧 padding 太大的问题*/
+.has-feedback input.form-control{padding-right:20px;}
+/*修复 box 中 row 的 margin 负得太多导致的溢出问题*/
+.box .row{margin-left:-7.5px;margin-right:-7.5px}

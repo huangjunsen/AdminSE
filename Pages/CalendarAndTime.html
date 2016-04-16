@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminSE</title>
+    <!-- 站点定义 -->
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <style type="text/css">body{font-family:"Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;}</style>
+    <!-- 浏览器版本检测 -->
+    <script type="text/javascript">
+    var browser=navigator.appName;
+    var b_version=navigator.appVersion;
+    var version=parseFloat(b_version);
+    if ((browser=="Microsoft Internet Explorer") && (version<5))
+        location.href = 'BrownerToUpdate.html';
+    </script>
+
+    <!-- 第三方css -->
+    <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/highlight/styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- 页面专属css -->
+    <link href="static/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="overlay" style="display:none;">
+      <div class="loading">
+        <div class="loading-center">
+          <div class="loading-center-absolute">
+            <div class="object object_four"></div>
+            <div class="object object_three"></div>
+            <div class="object object_two"></div>
+            <div class="object object_one"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-mini" title="AdminSE"><b>AdminSE</b></span>
+          <span class="logo-lg"><b>Admin</b>SE</span>
+        </a>
+        <!-- 导航头部 -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- 左侧边栏触发按钮-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="收缩/展开">
+            <span class="sr-only">收缩/展开导航</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- 用户帐户栏 -->
+              <li class="dropdown user user-menu">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="static/dist/img/DefaultHead.png" class="user-image" alt="头像"/>
+                  <span class="hidden-xs">用户名</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- 用户简介 -->
+                  <li class="user-header">
+                    <a href="#" style="background-color: transparent" title="更换头像">
+                      <img src="static/dist/img/DefaultHead.png" class="img-circle" alt="User Image" />
+                    </a>
+                    <p>
+                      自定义用户信息
+                      <small>备注等内容</small>
+                    </p>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-primary">编辑</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-primary">注销</a>
+                    </div>
+                  </li>
+                </ul>
+              </li> <!-- end 用户帐户栏 -->
+              <!-- 右侧边栏触发按钮 -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li> <!-- end 右侧边栏触发按钮 -->
+            </ul>
+          </div>
+        </nav> <!-- end 导航头部 -->
+      </header>
+
+      <!-- 左侧菜单栏 -->
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- 搜索栏 -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group" title="功能未开放">
+              <input type="text" name="q" class="form-control" placeholder="请输入搜索内容"/>
+              <span class="input-group-btn">
+                <button type='button' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form><!-- end 搜索栏 -->
+
+          <!-- 菜单栏主体 -->
+          <ul class="sidebar-menu"></ul>
+
+        </section>
+      </aside> <!-- end 左侧菜单栏 -->
+
+      <!-- 页面主体内容 -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            日历和时间
+          </h1>
+        </section>
+
+        <!-- content -->
+        <section class="content">
+          <div class="row">
+            <section class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">Calendar</h3>
+                </div>
+                <div class="box-body">
+                  此处内容暂缺——暂不添加该控件
+                </div>
+              </div>
+
+              <div class="box">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">Bootstartp DateTimePicker</h3>
+                </div>
+                <div class="box-body">
+                  <p>Bootstartp DateTimePicker 是<a href="https://github.com/eternicode/bootstrap-datepicker">bootstrap-datetimepicker 项目</a> 的一个分支，原项目不支持 Time 选择。<br />其它部分也进行了改进、增强，例如load 过程增加了对 ISO-8601 日期格式的支持。<br />文档是拷贝/粘贴字原项目的文档，并且加入了更多细节说明。</p>
+                  <p>官网：<a href="http://www.bootcss.com/p/bootstrap-datetimepicker/">Bootstartp DateTimePicker</a></p>
+                  <p>【注意】：这个是定制化的版本，原官方存在一些bug。</p>
+                  <p>
+                    1. 使用：<br />
+                    1.1 CSS 及 JS（注意两个js的顺序）：<br />
+                    <pre><code class="Html">&lt;link href="static/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" /&gt;<br />&lt;script src="static/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js" type="text/javascript"&gt;&lt;/script&gt;<br />&lt;script src="static/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+                    1.2 产生Dom：<br />
+                    <pre><code class="Html">&lt;input type="text" id="DateTimePicker"&gt;</code></pre>
+                    1.3 激活：<br />
+                    <pre><code class="JavaScript">$('#DateTimePicker').datetimepicker();</code></pre>
+                  </p>
+                  <div>
+                    请选择日期：<input type="text" id="DateTimePicker">
+                  </div>
+                  <br />
+                  <div>
+                    <button class="btn btn-primary" name="ToggleNext">Show/Hide Code</button>
+                    <pre style="display:None"><code class="JavaScript">$('#DateTimePicker').datetimepicker({language:'zh-CN'});</code></pre>
+                  </div>
+                  <br />
+                  <p>2. 选项：</p>
+                  <p>前提：所有需要"Date" 的选项都可以处理Date 对象;或者你也可以指定一个符合 ISO-8601 格式的日期时间：</p>
+                  <ul>
+                    <li>yyyy-mm-dd</li>
+                    <li>yyyy-mm-dd hh:ii</li>
+                    <li>yyyy-mm-ddThh:ii</li>
+                    <li>yyyy-mm-dd hh:ii:ss</li>
+                    <li>yyyy-mm-ddThh:ii:ssZ</li>
+                  </ul>
+                  <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                      <thead>
+                        <tr>
+                          <th>参数</th><th>默认值</th><th>描述</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>format</td>
+                          <td>'mm/dd/yyyy'</td>
+                          <td>
+                            日期格式， p, P, h, hh, i, ii, s, ss, d, dd, m, mm, M, MM, yy, yyyy 的任意组合。<br />
+                            <ul>
+                              <li>p : meridian in lower case ('am' or 'pm') - according to locale file</li>
+                              <li>P : meridian in upper case ('AM' or 'PM') - according to locale file</li>
+                              <li>s : seconds without leading zeros</li>
+                              <li>ss : seconds, 2 digits with leading zeros</li>
+                              <li>i : minutes without leading zeros</li>
+                              <li>ii : minutes, 2 digits with leading zeros</li>
+                              <li>h : hour without leading zeros - 24-hour format</li>
+                              <li>hh : hour, 2 digits with leading zeros - 24-hour format</li>
+                              <li>H : hour without leading zeros - 12-hour format</li>
+                              <li>HH : hour, 2 digits with leading zeros - 12-hour format</li>
+                              <li>d : day of the month without leading zeros</li>
+                              <li>dd : day of the month, 2 digits with leading zeros</li>
+                              <li>m : numeric representation of month without leading zeros</li>
+                              <li>mm : numeric representation of the month, 2 digits with leading zeros</li>
+                              <li>M : short textual representation of a month, three letters</li>
+                              <li>MM : full textual representation of a month, such as January or March</li>
+                              <li>yy : two digit representation of a year</li>
+                              <li>yyyy : full numeric representation of a year, 4 digits</li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>weekStart</td>
+                          <td>0</td>
+                          <td>一周从哪一天开始。0（星期日）到6（星期六）</td>
+                        </tr>
+                        <tr>
+                          <td>startDate</td>
+                          <td>-Infinity</td>
+                          <td>开始时间。比这个时间早的时间将被禁用</td>
+                        </tr>
+                        <tr>
+                          <td>endDate</td>
+                          <td>Infinity</td>
+                          <td>结束时间。比这个时间晚的时间将被禁用</td>
+                        </tr>
+                        <tr>
+                          <td>daysOfWeekDisabled</td>
+                          <td>[]</td>
+                          <td>一周中哪些日期被禁用。0（星期日）到6（星期六）</td>
+                        </tr>
+                        <tr>
+                          <td>autoclose</td>
+                          <td>false</td>
+                          <td>当选择一个日期之后是否立即关闭此日期时间选择器。</td>
+                        </tr>
+                        <tr>
+                          <td>startView</td>
+                          <td>2</td>
+                          <td>
+                            日期时间选择器打开之后首先显示的视图。 可接受的值：<br />
+                            <ul>
+                              <li>0/'hour' 小时视图</li>
+                              <li>1/'day' 日视图</li>
+                              <li>2/'month' 月视图</li>
+                              <li>3/'year' 年视图</li>
+                              <li>4/'decade' 十年视图</li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>minView</td>
+                          <td>0</td>
+                          <td>日期时间选择器所能够提供的最精确的时间选择视图。可选值参考 startView </td>
+                        </tr>
+                        <tr>
+                          <td>maxView</td>
+                          <td>4</td>
+                          <td>日期时间选择器最高能展示的选择范围视图。可选值参考 startView </td>
+                        </tr>
+                        <tr>
+                          <td>todayBtn</td>
+                          <td>false</td>
+                          <td>如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。如果是true的话，"Today" 按钮仅仅将视图转到当天的日期，如果是"linked"，当天日期将会被选中。</td>
+                        </tr>
+                        <tr>
+                          <td>todayHighlight</td>
+                          <td>false</td>
+                          <td>如果为true, 高亮当前日期。</td>
+                        </tr>
+                        <tr>
+                          <td>keyboardNavigation</td>
+                          <td>true</td>
+                          <td>是否允许通过方向键改变日期。</td>
+                        </tr>
+                        <tr>
+                          <td>language</td>
+                          <td>en</td>
+                          <td>语言。语言选项的取值参考加载的本地化文件名称，常用： zh-CN</td>
+                        </tr>
+                        <tr>
+                          <td>forceParse</td>
+                          <td>true</td>
+                          <td>当选择器关闭的时候，是否强制解析输入框中的值。也就是说，当用户在输入框中输入了不正确的日期，选择器将会尽量解析输入的值，并将解析后的正确值按照给定的格式format设置到输入框中。</td>
+                        </tr>
+                        <tr>
+                          <td>minuteStep</td>
+                          <td>5</td>
+                          <td>此数值被当做步进值用于构建小时视图。对于每个 minuteStep 都会生成一组预设时间（分钟）用于选择。</td>
+                        </tr>
+                        <tr>
+                          <td>pickerPosition</td>
+                          <td>bottom-right</td>
+                          <td>
+                            日期选择器的出现位置。<br />
+                            <ul>
+                              <li>top-left</li>
+                              <li>top-right</li>
+                              <li>bottom-left</li>
+                              <li>bottom-right</li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>viewSelect</td>
+                          <td><span class="text-red">same as minView</span></td>
+                          <td>With this option you can select the view from which the date will be selected. By default it's the last one, however you can choose the first one, so at each click the date will be updated.</td>
+                        </tr>
+                        <tr>
+                          <td>showMeridian</td>
+                          <td>false</td>
+                          <td>This option will enable meridian views for day and hour views.</td>
+                        </tr>
+                        <tr>
+                          <td>initialDate</td>
+                          <td>new Date()</td>
+                          <td>初始化日期</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <br />
+                  <p>3. 方法：</p>
+                  <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                      <thead>
+                        <tr>
+                          <th>方法</th><th>示例</th><th>描述</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>remove</td>
+                          <td>.datetimepicker('remove');</td>
+                          <td>移除日期时间选择器。同时移除已经绑定的event、内部绑定的对象和HTML元素。</td>
+                        </tr>
+                        <tr>
+                          <td>show</td>
+                          <td>.datetimepicker('show');</td>
+                          <td>手工触发显示日期时间选择器。</td>
+                        </tr>
+                        <tr>
+                          <td>hide</td>
+                          <td>.datetimepicker('hide');</td>
+                          <td>手工触发隐藏日期时间选择器。</td>
+                        </tr>
+                        <tr>
+                          <td>update</td>
+                          <td>.datetimepicker('update');</td>
+                          <td>使用当前输入框中的值更新日期时间选择器。</td>
+                        </tr>
+                        <tr>
+                          <td>setStartDate</td>
+                          <td>.datetimepicker('setStartDate', '2012-01-01');</td>
+                          <td>给日期时间选择器设置一个新的起始日期。</td>
+                        </tr>
+                        <tr>
+                          <td>setEndDate</td>
+                          <td>.datetimepicker('setEndDate', '2012-01-01');</td>
+                          <td>给日期时间选择器设置结束日期。</td>
+                        </tr>
+                        <tr>
+                          <td>setDaysOfWeekDisabled</td>
+                          <td>.datetimepicker('setDaysOfWeekDisabled', [0,6]);</td>
+                          <td>给日期时间选择器设置失效的日期。</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <br />
+                  <p>4. 方法</p>
+                  <p>不进行过多的描述，仅描述常用的一个：changeDate 当日期被改变时被触发。</p>
+                  <pre><code class="JavaScript">$('jquerySelector').datetimepicker().on('changeDate', function(ev){<br />&nbsp;&nbsp;if (ev.date.valueOf() &lt; date-start-display.valueOf()){<br />&nbsp;&nbsp;&nbsp;&nbsp;....<br />&nbsp;&nbsp;}<br />});</code></pre>
+                </div>
+              </div>
+
+            </section>
+
+          </div>
+
+        </section><!-- end content -->
+      </div>
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> <span>1.0</span>
+        </div>
+        <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+      </footer>
+      
+      <!-- 右侧配置栏 -->      
+      <aside class="control-sidebar control-sidebar-dark">                
+        <!-- 组合表 -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <!-- 默认包含一个control-sidebar-theme-setting-tab，通过theme_setting.js控制 -->
+          <!-- 另外，control-sidebar-home-tab是必须存在的，因为是默认表的依赖 -->
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home fa-fw"></i></a></li>
+        </ul>
+        <!-- 表内容 -->
+        <div class="tab-content">
+          <!-- 第一个表主体 -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">附加信息</h3>
+            <ul class='control-sidebar-menu'>
+              <li>
+                <p style="margin: 10px;">
+                  <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+
+                </p>
+              </li>
+            </ul>
+          </div><!-- end 第一个表主体 -->
+        </div>
+      </aside><!-- end 右侧配置栏 -->
+      <div class='control-sidebar-bg'></div>
+    </div><!-- ./wrapper -->
+
+    <div class="modal fade modal-danger" id="ErrorModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">错误</h4>
+          </div>
+          <div class="modal-body" id="ErrorModalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="location.reload()">刷新页面</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 开始加载js脚本 -->
+    <script src="static/plugins/jquery/jquery.min.js"></script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src='static/plugins/fastclick/fastclick.min.js'></script>
+    <script src='static/plugins/iCheck/icheck.min.js'></script>
+    <script src="static/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+    <script src="static/plugins/highlight/highlight.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/base.js" type="text/javascript"></script>
+    <script src="static/dist/js/mainmenu.js" type="text/javascript"></script>
+
+    <!-- 页面专属js -->
+    <script src="static/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    <script src="static/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js" type="text/javascript"></script>
+    <script src="static/dist/js/pages/CalendarAndTime.js" type="text/javascript"></script>
+
+    <!-- 基础功能及皮肤js，由于依赖的关系，需要页面完全生成完毕才能加载，故放在最后 -->
+    <script src="static/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/theme_setting.min.js" type="text/javascript"></script>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+AdminSE 模板编写WiKi
+2016-04-05
+1. 项目启动
+2. Examples-WelcomePage.html
+    1）搬运旧项目内容至模板项目中，修改绝对路径为相对路径
+    2）以此为模板，添加必要的组件
+3. index.html
+    1）无内容，自动转跳到 Examples-WelcomePage.html
+4. BrownerToUpdate.html
+    1）搬运旧项目内容至模板项目中，修改绝对路径为相对路径
+5. mainmenus.js
+    1）暂停 getMenuJson() 方式获取数据，定义 LocalMenuAsJson 变量作为菜单数据
+    2）定义了22个菜单项
+6. theme_setting.js
+    1）大幅度修改 theme_setting.js ，去除 bootstrapswitch 的相关内容，添加iCheck的内容
+7. 组件添加
+    1）bootstrap
+    2）chartjs
+    3）fastclick
+    4）font-awesome
+    5）iCheck
+    6）jquery
+    7）jquery-ui
+    8）segment-letters
+    9）slimScroll
+    10）toastr
+    11）vivus
+
+2016-04-06
+1. DashBoard.html
+    1）Chartjs库的介绍和示例
+    2）Plitly.js库的介绍和示例
+2. Layout.html
+    1）进行 Bootstrap 栅格系统和排版的介绍，搬运代码
+    2）进行 AdminLTE 的布局系统介绍
+3. Widgets.html
+    1）info-box
+    2）small-box
+    3）box
+    4）bg-color颜色整理
+    5）text-color颜色整理
+    6）box主题整理
+    7）Bootstrap 部件-下拉菜单
+4. base.css
+    1）修正 AdminLTE info-box icon 的垂直居中问题
+    2）去除 press 样式的 margin-left
+    3）修正 bootstrap bg-* hr 的颜色问题
+5. 组件添加
+    1）highlight
+    2）plotly
+6. 采用 highlight 进行代码高亮
+7. 修复 .dropdown-menu 背景的情况，避免错误使用
+
+2016-04-07
+1. Widgets.html
+    1）Bootstrap 部件-导航
+    2）Bootstrap 部件-导航条
+    3）Bootstrap 部件-路径导航(面包屑)
+    4）Bootstrap 部件-分页
+    5）Bootstrap 部件-标签和徽章
+    6）Bootstrap 部件-缩略图
+    7）Bootstrap 部件-警告框
+    8）Bootstrap 部件-进度条
+    9）Bootstrap 部件-媒体对象
+    10）Bootstrap 部件-列表组
+    11）Bootstrap 部件-面版
+2. 组件添加
+    1）placeholder
+3. UIGeneral.html
+    1）AdminLTE-主题色块
+    2）AdminLTE-背景及前景色
+    3）Bootstrap-过渡效果
+    4）Bootstrap-模态框
+    5）Bootstrap-滚动监听
+    6）Bootstrap-标签页
+    7）Bootstrap-工具提示
+    8）Bootstrap-弹出框
+    9）Bootstrap-警告信息
+    10）Bootstrap-折叠
+
+2016-04-08
+1. UIGeneral.html
+    1）Bootstrap-轮播
+    2）Bootstrap-附加导航
+    3）Bootstrap-滚动监听
+2. base.css
+    1）添加Affix相关内容，并且关联滚动监听，使得附加导航有绚丽的效果
+3. base.js
+    1）添加Affix相关内容
+    2）为附加导航添加 slimScroll 滚动栏，适应较小的屏幕高度
+    todo) slimScroll 一旦生效，则无法再次更改滚动条高度（这是由于滚动条的添加使得附加导航的高度变化了，由于正常使用的情况下一般很难产生，因此暂时不考虑修复该问题，待以后改进）
+
+2016-04-11
+1. UIIcon.html
+    1）FontAwesome 图标
+    2）Bootstrap glyphicon 图标
+2. base.css
+    1）修正分列式下拉菜单按钮组的分裂按钮大小问题
+3. UIButton.html
+    1）AdminLTE Button
+    2）b36btn Button
+    3）buttons Button
+
+2016-04-12
+1. UISliderAndModal.html
+    1）jquery slider
+    2）bootstrap slider
+    3）bootstrap modal
+2. base.css
+    1）增加 bootstrap slider primary/success/info/warning/danger/purple 6种颜色主题
+    2）增加 jquery slider primary/success/info/warning/danger/default 6种颜色主题
+3. UITimeLine.html
+4. FormGeneral.html
+5. FormEditor.html
+
+2016-04-13
+1. FormEditor.html
+    1）bootstrap-wysiwyg.js 功能定制
+    2）bootstrap-wysiwyg.js 功能扩展
+        1. 添加 createToolBar 方法，自动生成工具栏，并且定义工具栏按钮的方法
+        2. 添加 fontItems 选项，使得字体列表可以定制化
+        3. 添加 toolbarItems 选项，使得工具栏可以定制化
+        4. 由于原来的 bindHotkeys 方法有问题，所以重新改写了这个方法
+        5. 添加更改前景色和背景色按钮
+2. UIIcon.html
+    1）为图标添加上关键字
+
+2016-04-14
+1. FormEditor.html
+    1）bootstrap-wysiwyg.js 优化及bug修复
+    2）生成 bootstrap-wysiwyg.css 文件
+    3）书写 wysiwyg 文档
+2. simpletable
+    1）重写所有代码，将该js封装成jquery插件
+    2）大幅度修改所有css样式，增加6种颜色主题，并优化显示效果，同时测试并修复各个浏览器的兼容性
+3. Table.html
+    1）simpletable
+
+2016-04-15
+1. simpletable
+    1）添加 addHover/addColumn/rowspan/colspan/rowdisable 方法。
+    2）修改对齐方式，添加针对 text-* 的对齐判断
+2. Table.html
+    1）DataTables
+3. CalendarAndTime.html
+    1）Bootstartp DateTimePicker
+4. Examples-WelcomePage.html
+    1）修改一些前期存在的问题
+5. Examples-Login.html
+6. Examples-Empty.html
+7. Plugins.html
+    1）fastclick
+    2）iCheck
+    3）highlight
+    4）已经介绍过的插件
+
+2016-04-16
+1. Plugins.html
+    1）iCheck
+    2）placeholder
+    3）segment-letters
+    4）vivus
+    5）slimScroll
+2. Readme.html
+    1）版权及基础版本
+    2）基础依赖
+    3）关于菜单
+    4）关于Django中的应用
+    5）文件结构
+    6）wiki

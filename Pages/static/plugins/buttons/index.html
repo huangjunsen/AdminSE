@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Buttons - 一个高度可定制的按钮（button） CSS 样式库。">
+  <meta name="viewport" content="width=device-width">
+
+  <!-- UNICORN CSS STYLES -->
+  <link rel="stylesheet" href="dist/animate.min.css">
+  <link rel="stylesheet" href="dist/showcase.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="dist/grids.css">
+
+
+  <!-- ICONS & FONTS -->
+  <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <title>Buttons - 一个高度可定制的按钮（button） CSS 样式库。</title>
+</head>
+<body>
+  <!-- NAV -->
+  <nav id="top-nav" class="top-nav clearfix animated fadeInDown">
+    <h1><a href="#hero">Buttons</a></h1>
+
+    <ul class="top-nav-links"></ul>
+
+    <span class="unibtn-dropdown" data-buttons="dropdown">
+      <button class="unibtn unibtn-plain unibtn">Menu</button>
+      <ul class="unibtn-dropdown-list is-below">
+      </ul>
+    </span>
+  </nav>
+
+  <!-- HERO -->
+  <header id="hero" class="hero hero-buttons">
+    <div class="l-under">
+      <div class="arrow arrow-half arrow-dark arrow-top-left">
+        <i class="icon-arrow-top-left"></i>
+      </div>
+      <div class="arrow arrow-half arrow-dark arrow-top-right">
+        <i class="icon-arrow-top-right"></i>
+      </div>
+      <div class="arrow arrow-half arrow-dark arrow-bottom-left">
+        <i class="icon-arrow-bottom-left"></i>
+      </div>
+      <div class="arrow arrow-half arrow-dark arrow-bottom-right">
+        <i class="icon-arrow-bottom-right"></i>
+      </div>
+    </div>
+
+    <div class="l-over">
+      <i class="logo">B</i>
+      <h1 class="logo-title">Buttons <sup>V. 2.0.0</sup></h1>
+
+      <p class="hero-pitch">
+        <strong>Buttons</strong> 是一个高度可定制的、免费并且开源的按钮 CSS 样式库。
+      </p>
+
+      <!-- <a class="hero-cta button button-plain button-uppercase button-rounded" href="css/buttons.css">下载</a> -->
+    </div>
+
+
+    <!-- BADGES -->
+    <div class="hero-badge hero-mobile-badge" title="Desktop and Mobile Ready">
+      <i class="fa fa-desktop"></i>
+      <i class="fa fa-laptop"></i>
+      <i class="fa fa-tablet"></i>
+      <i class="fa fa-mobile"></i>
+    </div>
+
+    <a class="hero-badge hero-unicorn-badge" href="http://www.unicorn-ui.com">
+      <i>U</i>
+      <em>A Unicorn UI Module</em>
+      <em>www.unicorn-ui.com</em>
+    </a>
+  </header>
+
+
+  <!-- BUTTON EXAMPLES -->
+  <!-- SHAPES & SIZES -->
+  <section id="buttons-sizes" class="showcase background-light">
+    <div class="l-under">
+      <div class="arrow arrow-half arrow-light arrow-top-left">
+        <i class="icon-arrow-top-left"></i>
+      </div>
+      <div class="arrow arrow-half arrow-light arrow-top-right">
+        <i class="icon-arrow-top-right"></i>
+      </div>
+    </div>
+
+    <div class="l-over showcase-content">
+      <h3 class="showcase-title l-center">形状与尺寸</h3>
+      <h4 class="showcase-sub-title l-center">多种形状和尺寸的按钮样式可供选择。</h4>
+
+  <div class="showcase-examples l-center">
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-tiny">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-rounded unibtn-tiny">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-pill unibtn-tiny">Go</a>
+  <button class="unibtn unibtn-square unibtn-tiny"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-box unibtn-tiny"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-circle unibtn-tiny"><i class="fa fa-plus"></i></button>
+  <br/>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-primary unibtn-small">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-primary unibtn-rounded unibtn-small">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-primary unibtn-pill unibtn-small">Go</a>
+  <button class="unibtn unibtn-primary unibtn-square unibtn-small"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-primary unibtn-box unibtn-small"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-primary unibtn-circle unibtn-small"><i class="fa fa-plus"></i></button>
+  <br/>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-action">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-action unibtn-rounded">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-action unibtn-pill">Go</a>
+  <button class="unibtn unibtn-action unibtn-square"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-action unibtn-box"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-action unibtn-circle"><i class="fa fa-plus"></i></button>
+  <br/>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-highlight unibtn-large">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-highlight unibtn-rounded unibtn-large">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-highlight unibtn-pill unibtn-large">Go</a>
+  <button class="unibtn unibtn-highlight unibtn-square unibtn-large"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-highlight unibtn-box unibtn-large"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-highlight unibtn-circle unibtn-large"><i class="fa fa-plus"></i></button>
+  <br/>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-caution unibtn-jumbo">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-caution unibtn-rounded unibtn-jumbo">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-caution unibtn-pill unibtn-jumbo">Go</a>
+  <button class="unibtn unibtn-caution unibtn-square unibtn-jumbo"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-caution unibtn-box unibtn-jumbo"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-caution unibtn-circle unibtn-jumbo"><i class="fa fa-plus"></i></button>
+  <br/>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-royal unibtn-giant">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-royal unibtn-rounded unibtn-giant">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-royal unibtn-pill unibtn-giant">Go</a>
+  <button class="unibtn unibtn-royal unibtn-square unibtn-giant"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-royal unibtn-box unibtn-giant"><i class="fa fa-plus"></i></button>
+  <button class="unibtn unibtn-royal unibtn-circle unibtn-giant"><i class="fa fa-plus"></i></button></div>
+
+    </div>
+  </section>
+  <!-- BORDER BUTTONS -->
+  <div id="buttons-border" class="background-dark l-margin-bottom-60">
+    <section class="showcase showcase-phone background-arrow-top-right">
+
+      <div class="showcase-content">
+        <header class="l-center">
+          <h3 class="showcase-title">带边框和不带边框的按钮</h3>
+          <h4 class="showcase-sub-title ">
+            由 <a target="_blank" href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> 开源的图标字体非常适合移动设备</h4>
+        </header>
+
+  <div class="showcase-examples l-center">
+  <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-circle"><i class="fa fa-reply"></i></button>
+  <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-box"><i class="fa fa-star"></i></button>
+  <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-square"><i class="fa fa-trash-o"></i></button>
+  <button class="unibtn unibtn-large unibtn-plain unibtn-borderless"><i class="fa fa-tag"></i></button>
+  </div>
+
+      <!-- Phone Demo -->
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-status-bar"></div>
+
+          <header class="phone-header">
+            <button aria-label="Back" class="unibtn-left unibtn unibtn-small unibtn-borderless unibtn-plain"><i class="fa fa-chevron-left"></i> Back</button>
+            <h3>Buttons App</h3>
+            <button aria-label="Email" class="unibtn-right unibtn unibtn-borderless unibtn-plain"><i class="fa fa-envelope-o"></i></button>
+          </header>
+
+          <div class="phone-body l-center">
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-circle"><i class="fa fa-bitcoin"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-circle"><i class="fa fa-refresh"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-circle"><i class="fa fa-angle-left"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-circle"><i class="fa fa-angle-right"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-box"><i class="fa fa-reply"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-box"><i class="fa fa-star"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-box"><i class="fa fa-trash-o"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-box"><i class="fa fa-tag"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-box"><i class="fa fa-volume-down"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-box"><i class="fa fa-volume-up"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-square"><i class="fa fa-reply"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-square"><i class="fa fa-star"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-square"><i class="fa fa-trash-o"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-square"><i class="fa fa-tag"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-square"><i class="fa fa-volume-down"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-border unibtn-square"><i class="fa fa-volume-up"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-borderless"><i class="fa fa-reply"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-borderless"><i class="fa fa-star"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-borderless"><i class="fa fa-trash-o"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-borderless"><i class="fa fa-tag"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-borderless"><i class="fa fa-volume-down"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-borderless"><i class="fa fa-volume-up"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-borderless"><i class="fa fa-volume-up"></i></button>
+            <button class="unibtn unibtn-large unibtn-plain unibtn-borderless"><i class="fa fa-volume-up"></i></button>
+                    </div>
+
+          <footer class="phone-footer">
+            <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-plain unibtn-border unibtn-pill unibtn-block unibtn-uppercase">Sign Up Free</a>
+          </footer>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+
+
+  <!-- 3D BUTTONS -->
+  <section id="buttons-3d" class="showcase showcase-content background-light">
+    <header class="l-center">
+      <h3 class="showcase-title">3D 按钮</h3>
+      <h4 class="showcase-sub-title">模仿现实世界中的按钮外观</h4>
+    </header>
+
+  <div class="showcase-examples l-center">
+  <button class="unibtn unibtn-3d unibtn-box unibtn-jumbo"><i class="fa fa-thumbs-up"></i></button>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-3d unibtn-primary unibtn-rounded">Check out the new site!</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-3d unibtn-action unibtn-pill">Visit Us!</a>
+  <button class="unibtn unibtn-3d unibtn-action unibtn-circle unibtn-jumbo"><i class="fa fa-thumbs-up"></i></button>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-3d unibtn-caution"><i class="fa fa-camera"></i> Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-3d unibtn-royal">Say Hi!</a></div>
+
+  </section>
+  <!-- Raised BUTTONS -->
+  <section id="buttons-raised" class="showcase showcase-content background-light">
+      <header class="l-center">
+        <h3 class="showcase-title">突起样式的按钮</h3>
+        <h4 class="showcase-sub-title">经典的按钮外观</h4>
+      </header>
+
+  <div class="showcase-examples l-center">
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-raised unibtn-primary unibtn-pill">Visit Us!</a>
+  <button class="unibtn unibtn-raised unibtn-action unibtn-circle unibtn-jumbo"><i class="fa fa-thumbs-up"></i></button>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-raised unibtn-caution"><i class="fa fa-camera"></i> Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-raised unibtn-royal">Say Hi!</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-raised unibtn-pill unibtn-inverse">Say Hi!</a>
+  </div>
+
+    </div>
+  </section>
+  <!-- LONG SHADOW -->
+  <section id="buttons-longshadow" class="showcase showcase-content background-light">
+    <h3 class="showcase-title l-center">长阴影</h3>
+    <h4 class="showcase-sub-title l-center">为按钮中的文字赋予扁平效果的阴影</h4>
+
+  <div class="showcase-examples l-center l-longshadows">
+  <button class="unibtn unibtn-primary unibtn-box unibtn-giant unibtn-longshadow-right">
+    <i class="fa fa-twitter"></i>
+  </button>
+
+  <button class="unibtn unibtn-caution unibtn-box unibtn-raised unibtn-giant unibtn-longshadow">
+    <i class="fa fa-google-plus"></i>
+  </button>
+
+  <button class="unibtn unibtn-action unibtn-box unibtn-giant unibtn-longshadow-left">
+    <i class="fa fa-share-alt"></i>
+  </button>
+
+  <button class="unibtn unibtn-highlight unibtn-box unibtn-giant unibtn-longshadow-right unibtn-longshadow-expand">
+    <i class="fa fa-rss"></i>
+  </button>
+
+  <button class="unibtn unibtn-primary unibtn-circle unibtn-giant unibtn-longshadow">
+    <i class="fa fa-gear"></i>
+  </button></div>
+
+  </section>
+  <!-- GLOWING BUTTONS -->
+  <section id="buttons-glow" class="showcase">
+    <div class="l-over showcase-content">
+      <header class="text-nuetral l-center">
+        <h3 class="showcase-title">光晕效果</h3>
+        <h4 class="showcase-sub-title">按钮周围有一圈光晕效果</h4>
+      </header>
+
+  <div class="showcase-examples l-over l-center">
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-glow unibtn-rounded unibtn-raised unibtn-primary">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-glow unibtn-border unibtn-rounded unibtn-primary">Go</a>
+  <button class="unibtn unibtn-glow unibtn-circle unibtn-action unibtn-jumbo"><i class="fa fa-thumbs-up"></i></button>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-glow unibtn-rounded unibtn-highlight">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-glow unibtn-rounded unibtn-caution">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-glow unibtn-rounded unibtn-royal">Go</a>
+  </div>
+
+    </div>
+
+  </section>
+
+  <!-- DROPDOWN BUTTONS -->
+  <section  id="buttons-dropdown" class="showcase  showcase-content background-light">
+    <header class="l-center">
+      <h3 class="showcase-title">带下拉菜单的按钮</h3>
+      <h4 class="showcase-sub-title">当按钮被点击时会出现一个下拉菜单</h4>
+    </header>
+
+
+  <div class="showcase-examples l-center">
+  <span class="unibtn-dropdown" data-buttons="dropdown">
+    <button class="unibtn unibtn-rounded">
+      Select Me <i class="fa fa-caret-down"></i>
+    </button>
+
+    <ul class="unibtn-dropdown-list">
+      <li><a href="http://www.bootcss.com/p/buttons/">Option Link 1</a></li>
+      <li><a href="http://www.bootcss.com/p/buttons/">Option Link 2</a></li>
+      <li class="unibtn-dropdown-divider">
+        <a href="#">Option Link 3</a>
+      </li>
+    </ul>
+  </span>
+
+  <span class="unibtn-dropdown unibtn-dropdown-primary" data-buttons="dropdown">
+    <button class="unibtn unibtn-primary unibtn-large">
+      <i class="fa fa-bars"></i> Select Me
+    </button>
+
+    <ul class="unibtn-dropdown-list is-below">
+      <li><a href="http://www.bootcss.com/p/buttons/"><i class="fa fa-heart-o"></i> Option Link 1</a></li>
+      <li><a href="http://www.bootcss.com/p/buttons/">Option Link 2</a></li>
+      <li class="unibtn-dropdown-divider">
+        <a href="#">Option Link 3</a>
+      </li>
+    </ul>
+  </span>
+
+
+  <span class="unibtn-dropdown unibtn-dropdown-action" data-buttons="dropdown">
+    <button class="unibtn unibtn-action">
+      Select Me <i class="fa fa-caret-up"></i>
+    </button>
+
+    <ul class="unibtn-dropdown-list is-above">
+      <li><a href="http://www.bootcss.com/p/buttons/">Option Link 1</a></li>
+      <li><a href="http://www.bootcss.com/p/buttons/">Option Link 2</a></li>
+      <li class="unibtn-dropdown-divider">
+        <a href="#">Option Link 3</a>
+      </li>
+    </ul>
+  </span>
+
+  <span class="unibtn-dropdown unibtn-dropdown-plain" data-buttons="dropdown">
+    <button class="unibtn unibtn-caution unibtn-pill">
+      Select Me <i class="fa fa-caret-down"></i>
+    </button>
+
+    <ul class="unibtn-dropdown-list">
+      <li><a href="http://www.bootcss.com/p/buttons/">Option Link 1</a></li>
+      <li class="unibtn-dropdown-divider">
+        <a href="http://www.bootcss.com/p/buttons/">Option Link 2</a>
+      </li>
+      <li>
+        <a href="#">Option Link 3</a>
+      </li>
+    </ul>
+  </span>
+
+  <span class="unibtn-dropdown unibtn-dropdown-inverse" data-buttons="dropdown">
+    <a href="#" class="unibtn unibtn-inverse">
+        <i class="fa fa-envelope"></i> Select Me <i class="fa fa-caret-down"></i>
+    </a>
+
+    <ul class="unibtn-dropdown-list is-below">
+      <li><a href="http://www.bootcss.com/p/buttons/">Option Link 1</a></li>
+      <li class="unibtn-dropdown-divider">
+        <a href="http://www.bootcss.com/p/buttons/">Option Link 2</a>
+      </li>
+      <li>
+        <a href="#">Option Link 3</a>
+      </li>
+    </ul>
+  </span></div>
+  </section>
+
+  <!-- GROUP BUTTONS -->
+  <section id="buttons-group" class="showcase showcase-content background-light">
+    <header class="l-center">
+      <h3 class="showcase-title">按钮组</h3>
+      <h4 class="showcase-sub-title">一组相关的按钮被并排排列</h4>
+    </header>
+
+  <div class="showcase-examples l-center">
+  <div class="unibtn-group">
+    <button type="button" class="unibtn unibtn-primary">Option 1</button>
+    <button type="button" class="unibtn unibtn-primary">Option 2</button>
+    <button type="button" class="unibtn unibtn-primary">Option 3</button>
+
+    <!-- DROPDOWN MENU -->
+    <span class="unibtn-dropdown unibtn-dropdown-primary" data-buttons="dropdown">
+      <a href="#" class="unibtn unibtn-primary"> Select Me <i class="fa fa-caret-down"></i></a>
+
+      <ul class="unibtn-dropdown-list is-below">
+        <li><a href="http://www.bootcss.com/p/buttons/">Option Link 1</a></li>
+        <li><a href="http://www.bootcss.com/p/buttons/">Option Link 2</a></li>
+        <li class="unibtn-dropdown-divider"><a href="#">Option Link 3</a></li>
+      </ul>
+    </span>
+  </div>
+
+  <div class="unibtn-group">
+    <button type="button" class="unibtn unibtn-pill unibtn-action">Option 1</button>
+    <button type="button" class="unibtn unibtn-pill unibtn-action">Option 2</button>
+    <button type="button" class="unibtn unibtn-pill unibtn-action">Option 3</button>
+  </div>
+
+  <div class="unibtn-group">
+    <button type="button" class="unibtn unibtn-royal unibtn-rounded unibtn-raised">Option 1</button>
+    <button type="button" class="unibtn unibtn-royal unibtn-rounded unibtn-raised">Option 2</button>
+    <button type="button" class="unibtn unibtn-royal unibtn-rounded unibtn-raised">Option 3</button>
+  </div></div>
+  </section>
+
+  <!-- BLOCK BUTTONS -->
+  <section id="buttons-block" class="showcase showcase-content background-light">
+    <header class="l-center">
+      <h3 class="showcase-title">堆叠按钮</h3>
+      <h4 class="showcase-sub-title">block 级别的按钮会占据最大宽度</h4>
+    </header>
+
+  <div class="showcase-examples l-center">
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-block unibtn-rounded unibtn-large">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-block unibtn-rounded unibtn-primary unibtn-large">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-block unibtn-rounded unibtn-action unibtn-large">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-block unibtn-rounded unibtn-highlight unibtn-large">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-block unibtn-rounded unibtn-caution unibtn-large">Go</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-block unibtn-rounded unibtn-royal unibtn-large">Go</a></div>
+  </section>
+  <!-- BUTTONS WRAPPERS-->
+  <section id="buttons-wrapper" class="showcase showcase-content background-light">
+    <header class="l-center">
+      <h3 class="showcase-title">额外的环绕效果</h3>
+      <h4 class="showcase-sub-title">为按钮周围增加额外视觉效果能够突出按钮</h4>
+    </header>
+
+  <div class="showcase-examples l-center">
+  <span class="unibtn-wrap">
+    <button class="unibtn unibtn-circle">
+      <i class="fa fa-cloud"></i>
+    </button>
+  </span>
+
+  <span class="unibtn-wrap">
+    <button class="unibtn unibtn-circle unibtn-raised unibtn-primary">
+      <i class="fa fa-cloud"></i>
+    </button>
+  </span>
+
+  <span class="unibtn-wrap">
+    <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-pill ">Go</a>
+  </span>
+  <span class="unibtn-wrap">
+    <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-pill unibtn-raised unibtn-primary">Go</a>
+  </span></div>
+
+  </section>
+  <!-- FORM BUTTONS -->
+  <section id="buttons-form" class="showcase  showcase-content background-light">
+    <header class="l-center">
+      <h3 class="showcase-title">表单按钮</h3>
+      <h4 class="showcase-sub-title">Buttons 作为表单元素也是非常棒的</h4>
+    </header>
+
+  <div class="showcase-examples l-center">
+  <input type="submit" value="Go" class="unibtn unibtn-pill unibtn-primary"/>
+  <button class="unibtn unibtn-pill unibtn-primary">Go</button>
+
+  <!-- DISABLED BUTTONS -->
+  <input  disabled type="submit"  value="Go" class="unibtn unibtn-pill unibtn-primary"/>
+  <button disabled class="unibtn  unibtn-pill unibtn-primary">Go</button>
+  <button disabled class="unibtn unibtn-pill unibtn-flat-primary">Go</button>
+  <a href="#" class="unibtn disabled unibtn-pill unibtn-primary ">Go</a></div>
+
+  </section>
+  <!-- BLOCK BUTTONS -->
+  <section id="buttons-type" class="showcase showcase-content background-light">
+    <header class="l-center">
+      <h3 class="showcase-title">各种文字样式</h3>
+      <h4 class="showcase-sub-title">按钮中的文本可以有多种样式</h4>
+    </header>
+
+  <div class="showcase-examples l-center">
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-uppercase unibtn-primary">uppercase</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-lowercase unibtn-primary ">lowercase</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-capitalize unibtn-primary">capitalize</a>
+  <a href="http://www.bootcss.com/p/buttons/" class="unibtn unibtn-small-caps unibtn-primary">small caps</a></div>
+  </section>
+
+
+  <!-- INSTRUCTIONS -->
+  <!-- ACCESSIBILITY NOTES -->
+  <div class="background-inverse">
+    <div class="background-arrow-top-right l-padding-top-100">
+      <section id="buttons-accessibility" class="docs">
+        <header >
+          <h3 class="docs-title"><i class="fa fa-wheelchair"></i> 语义与可访问性</h3>
+        </header>
+
+        <div class="docs-content">
+          <p>
+            使用 Buttons 时应当考虑可访问性。如果是链接到外部资源或内部页面的链接应当使用 <strong>链接</strong> 标签。如果是应用程序中的功能按钮，例如：<strong>添加到购物车</strong>，应当使用  <strong>button</strong> 标签。如果实在表单中使用，应当使用  <strong>input</strong> 标签（例如提交按钮）。如果你想深入了解这方面的知识，请参考下面列出的链接：</p>
+
+          <ul class="docs-list">
+            <li>
+              <a href="http://formidablelabs.com/blog/2014/05/08/anchors-buttons-and-accessibility/">Anchors, Buttons, and Accessibility</a> by Formidable Labs.
+            </li>
+
+            <li>
+              <a href="http://www.nngroup.com/articles/command-links/">Commands Links</a> article by the Nielsen Norman Group.</a>
+            </li>
+
+            <li>
+              <a href="http://www.karlgroves.com/2013/05/14/links-are-not-buttons-neither-are-divs-and-spans/">Links Are Not Buttons</a> by Karl Groves.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+  <!-- FORM BUTTONS -->
+  <section id="buttons-setup" class="docs background-inverse">
+    <header>
+      <h3 class="docs-title"><i class="fa fa-code"></i> 安装与设置</h3>
+    </header>
+
+    <div class="docs-content">
+      <ol class="docs-list">
+          <li>
+              <a class="unibtn unibtn-rounded unibtn-plain unibtn-small-caps unibtn-border" href="css/buttons.css"><i class="fa fa-download"></i> 下载</a>
+          </li>
+          <li> 将 Buttons 库载入页面
+            <div class="codebox docs-setup-guide l-margin-top-0">
+              <header>
+                <h3>Buttons Setup</h3>
+                <button class="codebox-copy">复制</button>
+              </header>
+
+  <!-- USED FOR COPY AND PASTE SCRIPT -->
+  <div class="is-hidden docs-setup-code">
+  <!-- Buttons 库的核心文件 -->
+  <!-- <link rel="stylesheet" href="css/buttons.css"> -->
+
+  <!-- 当需要使用带下拉菜单的按钮时才需要加载下面的 JavaScript 文件 -->
+    <script src="../jquery/jquery.min.js"></script>
+
+  <script type="text/javascript" src="dist/buttons.js"></script>
+
+  </div>
+
+
+  <pre tabindex="0" class="prettyprint linenums codebox-body">
+  &lt;!-- Buttons 库的核心文件 --&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/buttons.css&quot;&gt;
+
+  &lt;!-- 当需要使用带下拉菜单的按钮时才需要加载下面的 JavaScript 文件 --&gt;
+  &lt;script src=&quot;http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;js/buttons.js&quot;&gt;&lt;/script&gt;
+
+  &lt;!-- 只有使用字体图标时才需要加载 Font-Awesome --&gt;
+  &lt;link href=&quot;http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css&quot; rel=&quot;stylesheet&quot;&gt;</pre>
+            </div>
+          </li>
+      </ol>
+  </section>
+
+  <!-- FORM BUTTONS -->
+  <section id="buttons-setup" class="docs background-inverse">
+    <header>
+      <h3 class="docs-title"><i class="fa fa-wrench"></i> 从 1.0 升级到 2.0 版本</h3>
+    </header>
+
+    <p>我们队 Buttons 库进行了很多重要升级。为了帮你将 Buttons 库集成到你的项目中，你需要进行如下修改：</p>
+
+    <div class="docs-content">
+      <ol class="docs-list">
+          <li>Compass 被替换为 [autoprefixer](https://github.com/postcss/autoprefixer)。 Compass 不再被推荐，但是仍然是被支持的。</li>
+          <li>按钮的颜色被完全独立出来（例如，button-primary），我们不再支持 <code>button-flat-primary</code> 类似的 class 了，现在只需要使用 <code>button-flat button-primary</code> 就可以了。</li>
+          <li>按钮的样式也是独立的（例如，button-flat、button-3d 等）。你可以将这些样式应用到按钮上，同时，为按钮设置的颜色也能同时起作用（例如，button-primary button-3d）。</li>
+      </ol>
+  </section>
+  <!-- FORM BUTTONS -->
+  <section id="buttons-setup" class="docs background-inverse">
+    <header>
+      <h3 class="docs-title"><i class="fa fa-github"></i> 定制 Buttons</h3>
+    </header>
+
+    <div class="docs-content">
+      <ol class="docs-list">
+          <li>
+              <a class="unibtn unibtn-rounded unibtn-plain unibtn-small-caps unibtn-border" href="https://github.com/alexwolfe/Buttons/raw/gh-pages/Buttons.zip"><i class="fa fa-github"></i> 克隆本项目源码</a>
+          </li>
+          <li>确保正确安装了 <a href="http://nodejs.org/">Node.js</a>。</li>
+          <li>打开命令行，进入 Buttons 的根目录</li>
+          <li>运行 <code>npm install</code> 或 <code>sudo npm install</code> （根据你的系统权限来确定是否添加 sudo）。</li>
+          <li>在命令行中执行 <code>grunt dev</code>，将会打开一个浏览器窗口并且会打开 Buttons 文档页面</li>
+          <li>找到 <strong>scss</strong> 目录</li>
+          <li>通过修改 _options.scss 文件定义你自己的颜色、字体等</li>
+          <li>每当你保存修改后，前面打开的页面就会自动加载并展示出你修改后的效果！</li>
+      </ol>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="l-center background-inverse l-padding-bottom-100 l-padding-top-60">
+    <p> copyright &copy; 2013 Alex Wolfe &amp; Rob Levin.</p>
+  </footer>
+
+
+  <!-- JS TEMPLATING FILES -->
+  <!-- JAVASCRIPT TEMPLATING -->
+  <script id="template-codebox" type="text/x-handlebars-template">
+    <div  class="codebox">
+      <header class="clearfix">
+        <h3>{{title}}</h3>
+        <button class="codebox-copy" data-clipboard-target="{{id}}"><i class="fa fa-cut"></i> 复制</button>
+      </header>
+
+      <pre class="prettyprint codebox-body linenums" id="{{id}}">{{{code}}}</pre>
+    </div>
+  </script>
+
+
+  <!-- JAVASCRIPT INCLUDES -->
+  <script src="dist/prettify.min.js"></script>
+  <script type="text/javascript" src="dist/scrollMonitor.js"></script>
+  <script type="text/javascript" src="dist/ZeroClipboard.js"></script>
+  <script type="text/javascript" src="dist/polyfill.js"></script>
+  <script type="text/javascript" src="dist/smooth-scroll.js"></script>
+  <script type="text/javascript" src="dist/handlebars.js"></script>
+  <script type="text/javascript" src="dist/showcase.js"></script>
+  <script type="text/javascript" src="dist/buttons.js"></script>
+  <script src="/p/projects.js"></script>
+
+</body>
+</html>

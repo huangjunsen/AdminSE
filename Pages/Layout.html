@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminSE</title>
+    <!-- 站点定义 -->
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <style type="text/css">body{font-family:"Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;}</style>
+    <!-- 浏览器版本检测 -->
+    <script type="text/javascript">
+    var browser=navigator.appName;
+    var b_version=navigator.appVersion;
+    var version=parseFloat(b_version);
+    if ((browser=="Microsoft Internet Explorer") && (version<5))
+        location.href = 'BrownerToUpdate.html';
+    </script>
+
+    <!-- 第三方css -->
+    <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/highlight/styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- 页面专属css -->
+    <style>
+    .responsive-utilities,.bs-docs-grid{background-color: #fff!important;}
+    .responsive-utilities td.is-visible{color: #468847;background-color: #dff0d8!important;}
+    .responsive-utilities td.is-hidden{color: #ccc;background-color: #f9f9f9!important;}
+    .bs-docs-grid .show-grid{margin-bottom: 15px;}
+    .bs-docs-grid .show-grid [class^=col-]{padding-top: 10px;padding-bottom: 10px;
+      background-color: rgba(86,61,124,.15);border: 1px solid rgba(86,61,124,.2);}
+    </style>
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="overlay" style="display:none;">
+      <div class="loading">
+        <div class="loading-center">
+          <div class="loading-center-absolute">
+            <div class="object object_four"></div>
+            <div class="object object_three"></div>
+            <div class="object object_two"></div>
+            <div class="object object_one"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-mini" title="AdminSE"><b>AdminSE</b></span>
+          <span class="logo-lg"><b>Admin</b>SE</span>
+        </a>
+        <!-- 导航头部 -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- 左侧边栏触发按钮-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="收缩/展开">
+            <span class="sr-only">收缩/展开导航</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- 用户帐户栏 -->
+              <li class="dropdown user user-menu">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="static/dist/img/DefaultHead.png" class="user-image" alt="头像"/>
+                  <span class="hidden-xs">用户名</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- 用户简介 -->
+                  <li class="user-header">
+                    <a href="#" style="background-color: transparent" title="更换头像">
+                      <img src="static/dist/img/DefaultHead.png" class="img-circle" alt="User Image" />
+                    </a>
+                    <p>
+                      自定义用户信息
+                      <small>备注等内容</small>
+                    </p>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-primary">编辑</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-primary">注销</a>
+                    </div>
+                  </li>
+                </ul>
+              </li> <!-- end 用户帐户栏 -->
+              <!-- 右侧边栏触发按钮 -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li> <!-- end 右侧边栏触发按钮 -->
+            </ul>
+          </div>
+        </nav> <!-- end 导航头部 -->
+      </header>
+
+      <!-- 左侧菜单栏 -->
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- 搜索栏 -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group" title="功能未开放">
+              <input type="text" name="q" class="form-control" placeholder="请输入搜索内容"/>
+              <span class="input-group-btn">
+                <button type='button' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form><!-- end 搜索栏 -->
+
+          <!-- 菜单栏主体 -->
+          <ul class="sidebar-menu"></ul>
+
+        </section>
+      </aside> <!-- end 左侧菜单栏 -->
+
+      <!-- 页面主体内容 -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            布局
+          </h1>
+        </section>
+
+        <!-- content -->
+        <section class="content" id="DashBoardCharts">
+          <div class="row">
+            <section class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">Bootstrap 栅格及排版</h3>
+                </div>
+                <div class="box-body bg-gray">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <h3>一、栅格系统</h3>
+                      栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中，如此做的话，页面内容能根据浏览器的大小进行不同的布局变化，达到响应式的效果。<br />
+                      简单来说：<br />
+                      1. .row 样式（下称row）创建一个行容器， .col-*-N 样式（下称col）创建一个列容器。<br />
+                      2. row层级并无实际内容，所有内容均应包含在col中。<br />
+                      3. col中的N从1~12变化，表示将row 进行了12等分，可以跨越多个列指定列宽度。<br />
+                      4. col中的*可以是xs/sm/md/lg这4个选项，对应的<span class="text-red">浏览器</span>尺寸为：<br />
+                      <ul>
+                        <li>xs: 超小屏幕 手机 (&lt;768px)</li>
+                        <li>sm: 小屏幕 平板 (≥768px)</li>
+                        <li>md: 中等屏幕 桌面显示器 (≥992px)</li>
+                        <li>lg: 大屏幕 大桌面显示器 (≥1200px)</li>
+                      </ul>
+                      5. 可以使用 .col-*-offset-N 来产生偏移量，达到布局效果。<br />
+                      6. 通过 .col-*-push-N （后移） 和 .col-*-pull-N （前推） 可以进行排序操作。<br />
+                      7. col示例（使用md作为示范，同时，请注意左右两侧均存在负偏移量）：
+                      <div class="bs-docs-grid">
+                        <div class="row show-grid">
+                          <div class="col-md-1">.col-md-1</div>
+                          <div class="col-md-1">.col-md-1</div>
+                          <div class="col-md-1">.col-md-1</div>
+                          <div class="col-md-1">.col-md-1</div>
+                          <div class="col-md-1">.col-md-1</div>
+                          <div class="col-md-1">.col-md-1</div>
+                          <div class="col-md-1">.col-md-1</div>
+                          <div class="col-md-1">.col-md-1</div>
+                          <div class="col-md-1">.col-md-1</div>
+                          <div class="col-md-1">.col-md-1</div>
+                          <div class="col-md-1">.col-md-1</div>
+                          <div class="col-md-1">.col-md-1</div>
+                        </div>
+                        <div class="row show-grid">
+                          <div class="col-md-8">.col-md-8</div>
+                          <div class="col-md-4">.col-md-4</div>
+                        </div>
+                        <div class="row show-grid">
+                          <div class="col-md-4">.col-md-4</div>
+                          <div class="col-md-4">.col-md-4</div>
+                          <div class="col-md-4">.col-md-4</div>
+                        </div>
+                        <div class="row show-grid">
+                          <div class="col-md-6">.col-md-6</div>
+                          <div class="col-md-6">.col-md-6</div>
+                        </div>
+                      </div>
+                      更多内容查看：<a href="http://v3.bootcss.com/css/#grid">Bootstrap 栅格系统</a><br />
+                      <p>&nbsp;</p>
+                      <h3>二、排版系统</h3>
+                      1. 标题：<br />
+                      提供h1~h6的标题大小样式，同时标题内，可以含有small标签标记副标题。<br />
+                      2. 页面主体：<br />
+                      Bootstrap 将全局 font-size 设置为 14px，line-height 设置为 1.428。这些属性直接赋予 &lt;body&gt; 元素和所有段落元素。另外，&lt;p&gt; （段落）元素还被设置了等于 1/2 行高（即 10px）的底部外边距（margin）。<br />
+                      <h3>三、响应式布局</h3>
+                      .visible-*-N 和 .hidden-* 将可以按照不同浏览器尺寸进行展示，可以有效进行Dom元素显示和隐藏的控制。<br />
+                      <div class="table-responsive">
+                        <table class="table table-bordered responsive-utilities">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>
+                                超小屏幕
+                                <small>手机 (&lt;768px)</small>
+                              </th>
+                              <th>
+                                小屏幕
+                                <small>平板 (≥768px)</small>
+                              </th>
+                              <th>
+                                中等屏幕
+                                <small>桌面 (≥992px)</small>
+                              </th>
+                              <th>
+                                大屏幕
+                                <small>桌面 (≥1200px)</small>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row"><code>.visible-xs-N</code></th>
+                              <td class="is-visible">可见</td>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-hidden">隐藏</td>
+                            </tr>
+                            <tr>
+                              <th scope="row"><code>.visible-sm-N</code></th>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-visible">可见</td>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-hidden">隐藏</td>
+                            </tr>
+                            <tr>
+                              <th scope="row"><code>.visible-md-N</code></th>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-visible">可见</td>
+                              <td class="is-hidden">隐藏</td>
+                            </tr>
+                            <tr>
+                              <th scope="row"><code>.visible-lg-N</code></th>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-visible">可见</td>
+                            </tr>
+                          </tbody>
+                          <tbody>
+                            <tr>
+                              <th scope="row"><code>.hidden-xs</code></th>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-visible">可见</td>
+                              <td class="is-visible">可见</td>
+                              <td class="is-visible">可见</td>
+                            </tr>
+                            <tr>
+                              <th scope="row"><code>.hidden-sm</code></th>
+                              <td class="is-visible">可见</td>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-visible">可见</td>
+                              <td class="is-visible">可见</td>
+                            </tr>
+                            <tr>
+                              <th scope="row"><code>.hidden-md</code></th>
+                              <td class="is-visible">可见</td>
+                              <td class="is-visible">可见</td>
+                              <td class="is-hidden">隐藏</td>
+                              <td class="is-visible">可见</td>
+                            </tr>
+                            <tr>
+                              <th scope="row"><code>.hidden-lg</code></th>
+                              <td class="is-visible">可见</td>
+                              <td class="is-visible">可见</td>
+                              <td class="is-visible">可见</td>
+                              <td class="is-hidden">隐藏</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="box">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">AdminLTE 布局</h3>
+                </div>
+                <div class="box-body bg-gray">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <h3>一、导航栏固定</h3>
+                      为 body 标签添加 fixed 样式即可。同时注意，需要调用方法：
+                      <pre><code class="JavaScript">AdminLTE.layout.fixSidebar();</code></pre>
+                      <p>&nbsp;</p>
+                      <h3>二、左侧边栏收缩</h3>
+                      为 body 标签添加 sidebar-collapse 样式即可。<br />
+                      实际上除了能为主体内容腾出空间，这个方法并不好用，有bug存在，建议搭配 左侧边栏鼠标悬停选项 使用。<br />
+                      <p>&nbsp;</p>
+                      <h3>三、左侧边栏鼠标悬停选项</h3>
+                      开，则调用<pre><code class="JavaScript">AdminLTE.pushMenu.expandOnHover();</code></pre>
+                      关，则调用<pre><code class="JavaScript">AdminLTE.pushMenu.expandOffHover();</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+        </section><!-- end content -->
+      </div>
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> <span>1.0</span>
+        </div>
+        <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+      </footer>
+      
+      <!-- 右侧配置栏 -->      
+      <aside class="control-sidebar control-sidebar-dark">                
+        <!-- 组合表 -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <!-- 默认包含一个control-sidebar-theme-setting-tab，通过theme_setting.js控制 -->
+          <!-- 另外，control-sidebar-home-tab是必须存在的，因为是默认表的依赖 -->
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        </ul>
+        <!-- 表内容 -->
+        <div class="tab-content">
+          <!-- 第一个表主体 -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">附加信息</h3>
+            <ul class='control-sidebar-menu'>
+              <li>
+                <p style="margin: 10px;">
+                  <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+
+                </p>
+              </li>
+            </ul>
+          </div><!-- end 第一个表主体 -->
+        </div>
+      </aside><!-- end 右侧配置栏 -->
+      <div class='control-sidebar-bg'></div>
+    </div><!-- ./wrapper -->
+
+    <div class="modal fade modal-danger" id="ErrorModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">错误</h4>
+          </div>
+          <div class="modal-body" id="ErrorModalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="location.reload()">刷新页面</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 开始加载js脚本 -->
+    <script src="static/plugins/jquery/jquery.min.js"></script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src='static/plugins/fastclick/fastclick.min.js'></script>
+    <script src='static/plugins/iCheck/icheck.min.js'></script>
+    <script src="static/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+    <script src="static/plugins/highlight/highlight.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/base.js" type="text/javascript"></script>
+    <script src="static/dist/js/mainmenu.js" type="text/javascript"></script>
+
+    <!-- 页面专属js -->
+    <script src="static/dist/js/pages/Layout.js" type="text/javascript"></script>
+
+    <!-- 基础功能及皮肤js，由于依赖的关系，需要页面完全生成完毕才能加载，故放在最后 -->
+    <script src="static/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/theme_setting.min.js" type="text/javascript"></script>
+  </body>
+</html>

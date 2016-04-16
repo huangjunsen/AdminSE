@@ -1,0 +1,2613 @@
+/*!-----------------------------------------------------------------------
+LAYOUT - styles compressed
+
+Version:    1.0.0 - 2014
+author:     Burocratik
+email:      hello@burocratik.com
+website:    http://www.burocratik.com
+* @preserve
+-----------------------------------------------------------------------*/
+/*--------------------------------------------------------------------
+RESET STYLES - (IE6+ FF1.5+ Opera9+)
+
+Version:    2.0 - 2007
+author:     Alexandre R. Gomes, from a idea of Eric Meyer & others
+email:      alex@burocratik.com
+website:    http://www.burocratik.com
+-----------------------------------------------------------------------*/
+/* =RESET ORGINAL v2.0 | 20110126
+http://meyerweb.com/eric/tools/css/reset/
+------------------------------------------------------------------------*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+textarea {
+  overflow: auto;
+}
+/* =RESET ALEXANDRE (alex@burocratik.com)
+------------------------------------------------------------------------*/
+abbr,
+span.abbr {
+  border-bottom: none;
+}
+.clear {
+  clear: both;
+  height: 0;
+}
+.hide {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  overflow: hidden;
+}
+.hidetext {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/*-------------------------------------------------------------------------------------------
+ =OUTDATED INDEX PAGE CSS
+--------------------------------------------------------------------------------------------*/
+body {
+  font-size: 15px;
+  line-height: 16px;
+  font-family: 'microsoft yahei',Arial,sans-serif;
+  _font-family: sans-serif !important;
+  /*IE6*/
+  font-weight: 500;
+  font-style: normal;
+  color: #222;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -moz-font-feature-settings: "calt=1, liga=1, clig=1, kern=1";
+  -moz-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1;
+  -ms-font-feature-settings: "calt", "liga", "clig", "kern";
+  -o-font-feature-settings: "calt", "liga", "clig", "kern";
+  -webkit-font-feature-settings: "calt", "liga", "clig", "kern";
+  font-feature-settings: "calt", "liga", "clig", "kern";
+}
+html:lang(cn) body {
+  font-family: "Microsoft Yahei UI", "Microsoft Yahei", "Gotham SSm A", "Gotham SSm B", Helvetica, Arial, sans-serif;
+}
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+#preloadedImages {
+  display: inline;
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+  left: -9999px;
+  top: -9999px;
+  background-image: url('../../static/update/shadow.png');
+}
+#preload {
+  display: inline;
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+  left: -9999px;
+  top: -9999px;
+  /*background-image: url('../../static/update/shadow.png');*/
+}
+h3 {
+  display: block;
+  position: relative;
+  float: left;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFF;
+}
+h4 {
+  display: block;
+  position: relative;
+  float: left;
+  font-size: 13px;
+  line-height: 14px;
+  font-weight: 400;
+}
+html:lang(cn) h3 {
+  font-size: 14px;
+}
+html:lang(cn) h4 {
+  font-size: 12px;
+}
+/*-------------------------------------------------------------------------
+=HEADER
+-------------------------------------------------------------------------*/
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1500;
+  color: #FFF;
+}
+.home header {
+  background: rgba(255, 255, 255, 0.1);
+}
+.menu {
+  cursor: pointer;
+}
+.menu a {
+  position: absolute;
+  left: 30px;
+  top: 25px;
+  width: 28px;
+  height: 19px;
+  overflow: hidden;
+  z-index: 200;
+  text-indent: -5555px;
+}
+.btnCloseNav .l1 {
+  margin-top: -8px;
+}
+.btnCloseNav .l3 {
+  margin-top: 8px;
+}
+.btnCloseNav span {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 28px;
+  height: 3px;
+  background: #FFF;
+  border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-transition: margin 0.13s ease-out 0.23s, opacity 0.13s ease-out 0.23s, -webkit-transform 0.13s ease-out;
+  -moz-transition: margin 0.13s ease-out 0.23s, opacity 0.13s ease-out 0.23s, -moz-transform 0.13s ease-out;
+  -ms-transition: margin 0.13s ease-out 0.23s, opacity 0.13s ease-out 0.23s, -ms-transform 0.13s ease-out;
+  transition: margin 0.13s ease-out 0.23s, opacity 0.13s ease-out 0.23s, transform 0.13s ease-out;
+}
+.title {
+  text-transform: uppercase;
+}
+.title a {
+  color: #fff;
+}
+.title a:hover {
+  text-decoration: none;
+}
+.title h1 {
+  margin: 28px auto 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+}
+.title p {
+  font-size: 14px;
+  margin: 15px;
+  text-align: center;
+  font-weight: 400;
+}
+.title h3 {
+  margin: 29px 0 0 110px;
+  font-weight: 800;
+}
+html:lang(cn) .title p {
+  font-size: 14px;
+}
+/*-------------------------------------------------------------------------
+=BROWSERS VERSIONS - OLD/NEW
+-------------------------------------------------------------------------*/
+.browserVersion {
+  display: none;
+}
+.newBrowser {
+  display: block;
+}
+/*-------------------------------------------------------------------------
+=BROWSERS SECTION
+-------------------------------------------------------------------------*/
+#container {
+  display: none;
+}
+/*.unsorted{display: block; position: absolute; left: -5555px; top: -5555px;}*/
+.c_browsers {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 1;
+  -webkit-transition: opacity 0.17s ease-in-out;
+  -moz-transition: opacity 0.17s ease-in-out;
+  -o-transition: opacity 0.17s ease-in-out;
+  transition: opacity 0.17s ease-in-out;
+}
+/* browsert */
+.browser {
+  position: relative;
+  float: left;
+  width: 20%;
+  height: 100%;
+  color: #FFF;
+  /*opacity: 0;*/
+  -webkit-transition: background 0.17s ease-in-out;
+  -moz-transition: background 0.17s ease-in-out;
+  -o-transition: background 0.17s ease-in-out;
+  transition: background 0.17s ease-in-out;
+}
+.browser h2 {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 200px;
+  height: auto;
+  margin-left: -100px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+.browser h2 span {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 35px;
+  background: transparent url(../../static/update/browsers-bg.png) no-repeat;
+  background-size: auto 200px;
+}
+.browser h4 {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.browser .statistic,
+.browser .download {
+  display: block;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+.allowHover .browser:hover .statistic,
+.allowHover .browser:hover .download {
+  opacity: 1;
+}
+.allowHover .browser .download a {
+  left: -5555px;
+}
+.allowHover .browser:hover .download a {
+  left: 0;
+}
+.browser .center {
+  display: block;
+  position: absolute;
+  top: 35%;
+  left: 0px;
+  width: 100%;
+  height: 40%;
+}
+/* Statistic */
+.browser .statistic {
+  position: absolute;
+  top: 15%;
+  width: 260px;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: -130px;
+  left: 50%;
+}
+.browser .statistic span {
+  display: block;
+  font-size: 58px;
+  margin: 0;
+  line-height: 58px;
+  font-weight: 700;
+}
+/* Download */
+.browser .download {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 260px;
+  text-align: center;
+  margin-left: -130px;
+}
+.browser .download a {
+  display: block;
+  position: relative;
+  margin: 0 auto 15px;
+  width: 210px;
+  text-decoration: none;
+  padding: 20px 0 16px;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 15px;
+  text-align: center;
+  color: #FFF;
+  border-radius: 30px;
+  border: 3px solid #FFF;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+.browser .download a:hover {
+  background-color: #ffffff;
+}
+#chrome .download a:hover {
+  color: #f2b635;
+}
+#internetExplorer .download a:hover {
+  color: #00caff;
+}
+#firefox .download a:hover {
+  color: #f19a2a;
+}
+#safari .download a:hover {
+  color: #00a0e6;
+}
+#opera .download a:hover {
+  color: #f25648;
+}
+/* Available */
+.available {
+  position: absolute;
+  left: 50%;
+  top: 90%;
+  width: 200px;
+  text-align: center;
+  margin-left: -100px;
+}
+.available ul {
+  width: 100%;
+  height: 25px;
+  text-align: center;
+  margin-top: 15px;
+}
+.available ul li {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin: 0 5px;
+  text-indent: -5555px;
+  text-align: left;
+  background: transparent url(../../static/update/operatingsystems-bg.png) no-repeat;
+  background-size: auto 25px;
+}
+.available ul li.windows {
+  background-position: 0 0;
+}
+.available ul li.mac {
+  background-position: -25px 0;
+}
+.available ul li.linux {
+  background-position: -50px 0;
+}
+.available ul li span {
+  display: none;
+}
+/* Browser - Backgrounds */
+#chrome {
+  background-color: #f2b635;
+}
+#chrome h2 span {
+  background-position: 0 0;
+}
+.allowHover #chrome:hover h2 span {
+  background-position: 0 -100px;
+}
+#firefox {
+  background-color: #f19a2a;
+}
+#firefox h2 span {
+  background-position: -100px 0;
+}
+.allowHover #firefox:hover h2 span {
+  background-position: -100px -100px;
+}
+#internetExplorer {
+  background-color: #00caff;
+}
+#internetExplorer h2 span {
+  background-position: -200px 0;
+}
+.allowHover #internetExplorer:hover h2 span {
+  background-position: -200px -100px;
+}
+#safari {
+  background-color: #00a0e6;
+}
+#safari h2 span {
+  background-position: -300px 0;
+}
+.allowHover #safari:hover h2 span {
+  background-position: -300px -100px;
+}
+#opera {
+  background-color: #f25648;
+}
+#opera h2 span {
+  background-position: -400px 0;
+}
+.allowHover #opera:hover h2 span {
+  background-position: -400px -100px;
+}
+.c_browsers > div:first-child {
+  z-index: 50;
+}
+.c_browsers > div:first-child + div {
+  z-index: 40;
+}
+.c_browsers > div:first-child + div + div {
+  z-index: 30;
+}
+.c_browsers > div:first-child + div + div + div {
+  z-index: 20;
+}
+.c_browsers > div:first-child + div + div + div + div {
+  z-index: 10;
+}
+.c_browsers.hideBrowsers {
+  opacity: 0;
+}
+.c_browsers .browser.firstAnim {
+  width: 20%!important;
+  position: absolute;
+  opacity: 1;
+  -webkit-transition: width 1.1s cubic-bezier(0.57, 0.01, 0.13, 1.03);
+  -moz-transition: width 1.1s cubic-bezier(0.57, 0.01, 0.13, 1.03);
+  -o-transition: width 1.1s cubic-bezier(0.57, 0.01, 0.13, 1.03);
+  transition: width 1.1s cubic-bezier(0.57, 0.01, 0.13, 1.03);
+}
+.c_browsers > div:first-child.firstAnim {
+  left: 0;
+}
+.c_browsers > div:first-child + div.firstAnim {
+  left: 20%;
+}
+.c_browsers > div:first-child + div + div.firstAnim {
+  left: 40%;
+}
+.c_browsers > div:first-child + div + div + div.firstAnim {
+  left: 60%;
+}
+.c_browsers > div:first-child + div + div + div + div.firstAnim {
+  left: 80%;
+}
+.allowHover .browser:before {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  opacity: 0;
+  background: url('../../static/update/shadow.png') no-repeat center 35%;
+  -webkit-transition: opacity 0.3s linear;
+  -moz-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+}
+.allowHover .browser:hover:before {
+  opacity: 1;
+}
+/* KWICKS */
+.kwicks {
+  display: block;
+  list-style-type: none;
+  list-style: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.kwicks > * {
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+.kwicks.kwicks-processed > * {
+  margin: 0;
+  position: absolute;
+}
+.kwicks-horizontal > * {
+  float: left;
+}
+.kwicks-horizontal > :first-child {
+  margin-left: 0;
+}
+.kwicks-vertical > :first-child {
+  margin-top: 0;
+}
+/*-------------------------------------------------------------------------
+=MAIN MENU & ITS ANIMATION
+-------------------------------------------------------------------------*/
+*,
+*:after,
+*::before {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body,
+.container,
+.pusher,
+#content {
+  height: 100%;
+}
+#content {
+  overflow-y: hidden;
+}
+#content.home {
+  background: #f2b635;
+}
+#content,
+.inner {
+  position: relative;
+  height: 100%;
+}
+.container {
+  position: relative;
+  overflow: hidden;
+}
+.pusher {
+  position: relative;
+  left: 0;
+  height: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  -ms-transition: -ms-transform 0.3s;
+  transition: transform 0.3s;
+}
+/*.pusher:after {
+    display: none; position: relative; top: 0; right: 0; width: 100%; height: 100%;
+    z-index: 1050; content: '';
+}*/
+.pusher:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  /*background: red;*/
+  opacity: .5;
+  content: '';
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* Ajax*/
+.pusher {
+  position: relative;
+  left: 0;
+  height: 100%;
+  overflow: visible;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  perspective: 1200px;
+}
+.loadContent {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  perspective: 1200px;
+}
+/* anim exit scaleup */
+.current {
+  z-index: 100;
+}
+.next {
+  z-index: 99;
+}
+.page-hide {
+  left: 100%;
+  /*-webkit-transition: all 1.1s cubic-bezier(.57,.01,.13,1.03); -moz-transition: all 1.1s cubic-bezier(.57,.01,.13,1.03); -o-transition: all 1.1s cubic-bezier(.57,.01,.13,1.03); transition: all 1.1s cubic-bezier(.57,.01,.13,1.03); left: -130%;*/
+}
+.page-show {
+  left: 0;
+}
+/*.menu_open .pusher:after {display: block;}*/
+.menu_open .pusher:after {
+  visibility: visible;
+}
+.nav_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: #F2B635;
+}
+.nav_wrapper span {
+  position: fixed;
+  float: left;
+  width: 100%;
+  top: 0;
+  height: 75px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.main_menu .close:hover {
+  background-image: url("../../static/update/close.png");
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+.main_menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  visibility: hidden;
+  width: 300px;
+  height: 100%;
+  overflow: hidden;
+  background: #F2B635;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.main_menu:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  content: '';
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.menu_open .main_menu:after {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+  -moz-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+  -o-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+  transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+}
+/* Main menu */
+.main_menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding-top: 70px;
+}
+.main_menu ul li {
+  display: table;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  height: 18.2%;
+  background-color: #6F6F6F;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+.menu_open .main_menu ul li {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.main_menu ul li:nth-child(2) {
+  background: #6F6F6F;
+}
+.main_menu ul li:nth-child(3) {
+  background: #646464;
+}
+.main_menu ul li:nth-child(4) {
+  background: #5E5E5E;
+}
+.main_menu ul li:nth-child(5) {
+  background: #595959;
+}
+.main_menu ul li:nth-child(6) {
+  background: #545454;
+}
+.main_menu ul li:nth-child(7) {
+  background: #4f4f4f;
+  height: 10%;
+}
+.main_menu ul li a {
+  outline: none;
+  color: #FFF;
+  text-decoration: none;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  display: table-cell;
+  vertical-align: middle;
+  -webkit-transition: background 0.3s, box-shadow 0.3s;
+  -moz-transition: background 0.3s, box-shadow 0.3s;
+  -o-transition: background 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+html:lang(cn) .main_menu ul li a {
+  font-size: 15px;
+}
+.main_menu ul li a span em {
+  font-size: 10px;
+}
+.main_menu ul li a.active {
+  pointer-events: none;
+}
+.menu_open .main_menu ul li a {
+  opacity: 1;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.main_menu ul li a:hover {
+  background: #DC4A3E;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  -webkit-box-shadow: inset 0 -1px rgba(0, 0, 0, 0);
+  -moz-box-shadow: inset 0 -1px rgba(0, 0, 0, 0);
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0);
+}
+.main_menu ul li.about_link a:hover,
+.main_menu ul li.how_link a:hover,
+.main_menu ul li.hone_link a:hover {
+  background: transparent;
+}
+.main_menu ul li a[rel="external"] {
+  padding-left: 11px;
+}
+.main_menu ul li a[rel="external"] span {
+  padding-right: 11px;
+  background: none;
+}
+.main_menu ul li a[rel="external"]:hover span {
+  background: transparent url(../../static/update/icon-link-external.png) no-repeat top right;
+  background-size: 10px 9px;
+}
+.main_menu .lang-picker {
+  height: 70px;
+  background: #4F4F4F;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.main_menu .lang-picker > a:hover {
+  background: #4A4A4A;
+}
+.main_menu .lang-open > a,
+.main_menu .lang-open > a:hover {
+  background: transparent;
+}
+.main_menu .lang-picker a .lang-arrow {
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  width: 10px;
+  height: 6px;
+  margin: 0 -20px 0 10px;
+  background: transparent url(../../static/update/icon-lang-arrow.png) no-repeat center;
+  background-size: 100%;
+}
+.main_menu .lang-picker ul {
+  top: -670px;
+  left: 0;
+  width: 335px;
+  overflow-x: hidden;
+  z-index: -1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.main_menu .lang-picker ul li {
+  height: 100%;
+  background-color: #EE4F44;
+  height: 70px;
+  width: 300px;
+}
+.main_menu .lang-picker ul li:last-child {
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.15);
+}
+.main_menu .lang-picker.lang-openColor > a {
+  position: relative;
+  background-color: #EE4F44;
+  z-index: 120;
+}
+.main_menu .lang-picker > a,
+.main_menu .lang-picker li a {
+  width: 100%;
+}
+.main_menu .lang-picker:hover {
+  display: table;
+}
+.main_menu .lang-picker li a:hover {
+  background: #DC4A3E;
+}
+.menu_open .lang-picker.lang-openColor {
+  background-color: #EE4F44;
+}
+.menu_open .lang-picker.scrolling:after {
+  content: ' ';
+  width: 100%;
+  height: 8px;
+  position: absolute;
+  top: 68px;
+  left: 0;
+  background: rgba(238, 79, 68, 0.4) url(../../static/update/lang_shadow.png) no-repeat center;
+  background-size: 100%;
+  box-shadow: 0 2px 8px rgba(238, 79, 68, 0.35);
+  opacity: 1;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.menu_open .scrolling.fadeOut:after {
+  opacity: 0;
+}
+.menu_open .lang-picker.lang-open ul {
+  left: 0;
+  opacity: 1;
+  padding-top: 0;
+  top: 70px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+/* effect */
+.effect.container {
+  -webkit-perspective: 1500px;
+  -moz-perspective: 1500px;
+  -ms-perspective: 1500px;
+  -o-perspective: 1500px;
+  perspective: 1500px;
+  -webkit-perspective-origin: 0% 50%;
+  -moz-perspective-origin: 0% 50%;
+  -ms-perspective-origin: 0% 50%;
+  -o-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.effect.menu_open .pusher {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: translate3d(300px, 0, 0);
+  -moz-transform: translate3d(300px, 0, 0);
+  -ms-transform: translate3d(300px, 0, 0);
+  -o-transform: translate3d(300px, 0, 0);
+  transform: translate3d(300px, 0, 0);
+  -webkit-transition: -webkit-transform 0.5s;
+  -moz-transition: -moz-transform 0.5s;
+  -ms-transition: -ms-transform 0.5s;
+  transition: transform 0.5s;
+  cursor: url("../../static/update/close.png"), auto;
+}
+.effect.main_menu {
+  background-color: transparent;
+}
+.effect.menu_open .effect.main_menu {
+  cursor: default;
+  z-index: 5555;
+}
+/* Fallback for browsers that don't support 3D transforms */
+.no-csstransforms3d .pusher,
+.no-js .pusher {
+  padding-left: 300px;
+}
+.effect.main_menu ul li {
+  -webkit-transform: translate(-100%, 0);
+  -moz-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  -o-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+}
+.effect.menu_open .effect.main_menu ul li:first-child {
+  visibility: visible;
+  z-index: 5;
+  -webkit-transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.effect.menu_open .effect.main_menu ul li + li {
+  visibility: visible;
+  z-index: 4;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+  -webkit-transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.effect.menu_open .effect.main_menu ul li + li + li {
+  visibility: visible;
+  z-index: 3;
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+  -webkit-transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.effect.menu_open .effect.main_menu ul li + li + li + li {
+  visibility: visible;
+  z-index: 2;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  -webkit-transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.effect.menu_open .effect.main_menu ul li + li + li + li + li {
+  visibility: visible;
+  z-index: 1;
+  -webkit-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+  -webkit-transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.effect.menu_open .effect.main_menu ul li + li + li + li + li + li {
+  visibility: visible;
+  z-index: 1;
+  -webkit-transition-delay: 0.30s;
+  transition-delay: 0.30s;
+  -webkit-transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  transition-timing-function: cubic-bezier(0.57, 0.01, 0, 1);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+/* KEEP CALM */
+.keep_calm {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  font-weight: 600;
+  letter-spacing: -3px;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  overflow: hidden;
+}
+.keep_calm p.center {
+  position: absolute;
+  width: auto;
+  left: 50%;
+  top: 50%;
+  width: 580px;
+  height: 600px;
+  margin-left: -290px;
+  margin-top: -300px;
+  text-transform: uppercase;
+  color: #FFF;
+  text-align: center;
+  font-size: 80px;
+  line-height: 84px;
+  font-weight: 600;
+  letter-spacing: -3px;
+}
+.keep_calm p.center .xs {
+  display: block;
+  font-size: 32px;
+  line-height: 120px;
+}
+.keep_calm .close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  text-indent: -5555px;
+  width: 22px;
+  height: 21px;
+  background: transparent url(../../static/update/close@2x.png) no-repeat;
+  background-size: 22px 21px;
+}
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media screen and (max-width: 960px) {
+  /*.keep_calm { display: block; }*/
+}
+@media screen and (max-width: 700px), screen and (max-height: 670px) {
+  .keep_calm p.center {
+    width: 280px;
+    height: 340px;
+    margin-left: -140px;
+    margin-top: -140px;
+    font-size: 43px;
+    line-height: 47px;
+  }
+  .keep_calm p.center .xs {
+    font-size: 16px;
+    line-height: 60px;
+    letter-spacing: -1px;
+  }
+}
+@media screen and (max-height: 670px) {
+  .browser .center {
+    height: 50%;
+  }
+}
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+/* ==========================================================================
+  NProgress - loading
+   ========================================================================== */
+#nprogress {
+  pointer-events: none;
+}
+#nprogress .bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 4000;
+  background-color: transparent;
+  /*background-color: #fff;*/
+}
+/*-------------------------------------------------------------------------------------------
+ =ABOUT && HOW TO PAGES COMMON CSS
+--------------------------------------------------------------------------------------------*/
+#preloadedImages {
+  display: inline;
+  width: 0px;
+  height: 0px;
+  background-image: url(../../static/update/btns-bg.png);
+}
+#container {
+  display: block;
+}
+html,
+body,
+.container,
+.pusher,
+#content {
+  overflow-x: hidden;
+}
+/*#content, .inner {width: 101%}*/
+/* Social */
+.social {
+  width: auto;
+  position: relative;
+  float: right;
+  margin: 0 40px 0 0;
+}
+.social .socialcount {
+  display: block;
+  position: relative;
+  float: left;
+  margin: 25px 0 0 20px;
+}
+.social .socialcount li {
+  display: block;
+  float: left;
+}
+.social .socialcount li.twitter {
+  margin-right: 12px;
+}
+.social .fb {
+  float: left;
+  width: 19px;
+  height: 19px;
+  background: url(../../static/update/social-bg.png) no-repeat -24px 0;
+  background-size: auto 19px;
+}
+.social .twt {
+  float: left;
+  width: 22px;
+  height: 19px;
+  background: url(../../static/update/social-bg.png) no-repeat 0 0;
+  background-size: auto 19px;
+}
+/**/
+.project .about_link,
+.project .nav_wrapper {
+  background-color: #00CAFF;
+}
+.how .how_link,
+.how .nav_wrapper {
+  background-color: #6b29ba;
+}
+.da-slider {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #00CAFF;
+  -webkit-transition: background-color 0.7s ease-out;
+  -moz-transition: background-color 0.7s ease-out;
+  -o-transition: background-color 0.7s ease-out;
+  -ms-transition: background-color 0.7s ease-out;
+  transition: background-color 0.7s ease-out;
+}
+.da-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  text-align: left;
+}
+.github {
+  color: #FFF;
+  text-decoration: none;
+  border-bottom: 2px dashed #FFF;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 0;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.github:hover {
+  color: #FFF;
+  background: #ECBF08;
+}
+.da-slide-current {
+  z-index: 1000;
+}
+.da-slider-fb .da-slide {
+  left: 100%;
+}
+.da-slider-fb .da-slide.da-slide-current {
+  left: 0px;
+}
+.da-link {
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  -ms-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+.da-link:hover {
+  background-color: #fff;
+}
+.cause .da-link:hover {
+  color: #00CAFF;
+}
+/* Slide TEXT */
+.da-slide .da-txt {
+  position: relative;
+  width: 700px;
+  height: 580px;
+  top: 50%;
+  margin-top: -250px;
+}
+.da-slide .da-txt h2 {
+  font-family: 'microsoft yahei',Arial,sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: -3px;
+}
+.da-slide .da-txt h2,
+.da-slide .da-txt p.desc,
+.da-slide .da-txt .da-link {
+  position: relative;
+  opacity: 0;
+  left: 110%;
+}
+.da-slide .da-txt p.desc,
+.da-slide .da-txt .da-link {
+  font-family: 'microsoft yahei',Arial,sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+.da-slide .da-txt p {
+  opacity: 1;
+  position: absolute;
+  left: 110%;
+}
+/* Slide IMAGE */
+.da-slide .da-img {
+  position: absolute;
+  opacity: 0;
+  text-align: center;
+  top: 50%;
+  margin-top: -250px;
+  width: 45%;
+}
+.project .da-slide .da-img {
+  margin-top: -320px;
+}
+.project .da-slide.cause .da-img {
+  width: 350px;
+  margin-top: -390px;
+}
+.project .da-slide.cause .da-img p {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  top: 0;
+  margin: 20px 0 0 30px;
+}
+.project .da-slide.steps .da-img {
+  width: 500px;
+}
+.da-slider-fb .da-slide h2,
+.da-slider-fb .da-slide p,
+.da-slider-fb .da-slide .da-link {
+  left: 10%;
+  opacity: 1;
+}
+.da-slider-fb .da-slide .da-img {
+  left: 60%;
+  opacity: 1;
+}
+.da-slide .da-txt h2 {
+  float: left;
+  width: auto;
+  color: #FFF;
+  z-index: 10;
+  padding-left: 110px;
+  font-size: 80px;
+  line-height: 80px;
+  white-space: nowrap;
+  margin: 0;
+  line-height: 1;
+}
+.da-slide .da-txt h2 span {
+  display: inline-block;
+  position: relative;
+  margin-top: -30px;
+}
+.da-slide .da-txt p {
+  float: left;
+  width: 500px;
+  color: #FFF;
+  overflow: hidden;
+  margin: 55px 0 45px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: left;
+  padding-left: 110px;
+}
+/*LINK — .da-link*/
+.da-slide .da-link {
+  display: block;
+  position: relative;
+  float: left;
+  padding: 13px 66px 13px 30px;
+  border-radius: 30px;
+  border: 3px solid #FFF;
+  margin-left: 110px;
+  white-space: nowrap;
+  color: #FFF;
+  font-size: 18px;
+  line-height: 18px;
+  text-align: center;
+  text-decoration: none;
+}
+.da-slide .da-link span {
+  display: block;
+  position: absolute;
+  right: 18px;
+  top: 0px;
+  width: 30px;
+  height: 100%;
+  background: transparent url(../../static/update/btns-bg.png) no-repeat;
+  background-size: auto 22px;
+}
+.cause .da-link.da-link-next,
+.works .da-link.da-link-next,
+.steps .da-link.da-link-next {
+  padding-right: 50px;
+}
+.cause .da-link.da-link-next span,
+.works .da-link.da-link-next span,
+.steps .da-link.da-link-next span {
+  background-position: -300px center;
+  right: 10px;
+}
+.cause .da-link.da-link-next:hover {
+  color: #00c8ff;
+}
+.cause .da-link.da-link-next:hover span {
+  background-position: -330px center;
+}
+.works .da-link.da-link-next:hover {
+  color: #E73D51;
+}
+.works .da-link.da-link-next:hover span {
+  background-position: -360px center;
+}
+.steps .da-link.da-link-next:hover {
+  color: #ECBF08;
+}
+.steps .da-link.da-link-next:hover span {
+  background-position: -390px center;
+}
+/*download*/
+.download .da-link:hover {
+  background-color: #FFF;
+  color: #6B29BA;
+}
+.download .da-link span {
+  background-position: 0 center;
+  right: 15px;
+}
+.download .da-link:hover span {
+  background-position: -30px center;
+}
+/*Clip copy*/
+.da-link.clip_copy {
+  display: block;
+  float: left;
+  clear: left;
+}
+.da-link.clip_copy span {
+  background-position: -180px center;
+}
+/*insertInProject*/
+.insertInProject .da-link:hover,
+.insertInProject .zeroclipboard-is-hover,
+.insertInProject .zeroclipboard-copied {
+  background-color: #FFF;
+  color: #23DC71;
+}
+.insertInProject .da-link:hover span,
+.insertInProject .zeroclipboard-is-hover span {
+  background-position: -210px center;
+}
+.insertInProject .zeroclipboard-copied span {
+  background-position: -90px center;
+}
+.includeHTML .da-link:hover,
+.includeHTML .zeroclipboard-is-hover,
+.includeHTML .zeroclipboard-copied {
+  background-color: #FFF;
+  color: #edc100;
+}
+.includeHTML .da-link:hover span,
+.includeHTML .zeroclipboard-is-hover span {
+  background-position: -240px center;
+}
+.includeHTML .zeroclipboard-copied span {
+  background-position: -120px center;
+}
+.callPlugin .da-link:hover,
+.callPlugin .zeroclipboard-is-hover,
+.callPlugin .zeroclipboard-copied {
+  background-color: #FFF;
+  color: #eb404e;
+}
+.callPlugin .da-link:hover span,
+.callPlugin .zeroclipboard-is-hover span {
+  background-position: -270px center;
+}
+.callPlugin .zeroclipboard-copied span {
+  background-position: -150px center;
+}
+/*Focus*/
+.da-slide .da-link:focus {
+  outline: 0;
+  outline: none;
+}
+/*DOTS — .da-link*/
+.da-dots {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  bottom: 43px;
+  text-align: center;
+  z-index: 1001;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+.da-dots span {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  border-radius: 50%;
+  border: 10px solid #FFF;
+  margin: 10px;
+  cursor: pointer;
+}
+.project .da-dots span.da-dots-current,
+.how .da-dots span.da-dots-current {
+  border: 3px solid #FFF;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  transition: all .25s ease;
+}
+.da-dots span:hover {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition: border .25s ease;
+  -moz-transition: border .25s ease;
+  -o-transition: border .25s ease;
+  -ms-transition: border .25s ease;
+  transition: border .25s ease;
+}
+.da-dots span.da-dots-current:hover {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.da-arrows {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+.da-arrows span {
+  position: absolute;
+  bottom: 45px;
+  height: 40px;
+  width: 35px;
+  cursor: pointer;
+  z-index: 1002;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.da-slider:hover .da-arrows span {
+  opacity: 1;
+}
+.da-arrows span:after {
+  content: '';
+  position: absolute;
+  height: 30px;
+  width: 18px;
+  top: 5px;
+  left: 5px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.da-arrows span.da-arrows-next:after {
+  background: rgba(0, 0, 0, 0) url(../../static/update/arrow_right.png) no-repeat top left;
+  background-size: 100%;
+}
+.da-arrows span.da-arrows-prev:after {
+  background: rgba(0, 0, 0, 0) url(../../static/update/arrow_left.png) no-repeat top left;
+  background-size: 100%;
+  left: auto;
+  right: 0;
+}
+.da-arrows span.da-arrows-next:hover:after {
+  left: 10px;
+}
+.da-arrows span.da-arrows-prev:hover:after {
+  right: 5px;
+}
+.da-arrows span.da-arrows-prev {
+  left: 50%;
+  margin-left: -140px;
+}
+.da-arrows span.da-arrows-next {
+  right: 50%;
+  margin-right: -140px;
+}
+.da-slide-current h2,
+.da-slide-current p,
+.da-slide-current .da-link {
+  left: 0;
+  opacity: 1;
+}
+.da-slide-current .da-img {
+  opacity: 1;
+}
+.da-img p {
+  display: block;
+  position: absolute;
+  font: 600 italic 17px/17px 'Chronicle Display A', 'Chronicle Display B', Helvetica, arial, sans-serif;
+  color: #fff;
+}
+.cause .da-img p,
+.download .da-img p {
+  top: 570px;
+}
+.cause .da-img p {
+  left: 140px;
+}
+.cause .da-img p:before {
+  content: '';
+  width: 2px;
+  background: #FFF;
+  height: 34px;
+  display: block;
+  margin: 0 auto 15px;
+}
+/*.works .da-img {right: 0; top: 140px;}*/
+.works .da-img p {
+  top: 570px;
+  width: 807px;
+  left: 0;
+  text-align: center;
+}
+.works .da-img p:before {
+  content: '';
+  width: 2px;
+  background: #FFF;
+  height: 34px;
+  display: block;
+  margin: 0 auto 15px;
+}
+/*.steps .da-img {left: 55%; top: 140px;}*/
+.steps .da-img p {
+  top: 170px;
+  left: auto;
+  right: 0;
+  text-align: left;
+  width: 170px;
+}
+.steps .da-img p:before {
+  content: '';
+  width: 34px;
+  background: #FFF;
+  height: 2px;
+  display: block;
+  float: left;
+  margin: 13px 20px 20px 0;
+}
+.cause h2,
+.download h2 {
+  -webkit-animation: fromRightAnim1 1.2s cubic-bezier(0.57, 0.01, 0, 1) 0.5s both;
+  -moz-animation: fromRightAnim1 1.2s cubic-bezier(0.57, 0.01, 0, 1) 0.5s both;
+  -ms-animation: fromRightAnim1 1.2s cubic-bezier(0.57, 0.01, 0, 1) 0.5s both;
+  -o-animation: fromRightAnim1 1.2s cubic-bezier(0.57, 0.01, 0, 1) 0.5s both;
+  animation: fromRightAnim1 1.2s cubic-bezier(0.57, 0.01, 0, 1) 0.5s both;
+}
+.cause p.desc,
+.download p.desc {
+  -webkit-animation: fromRightAnim1 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -moz-animation: fromRightAnim1 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -ms-animation: fromRightAnim1 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -o-animation: fromRightAnim1 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  animation: fromRightAnim1 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+}
+.cause .da-link,
+.download .da-link {
+  -webkit-animation: fromRightAnim1 1.4s cubic-bezier(0.57, 0.01, 0, 1) 0.5s both;
+  -moz-animation: fromRightAnim1 1.4s cubic-bezier(0.57, 0.01, 0, 1) 0.5s both;
+  -ms-animation: fromRightAnim1 1.4s cubic-bezier(0.57, 0.01, 0, 1) 0.5s both;
+  -o-animation: fromRightAnim1 1.4s cubic-bezier(0.57, 0.01, 0, 1) 0.5s both;
+  animation: fromRightAnim1 1.4s cubic-bezier(0.57, 0.01, 0, 1) 0.5s both;
+}
+.cause .da-img {
+  -webkit-animation: slide1ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -moz-animation: slide1ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -ms-animation: slide1ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -o-animation: slide1ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  animation: slide1ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+}
+.download .da-img {
+  -webkit-animation: slide2ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -moz-animation: slide2ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -ms-animation: slide2ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -o-animation: slide2ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  animation: slide2ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+}
+/*-----------------------------------------------------------------------------------------
+= WORKS — Animations
+-----------------------------------------------------------------------------------------*/
+.composer {
+  position: relative;
+  overflow: hidden;
+  width: 807px;
+  height: 672px;
+  margin-right: -42px;
+}
+.comp_header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+}
+.comp_header img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.outdated_notice {
+  position: absolute;
+  top: -150px;
+  left: 0;
+  width: 100%;
+  height: 170px;
+  z-index: 50;
+  /*opacity: 0;*/
+}
+.outdated_notice img {
+  position: absolute;
+  left: 0;
+}
+.comp_body {
+  position: absolute;
+  top: 105px;
+  width: 100%;
+  height: 447px;
+  overflow: hidden;
+  z-index: 4;
+}
+.comp_body .move1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.comp_body .move2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.comp_body .move3 {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 1;
+  -webkit-transition: left 0.9s ease-in-out 5s;
+  -moz-transition: left 0.9s ease-in-out 5s;
+  -o-transition: left 0.9s ease-in-out 5s;
+  transition: left 0.9s ease-in-out 5s;
+}
+/*animate*/
+.goAnim .outdated_notice {
+  top: 0px;
+  /*opacity: 1;*/
+  -webkit-transition: top .3s linear 3s;
+  -moz-transition: top .3s linear 3s;
+  -o-transition: top .3s linear 3s;
+  -ms-transition: top .3s linear 3s;
+  transition: top .3s linear 3s;
+}
+.goAnim .comp_body .move1 {
+  z-index: 1;
+  -webkit-transition-delay: 2s;
+  -moz-transition-delay: 2s;
+  -o-transition-delay: 2s;
+  transition-delay: 2s;
+}
+.goAnim .comp_body .move2 {
+  z-index: 2;
+  -webkit-transition-delay: 5s;
+  -moz-transition-delay: 5s;
+  -o-transition-delay: 5s;
+  transition-delay: 5s;
+}
+.goAnim .comp_body .move3 {
+  z-index: 3;
+  left: 0;
+}
+.goAnim .outdated_notice .btn_animation {
+  display: block;
+  position: absolute;
+  left: 304px;
+  top: 59px;
+  width: 225px;
+  height: 79px;
+  background: url(../files/pics/about-how-mouse-anim.png) no-repeat 0 0;
+  background-size: auto 79px;
+}
+/*****HOW TO USE IT PAGE******/
+.how .da-slider {
+  background-color: #6B29BA;
+}
+/****************************/
+/* Animation classes and animations */
+/* Slide in from the right*/
+.slide-from h2 {
+  -webkit-animation: fromRightAnim1 1.2s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -moz-animation: fromRightAnim1 1.2s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -ms-animation: fromRightAnim1 1.2s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -o-animation: fromRightAnim1 1.2s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  animation: fromRightAnim1 1.2s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+}
+.slide-from p.desc {
+  -webkit-animation: fromRightAnim1 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -moz-animation: fromRightAnim1 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -ms-animation: fromRightAnim1 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -o-animation: fromRightAnim1 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  animation: fromRightAnim1 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+}
+.slide-from .da-link {
+  -webkit-animation: fromRightAnim1 1.4s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -moz-animation: fromRightAnim1 1.4s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -ms-animation: fromRightAnim1 1.4s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -o-animation: fromRightAnim1 1.4s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  animation: fromRightAnim1 1.4s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+}
+.cause.slide-from .da-img {
+  -webkit-animation: slide1ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -moz-animation: slide1ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -ms-animation: slide1ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -o-animation: slide1ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  animation: slide1ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+}
+.how .da-slide.slide-from .da-img,
+.works.slide-from .da-img {
+  -webkit-animation: slide2ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -moz-animation: slide2ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -ms-animation: slide2ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -o-animation: slide2ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  animation: slide2ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+}
+.steps.slide-from .da-img {
+  -webkit-animation: slide3ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -moz-animation: slide3ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -ms-animation: slide3ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  -o-animation: slide3ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+  animation: slide3ImgFromRight 1.3s cubic-bezier(0.57, 0.01, 0, 1) 0.4s both;
+}
+@-webkit-keyframes fromRightAnim1 {
+  0% {
+    left: -110%;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+@-moz-keyframes fromRightAnim1 {
+  0% {
+    left: -110%;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+@-o-keyframes fromRightAnim1 {
+  0% {
+    left: -110%;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes fromRightAnim1 {
+  0% {
+    left: -110%;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+/*Slide 1 IMG & Label*/
+@-webkit-keyframes slide1ImgFromRight {
+  0% {
+    left: 110%;
+    opacity: 0;
+  }
+  100% {
+    left: 64%;
+    opacity: 1;
+  }
+}
+@-moz-keyframes slide1ImgFromRight {
+  0% {
+    left: 110%;
+    opacity: 0;
+  }
+  100% {
+    left: 64%;
+    opacity: 1;
+  }
+}
+@-o-keyframes slide1ImgFromRight {
+  0% {
+    left: 110%;
+    opacity: 0;
+  }
+  100% {
+    left: 64%;
+    opacity: 1;
+  }
+}
+@keyframes slide1ImgFromRight {
+  0% {
+    left: 110%;
+    opacity: 0;
+  }
+  100% {
+    left: 64%;
+    opacity: 1;
+  }
+}
+/*Slide 2 IMG & Label*/
+@-webkit-keyframes slide2ImgFromRight {
+  0% {
+    right: -110%;
+    opacity: 0;
+  }
+  100% {
+    right: 0;
+    opacity: 1;
+  }
+}
+@-moz-keyframes slide2ImgFromRight {
+  0% {
+    right: -110%;
+    opacity: 0;
+  }
+  100% {
+    right: 0;
+    opacity: 1;
+  }
+}
+@-o-keyframes slide2ImgFromRight {
+  0% {
+    right: -110%;
+    opacity: 0;
+  }
+  100% {
+    right: 0;
+    opacity: 1;
+  }
+}
+@keyframes slide2ImgFromRight {
+  0% {
+    right: -110%;
+    opacity: 0;
+  }
+  100% {
+    right: 0;
+    opacity: 1;
+  }
+}
+/*Slide 3 IMG & Label*/
+@-webkit-keyframes slide3ImgFromRight {
+  0% {
+    left: 110%;
+    opacity: 0;
+  }
+  100% {
+    left: 55%;
+    opacity: 1;
+  }
+}
+@-moz-keyframes slide3ImgFromRight {
+  0% {
+    left: 110%;
+    opacity: 0;
+  }
+  100% {
+    left: 55%;
+    opacity: 1;
+  }
+}
+@-o-keyframes slide3ImgFromRight {
+  0% {
+    left: 110%;
+    opacity: 0;
+  }
+  100% {
+    left: 55%;
+    opacity: 1;
+  }
+}
+@keyframes slide3ImgFromRight {
+  0% {
+    left: 110%;
+    opacity: 0;
+  }
+  100% {
+    left: 55%;
+    opacity: 1;
+  }
+}
+/* Slide out to the right */
+.slide-to h2 {
+  -webkit-animation: toLeftAnim1 1s ease both;
+  -moz-animation: toLeftAnim1 1s ease both;
+  -o-animation: toLeftAnim1 1s ease both;
+  -ms-animation: toLeftAnim1 1s ease both;
+  animation: toLeftAnim1 1s ease both;
+}
+.slide-to p.desc {
+  -webkit-animation: toLeftAnim1 1s ease both;
+  -moz-animation: toLeftAnim1 1s ease both;
+  -o-animation: toLeftAnim1 1s ease both;
+  -ms-animation: toLeftAnim1 1s ease both;
+  animation: toLeftAnim1 1s ease both;
+}
+.slide-to .da-link {
+  -webkit-animation: toLeftAnim1 1s ease;
+  -moz-animation: toLeftAnim1 1s ease;
+  -o-animation: toLeftAnim1 1s ease;
+  -ms-animation: toLeftAnim1 1s ease;
+  animation: toLeftAnim1 1s ease;
+}
+.cause.slide-to .da-img {
+  -webkit-animation: slide1ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  -moz-animation: slide1ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  -o-animation: slide1ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  -ms-animation: slide1ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  animation: slide1ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+}
+.cause.slide-to .da-img .gif,
+.steps.slide-to .da-img .gif {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.how .da-slide.slide-to .da-img,
+.works.slide-to .da-img {
+  -webkit-animation: slide2ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  -moz-animation: slide2ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  -o-animation: slide2ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  -ms-animation: slide2ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  animation: slide2ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+}
+.steps.slide-to .da-img {
+  -webkit-animation: slide3ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  -moz-animation: slide3ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  -o-animation: slide3ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  -ms-animation: slide3ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+  animation: slide3ImgToLeft 0.7s cubic-bezier(0.49, 0.01, 0.82, 0.65) 0.1s both;
+}
+@-webkit-keyframes toLeftAnim1 {
+  0% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: -110%;
+    opacity: 0;
+  }
+}
+@-moz-keyframes toLeftAnim1 {
+  0% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: -110%;
+    opacity: 0;
+  }
+}
+@-o-keyframes toLeftAnim1 {
+  0% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: -110%;
+    opacity: 0;
+  }
+}
+@keyframes toLeftAnim1 {
+  0% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: -110%;
+    opacity: 0;
+  }
+}
+/*Slide 1 IMG & Label*/
+@-webkit-keyframes slide1ImgToLeft {
+  0% {
+    left: 64%;
+    opacity: 1;
+  }
+  100% {
+    left: -50%;
+    opacity: 1;
+  }
+}
+@-moz-keyframes slide1ImgToLeft {
+  0% {
+    left: 64%;
+    opacity: 1;
+  }
+  100% {
+    left: -50%;
+    opacity: 1;
+  }
+}
+@-o-keyframes slide1ImgToLeft {
+  0% {
+    left: 64%;
+    opacity: 1;
+  }
+  100% {
+    left: -50%;
+    opacity: 1;
+  }
+}
+@keyframes slide1ImgToLeft {
+  0% {
+    left: 64%;
+    opacity: 1;
+  }
+  100% {
+    left: -50%;
+    opacity: 1;
+  }
+}
+/*Slide 2 IMG & Label*/
+@-webkit-keyframes slide2ImgToLeft {
+  0% {
+    right: 0;
+    opacity: 1;
+  }
+  100% {
+    right: 150%;
+    opacity: 1;
+  }
+}
+@-moz-keyframes slide2ImgToLeft {
+  0% {
+    right: 0;
+    opacity: 1;
+  }
+  100% {
+    right: 150%;
+    opacity: 1;
+  }
+}
+@-o-keyframes slide2ImgToLeft {
+  0% {
+    right: 0;
+    opacity: 1;
+  }
+  100% {
+    right: 150%;
+    opacity: 1;
+  }
+}
+@keyframes slide2ImgToLeft {
+  0% {
+    right: 0;
+    opacity: 1;
+  }
+  100% {
+    right: 150%;
+    opacity: 1;
+  }
+}
+/*Slide 3 IMG & Label*/
+@-webkit-keyframes slide3ImgToLeft {
+  0% {
+    left: 55%;
+    opacity: 1;
+  }
+  100% {
+    left: -50%;
+    opacity: 1;
+  }
+}
+@-moz-keyframes slide3ImgToLeft {
+  0% {
+    left: 55%;
+    opacity: 1;
+  }
+  100% {
+    left: -50%;
+    opacity: 1;
+  }
+}
+@-o-keyframes slide3ImgToLeft {
+  0% {
+    left: 55%;
+    opacity: 1;
+  }
+  100% {
+    left: -50%;
+    opacity: 1;
+  }
+}
+@keyframes slide3ImgToLeft {
+  0% {
+    left: 55%;
+    opacity: 1;
+  }
+  100% {
+    left: -50%;
+    opacity: 1;
+  }
+}
+/* ==========================================================================
+   Bubble Animation
+   ========================================================================== */
+#bubbles {
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  top: 0;
+  padding: 100px 0;
+  left: 40%;
+}
+.bubble {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.bottom_bubbles {
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+.goBubbles .bottom_bubbles {
+  opacity: 1;
+}
+.goAnim .b1 {
+  position: absolute;
+  width: 100px;
+  height: 83px;
+  background: url(../files/pics/bubble.png) no-repeat 0 0;
+  background-size: auto 83px;
+  -webkit-animation: moveBubble 5s linear infinite, sideToSide 5s ease-in-out infinite alternate;
+  -moz-animation: moveBubble 5s linear infinite, sideToSide 5s ease-in-out infinite alternate;
+  -o-animation: moveBubble 5s linear infinite, sideToSide 5s ease-in-out infinite alternate;
+}
+.goAnim .b2 {
+  position: absolute;
+  width: 100px;
+  height: 75px;
+  background: url(../files/pics/bubble-small.png) no-repeat 0 0;
+  background-size: auto 75px;
+  -webkit-animation: moveBubble 6s linear infinite, sideToSide2 7s ease-in-out infinite alternate;
+  -moz-animation: moveBubble 6s linear infinite, sideToSide2 7s ease-in-out infinite alternate;
+  -o-animation: moveBubble 6s linear infinite, sideToSide2 7s ease-in-out infinite alternate;
+}
+@-webkit-keyframes moveBubble {
+  0% {
+    -webkit-transform: translateY(420px);
+  }
+  100% {
+    -webkit-transform: translateY(-320px);
+  }
+}
+@-moz-keyframes moveBubble {
+  0% {
+    -moz-transform: translateY(420px);
+  }
+  100% {
+    -moz-transform: translateY(-320px);
+  }
+}
+@keyframes moveBubble {
+  0% {
+    transform: translateY(420px);
+  }
+  100% {
+    transform: translateY(-320px);
+  }
+}
+@-webkit-keyframes sideToSide {
+  0% {
+    margin-left: 0;
+  }
+  25% {
+    margin-left: 30px;
+  }
+  50% {
+    margin-left: -10px;
+  }
+  75% {
+    margin-left: 30px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+@-webkit-keyframes sideToSide2 {
+  0% {
+    margin-left: 0;
+  }
+  25% {
+    margin-left: -20px;
+  }
+  50% {
+    margin-left: 20px;
+  }
+  75% {
+    margin-left: -20px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+@-moz-keyframes sideToSide {
+  0% {
+    margin-left: 0;
+  }
+  25% {
+    margin-left: 30px;
+  }
+  50% {
+    margin-left: -10px;
+  }
+  75% {
+    margin-left: 30px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+@-moz-keyframes sideToSide2 {
+  0% {
+    margin-left: 0;
+  }
+  25% {
+    margin-left: -20px;
+  }
+  50% {
+    margin-left: 20px;
+  }
+  75% {
+    margin-left: -20px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+@keyframes sideToSide {
+  0% {
+    margin-left: 0;
+  }
+  25% {
+    margin-left: 30px;
+  }
+  50% {
+    margin-left: -10px;
+  }
+  75% {
+    margin-left: 30px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+@keyframes sideToSide2 {
+  0% {
+    margin-left: 0;
+  }
+  25% {
+    margin-left: -20px;
+  }
+  50% {
+    margin-left: 20px;
+  }
+  75% {
+    margin-left: -20px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media screen and (max-width: 1250px) {
+  .da-slide .da-img {
+    width: 35%;
+  }
+  .works .da-img p {
+    width: 100%;
+  }
+}
+/* ==========================================================================
+   =PAGE 404
+   ========================================================================== */
+.error404 {
+  background: transparent url(../files/404-bg.jpg) no-repeat top center;
+  -webkit-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+}
+.error404 .keep_calm {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  font-weight: 600;
+  letter-spacing: -3px;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  overflow: hidden;
+}
+.error404 .keep_calm p.center {
+  width: 800px;
+  height: 500px;
+  margin: -250px 0 0 -400px;
+}
+a {
+  cursor: pointer;
+}
+a.link-oldones {
+  display: none;
+}
+@media screen and (max-width: 840px) {
+  .error404 .keep_calm p.center {
+    font-size: 70px;
+    line-height: 72px;
+  }
+}
+@media screen and (max-width: 700px), screen and (max-height: 670px) {
+  .error404 .keep_calm p.center {
+    width: 280px;
+    height: 340px;
+    margin: -140px 0 0 -140px;
+    white-space: normal;
+    font-size: 43px;
+    line-height: 47px;
+  }
+}
+/* ==========================================================================
+   Background Colors
+   ========================================================================== */
+.proj01,
+.proj01 .main_menu ul li a.active,
+.proj01 #da-slider {
+  background-color: #00CAFF;
+}
+.proj02,
+.proj02 .main_menu ul li a.active,
+.proj02 #da-slider {
+  background-color: #e73d51;
+}
+.proj03,
+.proj03 .main_menu ul li a.active,
+.proj03 #da-slider {
+  background-color: #ecbf08;
+}
+.how01,
+.how01 .main_menu ul li a.active,
+.how01 #da-slider {
+  background-color: #6b29ba;
+}
+.how02,
+.how02 .main_menu ul li a.active,
+.how02 #da-slider {
+  background-color: #23dc71;
+}
+.how03,
+.how03 .main_menu ul li a.active,
+.how03 #da-slider {
+  background-color: #ecbf08;
+}
+.how04,
+.how04 .main_menu ul li a.active,
+.how04 #da-slider {
+  background-color: #e73d51;
+}
+.chromeBg,
+.chromeBg .main_menu ul li a.active,
+.chromeBg #content {
+  background-color: #f2b635;
+}
+.firefoxBg,
+.firefoxBg .main_menu ul li a.active,
+.firefoxBg #content {
+  background-color: #f19a2a;
+}
+.internetExplorerBg,
+.internetExplorerBg .main_menu ul li a.active,
+.internetExplorerBg #content {
+  background-color: #00caff;
+}
+.safariBg,
+.safariBg .main_menu ul li a.active,
+.safariBg #content {
+  background-color: #00a0e6;
+}
+.operaBg,
+.operaBg .main_menu ul li a.active,
+.operaBg #content {
+  background-color: #f25648;
+}

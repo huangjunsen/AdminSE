@@ -1,0 +1,652 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminSE</title>
+    <!-- 站点定义 -->
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <style type="text/css">body{font-family:"Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;}</style>
+    <!-- 浏览器版本检测 -->
+    <script type="text/javascript">
+    var browser=navigator.appName;
+    var b_version=navigator.appVersion;
+    var version=parseFloat(b_version);
+    if ((browser=="Microsoft Internet Explorer") && (version<5))
+        location.href = 'BrownerToUpdate.html';
+    </script>
+
+    <!-- 第三方css -->
+    <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/highlight/styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- 页面专属css -->
+    <link href="static/plugins/b36btn/b36btn.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/buttons/buttons.min.css" rel="stylesheet" type="text/css" />
+    <style>
+    #buttons div[name="btncontaner"]{padding:5px;}
+    </style>
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="overlay" style="display:none;">
+      <div class="loading">
+        <div class="loading-center">
+          <div class="loading-center-absolute">
+            <div class="object object_four"></div>
+            <div class="object object_three"></div>
+            <div class="object object_two"></div>
+            <div class="object object_one"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-mini" title="AdminSE"><b>AdminSE</b></span>
+          <span class="logo-lg"><b>Admin</b>SE</span>
+        </a>
+        <!-- 导航头部 -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- 左侧边栏触发按钮-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="收缩/展开">
+            <span class="sr-only">收缩/展开导航</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- 用户帐户栏 -->
+              <li class="dropdown user user-menu">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="static/dist/img/DefaultHead.png" class="user-image" alt="头像"/>
+                  <span class="hidden-xs">用户名</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- 用户简介 -->
+                  <li class="user-header">
+                    <a href="#" style="background-color: transparent" title="更换头像">
+                      <img src="static/dist/img/DefaultHead.png" class="img-circle" alt="User Image" />
+                    </a>
+                    <p>
+                      自定义用户信息
+                      <small>备注等内容</small>
+                    </p>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-primary">编辑</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-primary">注销</a>
+                    </div>
+                  </li>
+                </ul>
+              </li> <!-- end 用户帐户栏 -->
+              <!-- 右侧边栏触发按钮 -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li> <!-- end 右侧边栏触发按钮 -->
+            </ul>
+          </div>
+        </nav> <!-- end 导航头部 -->
+      </header>
+
+      <!-- 左侧菜单栏 -->
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- 搜索栏 -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group" title="功能未开放">
+              <input type="text" name="q" class="form-control" placeholder="请输入搜索内容"/>
+              <span class="input-group-btn">
+                <button type='button' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form><!-- end 搜索栏 -->
+
+          <!-- 菜单栏主体 -->
+          <ul class="sidebar-menu"></ul>
+
+        </section>
+      </aside> <!-- end 左侧菜单栏 -->
+
+      <!-- 页面主体内容 -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            按钮
+          </h1>
+        </section>
+
+        <!-- content -->
+        <section class="content">
+          <div class="row">
+            <section class="col-xs-12">
+              <div class="box" id="AdminLTE">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">AdminLTE Button</h3>
+                </div>
+                <div class="box-body">
+
+                  <p>1. 基本：为button元素添加btn类即可产生按钮样式（虽然a和input标签都可以添加，但是不建议使用）。</p>
+                  <p>2. 主题、大小及禁用状态：btn可以使用6种主题，外加扁平化样式；大小可以为“普通、lg、sm、xs”四种。</p>
+                  <blockquote><p>
+                    1）普通、btn-default：<button type="button" class="btn btn-default">朴素按钮</button><br />
+                    2）btn-lg、btn-primary：<button type="button" class="btn btn-primary btn-lg">大按钮</button><br />
+                    3）btn-sm、btn-success：<button type="button" class="btn btn-success btn-sm">小按钮</button><br />
+                    4）btn-xs、btn-info：<button type="button" class="btn btn-info btn-xs">超小按钮</button><br />
+                    5）btn-flat、btn-danger：<button type="button" class="btn btn-danger btn-flat">扁平按钮</button><br />
+                    6）disabled、btn-warning：<button type="button" class="btn btn-warning disabled">失效按钮</button><br />
+                  </p></blockquote>
+                  <p>3. Block： btn-block 会将按钮的宽度置为与父元素同宽</p>
+                  <button type="button" class="btn btn-primary btn-block">Block按钮</button><br />
+                  <p>4. App效果： btn-app 会把 a底下,“i+文字”类型的按钮变成类似于app的效果</p>
+                  <div class="row">
+                    <div class="col-xs-2">
+                      未使用btn-app
+                    </div>
+                    <div class="col-xs-2">
+                      使用btn-app
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-2">
+                      <a class="btn">
+                        <i class="fa fa-repeat"></i> Repeat
+                      </a>
+                    </div>
+                    <div class="col-xs-2">
+                      <a class="btn btn-app">
+                        <i class="fa fa-play"></i> Play
+                      </a>
+                    </div>
+                    <div class="col-xs-8">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                      <pre style="display:None"><code class="Html">&lt;a class="btn btn-app"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-play"&gt;&lt;/i&gt; Play<br />&lt;/a&gt;</code></pre>
+                    </div>
+                  </div>
+                  <p>5. 按钮组： .btn-group 类可以为其下的 btn 按钮设置成按钮组的样式； .btn-group-vertical 是垂直样式：</p>
+                  <p>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default"><i class="fa fa-align-left"></i></button>
+                      <button type="button" class="btn btn-default"><i class="fa fa-align-center"></i></button>
+                      <button type="button" class="btn btn-default"><i class="fa fa-align-right"></i></button>
+                    </div>
+                    <div class="btn-group-vertical">
+                      <button type="button" class="btn btn-default"><i class="fa fa-align-left"></i></button>
+                      <button type="button" class="btn btn-default"><i class="fa fa-align-center"></i></button>
+                      <button type="button" class="btn btn-default"><i class="fa fa-align-right"></i></button>
+                    </div>
+                  </p>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="Html">&lt;div class="btn-group"&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="btn btn-default"&gt;&lt;i class="fa fa-align-left"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="btn btn-default"&gt;&lt;i class="fa fa-align-center"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="btn btn-default"&gt;&lt;i class="fa fa-align-right"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;/div&gt;<br />&lt;div class="btn-group-vertical"&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="btn btn-default"&gt;&lt;i class="fa fa-align-left"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="btn btn-default"&gt;&lt;i class="fa fa-align-center"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="btn btn-default"&gt;&lt;i class="fa fa-align-right"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;/div&gt;</code></pre>
+                  </div>
+                  <div class="alert alert-info">
+                    需要注意的是，如果容器宽度过小，会让水平放置的按钮组分行，显示效果非常差。
+                  </div>
+                  <p>6. 分裂式下拉菜单</p>
+                  <p>实际上就是在 .btn-group 的方式下添加一个 .drowdown，因此不作过多解释，详细的下拉菜单内容，请参考：<a href="Widgets.html#dropdown">Bootstrap 部件--下拉菜单</a></p>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-info">Action</button>
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                      <span class="caret"></span>
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Separated link</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="Html">&lt;div class="btn-group"&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="btn btn-info"&gt;Action&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="caret"&gt;&lt;/span&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;<br />&nbsp;&nbsp;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;ul class="dropdown-menu" role="menu"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="divider"&gt;&lt;/li&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;<br />&nbsp;&nbsp;&lt;/ul&gt;<br />&lt;/div&gt;</code></pre>
+                  </div>
+                  <div class="alert alert-warning">
+                    不建议使用这个东西，因为分裂按钮的关系，要求左边按钮的文字一定要在一行内……
+                  </div>
+                  <p>7. 常用社交平台按钮样式</p>
+                  <p>目前都是一些国外的站点，后面会越来越多的。</p>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <a class="btn btn-block btn-social btn-bitbucket">
+                        <i class="fa fa-bitbucket"></i> Sign in with Bitbucket
+                      </a>
+                      <a class="btn btn-block btn-social btn-dropbox">
+                        <i class="fa fa-dropbox"></i> Sign in with Dropbox
+                      </a>
+                      <a class="btn btn-block btn-social btn-facebook">
+                        <i class="fa fa-facebook"></i> Sign in with Facebook
+                      </a>
+                      <a class="btn btn-block btn-social btn-flickr">
+                        <i class="fa fa-flickr"></i> Sign in with Flickr
+                      </a>
+                      <a class="btn btn-block btn-social btn-foursquare">
+                        <i class="fa fa-foursquare"></i> Sign in with Foursquare
+                      </a>
+                      <a class="btn btn-block btn-social btn-github">
+                        <i class="fa fa-github"></i> Sign in with GitHub
+                      </a>
+                      <a class="btn btn-block btn-social btn-google-plus">
+                        <i class="fa fa-google-plus"></i> Sign in with Google+
+                      </a>
+                      <a class="btn btn-block btn-social btn-instagram">
+                        <i class="fa fa-instagram"></i> Sign in with Instagram
+                      </a>
+                      <a class="btn btn-block btn-social btn-linkedin">
+                        <i class="fa fa-linkedin"></i> Sign in with LinkedIn
+                      </a>
+                      <a class="btn btn-block btn-social btn-tumblr">
+                        <i class="fa fa-tumblr"></i> Sign in with Tumblr
+                      </a>
+                      <a class="btn btn-block btn-social btn-twitter">
+                        <i class="fa fa-twitter"></i> Sign in with Twitter
+                      </a>
+                      <a class="btn btn-block btn-social btn-vk">
+                        <i class="fa fa-vk"></i> Sign in with VK
+                      </a>
+                      <br />
+                      <div>
+                        <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                        <pre style="display:None"><code class="Html">&lt;a class="btn btn-block btn-social btn-bitbucket"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-bitbucket"&gt;&lt;/i&gt; Sign in with Bitbucket<br />&lt;/a&gt;<br />&lt;a class="btn btn-block btn-social btn-dropbox"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-dropbox"&gt;&lt;/i&gt; Sign in with Dropbox<br />&lt;/a&gt;<br />&lt;a class="btn btn-block btn-social btn-facebook"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-facebook"&gt;&lt;/i&gt; Sign in with Facebook<br />&lt;/a&gt;<br />&lt;a class="btn btn-block btn-social btn-flickr"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-flickr"&gt;&lt;/i&gt; Sign in with Flickr<br />&lt;/a&gt;<br />&lt;a class="btn btn-block btn-social btn-foursquare"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-foursquare"&gt;&lt;/i&gt; Sign in with Foursquare<br />&lt;/a&gt;<br />&lt;a class="btn btn-block btn-social btn-github"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-github"&gt;&lt;/i&gt; Sign in with GitHub<br />&lt;/a&gt;<br />&lt;a class="btn btn-block btn-social btn-google-plus"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-google-plus"&gt;&lt;/i&gt; Sign in with Google+<br />&lt;/a&gt;<br />&lt;a class="btn btn-block btn-social btn-instagram"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-instagram"&gt;&lt;/i&gt; Sign in with Instagram<br />&lt;/a&gt;<br />&lt;a class="btn btn-block btn-social btn-linkedin"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-linkedin"&gt;&lt;/i&gt; Sign in with LinkedIn<br />&lt;/a&gt;<br />&lt;a class="btn btn-block btn-social btn-tumblr"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-tumblr"&gt;&lt;/i&gt; Sign in with Tumblr<br />&lt;/a&gt;<br />&lt;a class="btn btn-block btn-social btn-twitter"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-twitter"&gt;&lt;/i&gt; Sign in with Twitter<br />&lt;/a&gt;<br />&lt;a class="btn btn-block btn-social btn-vk"&gt;<br />&nbsp;&nbsp;&lt;i class="fa fa-vk"&gt;&lt;/i&gt; Sign in with VK<br />&lt;/a&gt;</code></pre>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <a class="btn btn-social-icon btn-bitbucket"><i class="fa fa-bitbucket"></i></a>
+                      <a class="btn btn-social-icon btn-dropbox"><i class="fa fa-dropbox"></i></a>
+                      <a class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+                      <a class="btn btn-social-icon btn-flickr"><i class="fa fa-flickr"></i></a>
+                      <a class="btn btn-social-icon btn-foursquare"><i class="fa fa-foursquare"></i></a>
+                      <a class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>
+                      <a class="btn btn-social-icon btn-google-plus"><i class="fa fa-google-plus"></i></a>
+                      <a class="btn btn-social-icon btn-instagram"><i class="fa fa-instagram"></i></a>
+                      <a class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a>
+                      <a class="btn btn-social-icon btn-tumblr"><i class="fa fa-tumblr"></i></a>
+                      <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+                      <a class="btn btn-social-icon btn-vk"><i class="fa fa-vk"></i></a><br />
+                      <br />
+                      <div>
+                        <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                        <pre style="display:None"><code class="Html">&lt;a class="btn btn-social-icon btn-bitbucket"&gt;&lt;i class="fa fa-bitbucket"&gt;&lt;/i&gt;&lt;/a&gt;<br />&lt;a class="btn btn-social-icon btn-dropbox"&gt;&lt;i class="fa fa-dropbox"&gt;&lt;/i&gt;&lt;/a&gt;<br />&lt;a class="btn btn-social-icon btn-facebook"&gt;&lt;i class="fa fa-facebook"&gt;&lt;/i&gt;&lt;/a&gt;<br />&lt;a class="btn btn-social-icon btn-flickr"&gt;&lt;i class="fa fa-flickr"&gt;&lt;/i&gt;&lt;/a&gt;<br />&lt;a class="btn btn-social-icon btn-foursquare"&gt;&lt;i class="fa fa-foursquare"&gt;&lt;/i&gt;&lt;/a&gt;<br />&lt;a class="btn btn-social-icon btn-github"&gt;&lt;i class="fa fa-github"&gt;&lt;/i&gt;&lt;/a&gt;<br />&lt;a class="btn btn-social-icon btn-google-plus"&gt;&lt;i class="fa fa-google-plus"&gt;&lt;/i&gt;&lt;/a&gt;<br />&lt;a class="btn btn-social-icon btn-instagram"&gt;&lt;i class="fa fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;<br />&lt;a class="btn btn-social-icon btn-linkedin"&gt;&lt;i class="fa fa-linkedin"&gt;&lt;/i&gt;&lt;/a&gt;<br />&lt;a class="btn btn-social-icon btn-tumblr"&gt;&lt;i class="fa fa-tumblr"&gt;&lt;/i&gt;&lt;/a&gt;<br />&lt;a class="btn btn-social-icon btn-twitter"&gt;&lt;i class="fa fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;<br />&lt;a class="btn btn-social-icon btn-vk"&gt;&lt;i class="fa fa-vk"&gt;&lt;/i&gt;&lt;/a&gt;</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div class="box" id="b36btn">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">b36btn Button</h3>
+                </div>
+                <div class="box-body">
+                  <p>实际上这个是网上的css代码，把它拿下来之后进行了一部分的改进（改进的内容主要为兼容IE）而得到的结果，源码出处无从考察，如果要找源码，请百度搜索：“36款漂亮的CSS3网页按钮”</p>
+                  <p>使用方法：</p>
+                  <p>1. 添加css：</p>
+                  <pre><code class="Html">&lt;link href="static/plugins/b36btn/b36btn.min.css" rel="stylesheet" type="text/css" /&gt;</code></pre>
+                  <p>2. 为 button 添加 .b36btn 基类，然后加上对应的样式：</p>
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-3">
+                      2.1 颜色：有5种颜色：<br />
+                      <button type="button" class="b36btn gray">gray</button><br />
+                      <button type="button" class="b36btn black">black</button><br />
+                      <button type="button" class="b36btn red">red</button><br />
+                      <button type="button" class="b36btn yellow">yellow</button><br />
+                      <button type="button" class="b36btn green">green</button><br />
+                      <button type="button" class="b36btn blue">blue</button>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      2.2 .round 添加圆角：<br />
+                      <button type="button" class="b36btn gray round">round</button><br />
+                      <button type="button" class="b36btn black round">round</button><br />
+                      <button type="button" class="b36btn red round">round</button><br />
+                      <button type="button" class="b36btn yellow round">round</button><br />
+                      <button type="button" class="b36btn green round">round</button><br />
+                      <button type="button" class="b36btn blue round">round</button><br />
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      2.3 .side 添加上箭头：<br />
+                      <button type="button" class="b36btn gray side">side</button><br />
+                      <button type="button" class="b36btn black side">side</button><br />
+                      <button type="button" class="b36btn red side">side</button><br />
+                      <button type="button" class="b36btn yellow side">side</button><br />
+                      <button type="button" class="b36btn green side">side</button><br />
+                      <button type="button" class="b36btn blue side">side</button>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      2.4 .tags 添加free标签：<br />
+                      <button type="button" class="b36btn gray tags">tags</button><br />
+                      <button type="button" class="b36btn black tags">tags</button><br />
+                      <button type="button" class="b36btn red tags">tags</button><br />
+                      <button type="button" class="b36btn yellow tags">tags</button><br />
+                      <button type="button" class="b36btn green tags">tags</button><br />
+                      <button type="button" class="b36btn blue tags">tags</button>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      2.5 .rarrow 添加右箭头：<br />
+                      <button type="button" class="b36btn gray rarrow">rarrow</button><br />
+                      <button type="button" class="b36btn black rarrow">rarrow</button><br />
+                      <button type="button" class="b36btn red rarrow">rarrow</button><br />
+                      <button type="button" class="b36btn yellow rarrow">rarrow</button><br />
+                      <button type="button" class="b36btn green rarrow">rarrow</button><br />
+                      <button type="button" class="b36btn blue rarrow">rarrow</button>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      2.6 .rarrow 添加左箭头：<br />
+                      <button type="button" class="b36btn gray larrow">larrow</button><br />
+                      <button type="button" class="b36btn black larrow">larrow</button><br />
+                      <button type="button" class="b36btn red larrow">larrow</button><br />
+                      <button type="button" class="b36btn yellow larrow">larrow</button><br />
+                      <button type="button" class="b36btn green larrow">larrow</button><br />
+                      <button type="button" class="b36btn blue larrow">larrow</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="box" id="buttons">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">buttons Button</h3>
+                </div>
+                <div class="box-body">
+                  <p>Buttons 是一个高度可定制的、免费并且开源的按钮 CSS 样式库。</p>
+                  <p>官方文档：<a href="http://www.bootcss.com/p/buttons/" target="_blank">BUTTONS远程文档</a></p>
+                  <p>本地文档：<a href="static/plugins/buttons/index.html">BUTTONS本地文档</a> -- 备注：仅仅是把官方文档放本地，样式、链接等功能可能都有问题，不进行过多的维护。</p>
+                  <p>
+                    注意：<br />
+                    1. 由于命名空间 button 实在太常用，于是把命名空间改成 unibtn，看官方文档的时候注意修改过来就好了；<br />
+                    2. 使用在 button 和 a 标签中行为基本一致，因此下文全部采用 button 来描述，方便。
+                  </p>
+                  <p>下面是一些常用功能的简介。</p>
+                  <p>1. 形状与尺寸：7种颜色、6种形状、6种大小。</p>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      1.1 7种颜色：<br />
+                      <div name="btncontaner" class="bg-blue"><button class="unibtn unibtn-plain">plain</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-primary">primary</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-inverse">inverse</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-action">action</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-highlight">highlight</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-caution">caution</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-royal">royal</button></div>
+                    </div>
+                    <div class="col-sm-4">
+                      1.2 6种形状：<br />
+                      <div name="btncontaner"><button class="unibtn unibtn-primary">普通</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-primary unibtn-rounded">圆角</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-primary unibtn-pill">药片</button></div>
+                      <div name="btncontaner">
+                        <button class="unibtn unibtn-primary unibtn-square">方</button>
+                        <button class="unibtn unibtn-primary unibtn-square"><i class="fa fa-plus"></i></button>
+                      </div>
+                      <div name="btncontaner">
+                        <button class="unibtn unibtn-primary unibtn-box">箱</button>
+                        <button class="unibtn unibtn-primary unibtn-box"><i class="fa fa-plus"></i></button>
+                      </div>
+                      <div name="btncontaner">
+                        <button class="unibtn unibtn-primary unibtn-circle">圆</button>
+                        <button class="unibtn unibtn-primary unibtn-circle"><i class="fa fa-plus"></i></button>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      1.3 6种大小：<br />
+                      <div name="btncontaner"><button class="unibtn unibtn-caution unibtn-tiny">超小</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-caution unibtn-small">小</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-caution">普通</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-caution unibtn-large">大</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-caution unibtn-jumbo">巨大</button></div>
+                      <div name="btncontaner"><button class="unibtn unibtn-caution unibtn-giant">超大</button></div>
+                    </div>
+                  </div>
+                  <br />
+                  <p>2. 带边框和不带边框的按钮</p>
+                  <p>.unibtn-border 类带边框； .unibtn-borderless 类则不带边框</p>
+                  <div name="btncontaner" class="bg-aqua">
+                    <button class="unibtn unibtn-plain unibtn-border unibtn-circle"><i class="fa fa-reply"></i></button>
+                    <button class="unibtn unibtn-plain unibtn-border unibtn-box"><i class="fa fa-star"></i></button>
+                    <button class="unibtn unibtn-plain unibtn-border unibtn-square"><i class="fa fa-trash-o"></i></button>
+                    <button class="unibtn unibtn-plain unibtn-borderless"><i class="fa fa-tag"></i></button>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="Html">&lt;button class="unibtn unibtn-plain unibtn-border unibtn-circle"&gt;&lt;i class="fa fa-reply"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-plain unibtn-border unibtn-box"&gt;&lt;i class="fa fa-star"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-plain unibtn-border unibtn-square"&gt;&lt;i class="fa fa-trash-o"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-plain unibtn-borderless"&gt;&lt;i class="fa fa-tag"&gt;&lt;/i&gt;&lt;/button&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>3. 3D 按钮</p>
+                  <p>为按钮添加 .unibtn-3d 类即可，不同形状3D效果不尽相同</p>
+                  <div name="btncontaner" class="bg-aqua" style="padding:20px 10px">
+                    <button class="unibtn unibtn-3d unibtn-royal">Hello!</button>
+                    <button class="unibtn unibtn-3d unibtn-rounded unibtn-primary">Check</button>
+                    <button class="unibtn unibtn-3d unibtn-pill unibtn-action">Visit Us!</button>
+                    <button class="unibtn unibtn-3d unibtn-square unibtn-caution"><i class="fa fa-camera"></i></button>
+                    <button class="unibtn unibtn-3d unibtn-box"><i class="fa fa-thumbs-up"></i></button>
+                    <button class="unibtn unibtn-3d unibtn-circle unibtn-inverse"><i class="fa fa-user"></i></button>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="Html">&lt;button class="unibtn unibtn-3d unibtn-royal"&gt;Hello!&lt;/button&gt;<br />&lt;button class="unibtn unibtn-3d unibtn-rounded unibtn-primary"&gt;Check&lt;/button&gt;<br />&lt;button class="unibtn unibtn-3d unibtn-pill unibtn-action"&gt;Visit Us!&lt;/button&gt;<br />&lt;button class="unibtn unibtn-3d unibtn-square unibtn-caution"&gt;&lt;i class="fa fa-camera"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-3d unibtn-box"&gt;&lt;i class="fa fa-thumbs-up"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-3d unibtn-circle unibtn-inverse"&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;&lt;/button&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>4. 突起样式的按钮</p>
+                  <p>.unibtn-raised 类为按钮提供经典样式</p>
+                  <div name="btncontaner" class="bg-aqua" style="padding:20px 10px">
+                    <button class="unibtn unibtn-raised unibtn-royal">Hello!</button>
+                    <button class="unibtn unibtn-raised unibtn-rounded unibtn-primary">Check</button>
+                    <button class="unibtn unibtn-raised unibtn-pill unibtn-action">Visit Us!</button>
+                    <button class="unibtn unibtn-raised unibtn-square unibtn-caution"><i class="fa fa-camera"></i></button>
+                    <button class="unibtn unibtn-raised unibtn-box"><i class="fa fa-thumbs-up"></i></button>
+                    <button class="unibtn unibtn-raised unibtn-circle unibtn-inverse"><i class="fa fa-user"></i></button>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="Html">&lt;button class="unibtn unibtn-raised unibtn-royal"&gt;Hello!&lt;/button&gt;<br />&lt;button class="unibtn unibtn-raised unibtn-rounded unibtn-primary"&gt;Check&lt;/button&gt;<br />&lt;button class="unibtn unibtn-raised unibtn-pill unibtn-action"&gt;Visit Us!&lt;/button&gt;<br />&lt;button class="unibtn unibtn-raised unibtn-square unibtn-caution"&gt;&lt;i class="fa fa-camera"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-raised unibtn-box"&gt;&lt;i class="fa fa-thumbs-up"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-raised unibtn-circle unibtn-inverse"&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;&lt;/button&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>5. 长阴影(扁平化)</p>
+                  <p>.unibtn-longshadow/.unibtn-longshadow-left/.unibtn-longshadow-right 类为按钮提供扁平化样式</p>
+                  <div name="btncontaner" class="bg-aqua" style="padding:20px 10px">
+                    <button class="unibtn unibtn-longshadow unibtn-royal">Hello!</button>
+                    <button class="unibtn unibtn-longshadow-left unibtn-rounded unibtn-primary">Check</button>
+                    <button class="unibtn unibtn-longshadow-right unibtn-pill unibtn-action">Visit Us!</button>
+                    <button class="unibtn unibtn-longshadow unibtn-square unibtn-caution"><i class="fa fa-camera"></i></button>
+                    <button class="unibtn unibtn-longshadow-left unibtn-box"><i class="fa fa-thumbs-up"></i></button>
+                    <button class="unibtn unibtn-longshadow-right unibtn-circle unibtn-inverse"><i class="fa fa-user"></i></button>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="Html">&lt;button class="unibtn unibtn-longshadow unibtn-royal"&gt;Hello!&lt;/button&gt;<br />&lt;button class="unibtn unibtn-longshadow-left unibtn-rounded unibtn-primary"&gt;Check&lt;/button&gt;<br />&lt;button class="unibtn unibtn-longshadow-right unibtn-pill unibtn-action"&gt;Visit Us!&lt;/button&gt;<br />&lt;button class="unibtn unibtn-longshadow unibtn-square unibtn-caution"&gt;&lt;i class="fa fa-camera"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-longshadow-left unibtn-box"&gt;&lt;i class="fa fa-thumbs-up"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-longshadow-right unibtn-circle unibtn-inverse"&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;&lt;/button&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>6. 光晕效果</p>
+                  <p>.unibtn-glow 类为按钮提供酷炫狂拽的光晕效果</p>
+                  <div name="btncontaner" class="bg-aqua" style="padding:20px 10px">
+                    <button class="unibtn unibtn-glow unibtn-royal">Hello!</button>
+                    <button class="unibtn unibtn-glow unibtn-rounded unibtn-primary">Check</button>
+                    <button class="unibtn unibtn-glow unibtn-pill unibtn-action">Visit Us!</button>
+                    <button class="unibtn unibtn-glow unibtn-square unibtn-caution"><i class="fa fa-camera"></i></button>
+                    <button class="unibtn unibtn-glow unibtn-box"><i class="fa fa-thumbs-up"></i></button>
+                    <button class="unibtn unibtn-glow unibtn-circle unibtn-inverse"><i class="fa fa-user"></i></button>
+                    <button class="unibtn unibtn-glow unibtn-border unibtn-rounded unibtn-plain">Go</button>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="Html">&lt;button class="unibtn unibtn-glow unibtn-royal"&gt;Hello!&lt;/button&gt;<br />&lt;button class="unibtn unibtn-glow unibtn-rounded unibtn-primary"&gt;Check&lt;/button&gt;<br />&lt;button class="unibtn unibtn-glow unibtn-pill unibtn-action"&gt;Visit Us!&lt;/button&gt;<br />&lt;button class="unibtn unibtn-glow unibtn-square unibtn-caution"&gt;&lt;i class="fa fa-camera"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-glow unibtn-box"&gt;&lt;i class="fa fa-thumbs-up"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-glow unibtn-circle unibtn-inverse"&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;button class="unibtn unibtn-glow unibtn-border unibtn-rounded unibtn-plain"&gt;Go&lt;/button&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>7. 带下拉菜单的按钮</p>
+                  <p>因为这个功能需要引入buttons的js文件，项目暂时不支持此功能。</p>
+                  <br />
+                  <p>8. 按钮组</p>
+                  <p>.unibtn-group 搭配不同的形状，将产生不同的按钮组效果</p>
+                  <div name="btncontaner" class="bg-aqua" style="padding:20px 10px">
+                    <div class="unibtn-group">
+                      <button type="button" class="unibtn unibtn-royal"><i class="fa fa-align-left"></i></button>
+                      <button type="button" class="unibtn unibtn-royal"><i class="fa fa-align-center"></i></button>
+                      <button type="button" class="unibtn unibtn-royal"><i class="fa fa-align-right"></i></button>
+                    </div>
+                    <br />
+                    <div class="unibtn-group">
+                      <button type="button" class="unibtn unibtn-pill unibtn-primary"><i class="fa fa-align-left"></i></button>
+                      <button type="button" class="unibtn unibtn-pill unibtn-primary"><i class="fa fa-align-center"></i></button>
+                      <button type="button" class="unibtn unibtn-pill unibtn-primary"><i class="fa fa-align-right"></i></button>
+                    </div>
+                    <br />
+                    <div class="unibtn-group">
+                      <button type="button" class="unibtn unibtn-rounded unibtn-action"><i class="fa fa-align-left"></i></button>
+                      <button type="button" class="unibtn unibtn-rounded unibtn-action"><i class="fa fa-align-center"></i></button>
+                      <button type="button" class="unibtn unibtn-rounded unibtn-action"><i class="fa fa-align-right"></i></button>
+                    </div>
+                    <br />
+                    <div class="unibtn-group">
+                      <button type="button" class="unibtn unibtn-square unibtn-caution"><i class="fa fa-align-left"></i></button>
+                      <button type="button" class="unibtn unibtn-square unibtn-caution"><i class="fa fa-align-center"></i></button>
+                      <button type="button" class="unibtn unibtn-square unibtn-caution"><i class="fa fa-align-right"></i></button>
+                    </div>
+                    <div class="unibtn-group">
+                      <button type="button" class="unibtn unibtn-box"><i class="fa fa-align-left"></i></button>
+                      <button type="button" class="unibtn unibtn-box"><i class="fa fa-align-center"></i></button>
+                      <button type="button" class="unibtn unibtn-box"><i class="fa fa-align-right"></i></button>
+                    </div>
+                    <div class="unibtn-group">
+                      <button type="button" class="unibtn unibtn-circle unibtn-inverse"><i class="fa fa-align-left"></i></button>
+                      <button type="button" class="unibtn unibtn-circle unibtn-inverse"><i class="fa fa-align-center"></i></button>
+                      <button type="button" class="unibtn unibtn-circle unibtn-inverse"><i class="fa fa-align-right"></i></button>
+                    </div>
+                    <div class="unibtn-group">
+                      <button type="button" class="unibtn unibtn-circle unibtn-border unibtn-highlight"><i class="fa fa-align-left"></i></button>
+                      <button type="button" class="unibtn unibtn-circle unibtn-border unibtn-highlight"><i class="fa fa-align-center"></i></button>
+                      <button type="button" class="unibtn unibtn-circle unibtn-border unibtn-highlight"><i class="fa fa-align-right"></i></button>
+                    </div>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="Html">&lt;div class="unibtn-group"&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-royal"&gt;&lt;i class="fa fa-align-left"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-royal"&gt;&lt;i class="fa fa-align-center"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-royal"&gt;&lt;i class="fa fa-align-right"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;/div&gt;<br />&lt;br /&gt;<br />&lt;div class="unibtn-group"&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-pill unibtn-primary"&gt;&lt;i class="fa fa-align-left"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-pill unibtn-primary"&gt;&lt;i class="fa fa-align-center"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-pill unibtn-primary"&gt;&lt;i class="fa fa-align-right"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;/div&gt;<br />&lt;br /&gt;<br />&lt;div class="unibtn-group"&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-rounded unibtn-action"&gt;&lt;i class="fa fa-align-left"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-rounded unibtn-action"&gt;&lt;i class="fa fa-align-center"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-rounded unibtn-action"&gt;&lt;i class="fa fa-align-right"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;/div&gt;<br />&lt;br /&gt;<br />&lt;div class="unibtn-group"&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-square unibtn-caution"&gt;&lt;i class="fa fa-align-left"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-square unibtn-caution"&gt;&lt;i class="fa fa-align-center"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-square unibtn-caution"&gt;&lt;i class="fa fa-align-right"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;/div&gt;<br />&lt;div class="unibtn-group"&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-box"&gt;&lt;i class="fa fa-align-left"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-box"&gt;&lt;i class="fa fa-align-center"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-box"&gt;&lt;i class="fa fa-align-right"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;/div&gt;<br />&lt;div class="unibtn-group"&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-circle unibtn-inverse"&gt;&lt;i class="fa fa-align-left"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-circle unibtn-inverse"&gt;&lt;i class="fa fa-align-center"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-circle unibtn-inverse"&gt;&lt;i class="fa fa-align-right"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;/div&gt;<br />&lt;div class="unibtn-group"&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-circle unibtn-border unibtn-highlight"&gt;&lt;i class="fa fa-align-left"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-circle unibtn-border unibtn-highlight"&gt;&lt;i class="fa fa-align-center"&gt;&lt;/i&gt;&lt;/button&gt;<br />&nbsp;&nbsp;&lt;button type="button" class="unibtn unibtn-circle unibtn-border unibtn-highlight"&gt;&lt;i class="fa fa-align-right"&gt;&lt;/i&gt;&lt;/button&gt;<br />&lt;/div&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>9. 堆叠按钮</p>
+                  <p>.unibtn-block 的按钮会占据最大宽度，参考adminLTE .btn-block</p>
+                  <br />
+                  <p>10. 额外的环绕效果</p>
+                  <p>为按钮周围增加额外视觉效果能够突出按钮，尽管内层不限制搭配的形状，但是 .unibtn-circle/.button-pill 拥有更良好的效果 </p>
+                  <div name="btncontaner" class="bg-aqua" style="padding:20px 10px">
+                    <span class="unibtn-wrap">
+                      <button class="unibtn unibtn-circle unibtn-royal">
+                        <i class="fa fa-cloud"></i>
+                      </button>
+                    </span>
+                    <span class="unibtn-wrap">
+                      <button class="unibtn unibtn-pill unibtn-primary">
+                        <i class="fa fa-twitter"></i> Twitter
+                      </button>
+                    </span>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="Html">&lt;span class="unibtn-wrap"&gt;<br />&nbsp;&nbsp;&lt;button class="unibtn unibtn-circle unibtn-royal"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;i class="fa fa-cloud"&gt;&lt;/i&gt;<br />&nbsp;&nbsp;&lt;/button&gt;<br />&lt;/span&gt;<br />&lt;span class="unibtn-wrap"&gt;<br />&nbsp;&nbsp;&lt;button class="unibtn unibtn-pill unibtn-primary"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;i class="fa fa-twitter"&gt;&lt;/i&gt; Twitter<br />&nbsp;&nbsp;&lt;/button&gt;<br />&lt;/span&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+
+            </section>
+            <div class="Affix">
+              <ul class="nav nav-tabs nav-stacked">
+                <li><a href="#AdminLTE">AdminLTE Button</a></li>
+                <li><a href="#b36btn">b36btn Button</a></li>
+                <li><a href="#buttons">buttons Button</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </section><!-- end content -->
+      </div>
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> <span>1.0</span>
+        </div>
+        <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+      </footer>
+      
+      <!-- 右侧配置栏 -->      
+      <aside class="control-sidebar control-sidebar-dark">                
+        <!-- 组合表 -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <!-- 默认包含一个control-sidebar-theme-setting-tab，通过theme_setting.js控制 -->
+          <!-- 另外，control-sidebar-home-tab是必须存在的，因为是默认表的依赖 -->
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home fa-fw"></i></a></li>
+        </ul>
+        <!-- 表内容 -->
+        <div class="tab-content">
+          <!-- 第一个表主体 -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">附加信息</h3>
+            <ul class='control-sidebar-menu'>
+              <li>
+                <p style="margin: 10px;">
+                  <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+
+                </p>
+              </li>
+            </ul>
+          </div><!-- end 第一个表主体 -->
+        </div>
+      </aside><!-- end 右侧配置栏 -->
+      <div class='control-sidebar-bg'></div>
+    </div><!-- ./wrapper -->
+
+    <div class="modal fade modal-danger" id="ErrorModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">错误</h4>
+          </div>
+          <div class="modal-body" id="ErrorModalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="location.reload()">刷新页面</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 开始加载js脚本 -->
+    <script src="static/plugins/jquery/jquery.min.js"></script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src='static/plugins/fastclick/fastclick.min.js'></script>
+    <script src='static/plugins/iCheck/icheck.min.js'></script>
+    <script src="static/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+    <script src="static/plugins/highlight/highlight.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/base.js" type="text/javascript"></script>
+    <script src="static/dist/js/mainmenu.js" type="text/javascript"></script>
+
+    <!-- 页面专属js -->
+    <script src="static/dist/js/pages/UIButton.js" type="text/javascript"></script>
+
+    <!-- 基础功能及皮肤js，由于依赖的关系，需要页面完全生成完毕才能加载，故放在最后 -->
+    <script src="static/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/theme_setting.min.js" type="text/javascript"></script>
+  </body>
+</html>

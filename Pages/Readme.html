@@ -1,0 +1,911 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminSE</title>
+    <!-- 站点定义 -->
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <style type="text/css">body{font-family:"Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;}</style>
+    <!-- 浏览器版本检测 -->
+    <script type="text/javascript">
+    var browser=navigator.appName;
+    var b_version=navigator.appVersion;
+    var version=parseFloat(b_version);
+    if ((browser=="Microsoft Internet Explorer") && (version<5))
+        location.href = 'BrownerToUpdate.html';
+    </script>
+
+    <!-- 第三方css -->
+    <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/highlight/styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- 页面专属css -->
+    <style>
+    #Wiki ol{
+      list-style-type:none;
+      counter-reset:sectionCounter;
+    }
+    #Wiki ol li:before {
+      content:counter(sectionCounter) ") ";
+      counter-increment:sectionCounter;
+    }
+    #Wiki ol ol {
+      counter-reset:sectionSubcounter;
+    }
+    #Wiki ol ol li:before {
+      content:counter(sectionCounter)"."counter(sectionSubcounter)") ";
+      counter-increment:sectionSubcounter;
+    }
+    </style>
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="overlay" style="display:none;">
+      <div class="loading">
+        <div class="loading-center">
+          <div class="loading-center-absolute">
+            <div class="object object_four"></div>
+            <div class="object object_three"></div>
+            <div class="object object_two"></div>
+            <div class="object object_one"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-mini" title="AdminSE"><b>AdminSE</b></span>
+          <span class="logo-lg"><b>Admin</b>SE</span>
+        </a>
+        <!-- 导航头部 -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- 左侧边栏触发按钮-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="收缩/展开">
+            <span class="sr-only">收缩/展开导航</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- 用户帐户栏 -->
+              <li class="dropdown user user-menu">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="static/dist/img/DefaultHead.png" class="user-image" alt="头像"/>
+                  <span class="hidden-xs">用户名</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- 用户简介 -->
+                  <li class="user-header">
+                    <a href="#" style="background-color: transparent" title="更换头像">
+                      <img src="static/dist/img/DefaultHead.png" class="img-circle" alt="User Image" />
+                    </a>
+                    <p>
+                      自定义用户信息
+                      <small>备注等内容</small>
+                    </p>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-primary">编辑</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-primary">注销</a>
+                    </div>
+                  </li>
+                </ul>
+              </li> <!-- end 用户帐户栏 -->
+              <!-- 右侧边栏触发按钮 -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li> <!-- end 右侧边栏触发按钮 -->
+            </ul>
+          </div>
+        </nav> <!-- end 导航头部 -->
+      </header>
+
+      <!-- 左侧菜单栏 -->
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- 搜索栏 -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group" title="功能未开放">
+              <input type="text" name="q" class="form-control" placeholder="请输入搜索内容"/>
+              <span class="input-group-btn">
+                <button type='button' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form><!-- end 搜索栏 -->
+
+          <!-- 菜单栏主体 -->
+          <ul class="sidebar-menu"></ul>
+
+        </section>
+      </aside> <!-- end 左侧菜单栏 -->
+
+      <!-- 页面主体内容 -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            说明
+          </h1>
+        </section>
+
+        <!-- content -->
+        <section class="content">
+          <div class="row">
+            <section class="col-xs-12">
+              <div class="box" id="Version">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">版权及基础版本</h3>
+                </div>
+                <div class="box-body">
+                  <h3>版权</h3>
+                  <p>基于开源的思想，采用的基础框架和几乎所有插件均采用 <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a> ，所以当你采用该模板（框架）的话，开源是你最好的选择。</p>
+                  <br />
+                  <h3>框架</h3>
+                  <p>1. Jquery V2.1.4</p>
+                  <p>2. Bootstrap V3.3.5</p>
+                  <p>3. AdminLTE V2.1.1</p>
+                  <br />
+                  <h3>版本</h3>
+                  <p>AdminSE V1.0</p>
+                  <p>AdminSE is for "AdminLTE Sam Evolution"</p>
+                  <br />
+                  <h3>浏览器支持</h3>
+                  <ul>
+                    <li>IE9+</li>
+                    <li>Firefox (latest)</li>
+                    <li>Safari (latest)</li>
+                    <li>Chrome (latest)</li>
+                    <li>Opera (latest)</li>
+                  </ul>
+                  <p>IE9 不支持CSS变形和动画，此模板的功能都能用，不过，拥有较差的用户体验。</p>
+                  <br />
+                </div>
+              </div>
+
+              <div class="box" id="RelayOn">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">基础依赖</h3>
+                </div>
+                <div class="box-body">
+                  <p>如果要让模板正常跑起来，至少需要以下组件：</p>
+                  <p>CSS：</p>
+                  <ul>
+                    <li>jquery</li>
+                    <li>bootstrap.min.css</li>
+                    <li>AdminLTE.css</li>
+                    <li>_all-skins.min.css</li>
+                    <li>font-awesome.min.css</li>
+                    <li>iCheck/*.css</li>
+                    <li>toastr.min.css</li>
+                    <li>base.css</li>
+                  </ul>
+                  <p>JS：</p>
+                  <ul>
+                    <li>jquery.min.js</li>
+                    <li>bootstrap.min.js</li>
+                    <li>fastclick.min.js</li>
+                    <li>icheck.min.js</li>
+                    <li>toastr.min.js</li>
+                    <li>jquery.slimscroll.min.js</li>
+                    <li>base.js</li>
+                    <li>mainmenu.js</li>
+                    <li>app.min.js (顺序需要加到倒数第二)</li>
+                    <li>theme_setting.min.js (顺序需要加到最后)</li>
+                  </ul>
+                  <p>正如 <a href="Examples-Empty.html">空页面</a> 展示的内容一样。</p>
+                </div>
+              </div>
+
+              <div class="box" id="menus">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">关于菜单</h3>
+                </div>
+                <div class="box-body">
+                  <p>1. 菜单接收的是 json 数据，格式为：</p>
+                  <p><pre><code class="Json">[<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;"typename": "treeview",   /*菜单类型：'treeview'/null*/<br />&nbsp;&nbsp;&nbsp;&nbsp;"url": "DashBoard.html",  /*url，可以是绝对或者相对*/<br />&nbsp;&nbsp;&nbsp;&nbsp;"name": "DashBoard",      /*菜单名，后面可以采用 highLightMenu 来高亮该菜单*/<br />&nbsp;&nbsp;&nbsp;&nbsp;"namecn": "仪表盘",       /*显示的中文*/<br />&nbsp;&nbsp;&nbsp;&nbsp;"idpath": "1",            /*根据id产生的路径，形如 1&gt;2&gt;3*/<br />&nbsp;&nbsp;&nbsp;&nbsp;"pid": null,              /*父id*/<br />&nbsp;&nbsp;&nbsp;&nbsp;"id": 1,                  /*id*/<br />&nbsp;&nbsp;&nbsp;&nbsp;"icon": "dashboard"       /*fontawesome图标，不用添加fa前缀*/<br />&nbsp;&nbsp;}<br />]</code></pre></p>
+                  <br />
+                  <p>2. 产生 Menus 的方法：getMenuStr()</p>
+                  <p>
+                    可以直接添加到 menu 的容器中：<br />
+                    <pre><code class="JavaScript">$(".sidebar-menu").html(getMenuStr());</code></pre>
+                  </p>
+                  <br />
+                  <p>3. 高亮菜单： highLightMenu('menuname');</p>
+                  <p>
+                    例如：<br />
+                    <pre><code class="JavaScript">highLightMenu('Readme');</code></pre>
+                  </p>
+                </div>
+              </div>
+
+              <div class="box" id="Django">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">关于Django中的应用</h3>
+                </div>
+                <div class="box-body">
+                  <p>由于此模板是在 Django 项目中衍生出来的，因此，几乎所有内容都可以直接套用到 Django 中。</p>
+                  <p>使用的时候需要修改所有文件引用需要使用绝对地址。</p>
+                  <p>
+                    例如，默认情况下：<br />
+                    1. Django 项目静态文件（ js/css/img ）存放在 app 的 static 文件夹下。<br />
+                    2. 静态文件的访问 url 应该形如 http://localhost/static/.../js/base.js 。<br />
+                    3. html 文件一般存放在 templates 文件夹下，但是页面的访问依赖于 view 的设置，因此，其实存放在哪里都没有关系。<br />
+                    基于以上几点的页面，css的引用方式为：<br />
+                    <pre><code class="Html">&lt;link href="/static/dist/css/base.css" rel="stylesheet" type="text/css" /&gt;</code></pre>
+                  </p>
+                  <p>
+                    建议所有页面均采用 Django 模板的方式引入 头部、尾部 的公共部分<br />
+                    <pre><code class="Django">{% include 'Template_File.html' %}</code></pre>
+                  </p>
+                </div>
+              </div>
+
+              <div class="box" id="Wiki">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">Wiki</h3>
+                </div>
+                <div class="box-body">
+                  <ul class="timeline">
+                    <li class="time-label"><span class="bg-olive">2016-04-05</span></li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">1. 项目启动</h3>
+                        <div class="timeline-body">
+                          <ol></div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">2. Examples-WelcomePage.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>搬运旧项目内容至模板项目中，修改绝对路径为相对路径</li>
+                            <li>以此为模板，添加必要的组件</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">3. index.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>无内容，自动转跳到 Examples-WelcomePage.html</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">4. BrownerToUpdate.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>搬运旧项目内容至模板项目中，修改绝对路径为相对路径</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">5. mainmenus.js</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>暂停 getMenuJson() 方式获取数据，定义 LocalMenuAsJson 变量作为菜单数据</li>
+                            <li>定义了22个菜单项</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">6. theme_setting.js</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>大幅度修改 theme_setting.js ，去除 bootstrapswitch 的相关内容，添加iCheck的内容</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">7. 组件添加</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>bootstrap</li>
+                            <li>chartjs</li>
+                            <li>fastclick</li>
+                            <li>font-awesome</li>
+                            <li>iCheck</li>
+                            <li>jquery</li>
+                            <li>jquery-ui</li>
+                            <li>segment-letters</li>
+                            <li>slimScroll</li>
+                            <li>toastr</li>
+                            <li>vivus</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="time-label"><span class="bg-olive">2016-04-06</span></li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">1. DashBoard.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>Chartjs库的介绍和示例</li>
+                            <li>Plitly.js库的介绍和示例</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">2. Layout.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>进行 Bootstrap 栅格系统和排版的介绍，搬运代码</li>
+                            <li>进行 AdminLTE 的布局系统介绍</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">3. Widgets.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>info-box</li>
+                            <li>small-box</li>
+                            <li>box</li>
+                            <li>bg-color颜色整理</li>
+                            <li>text-color颜色整理</li>
+                            <li>box主题整理</li>
+                            <li>Bootstrap 部件-下拉菜单</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">4. base.css</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>修正 AdminLTE info-box icon 的垂直居中问题</li>
+                            <li>去除 press 样式的 margin-left</li>
+                            <li>修正 bootstrap bg-* hr 的颜色问题</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">5. 组件添加</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>highlight</li>
+                            <li>plotly</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">6. 采用 highlight 进行代码高亮</h3>
+                        <div class="timeline-body">
+                          <ol></div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">7. 修复 .dropdown-menu 背景的情况，避免错误使用</h3>
+                        <div class="timeline-body">
+                          <ol></div>
+                      </div>
+                    </li>
+
+                    <li class="time-label"><span class="bg-olive">2016-04-07</span></li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">1. Widgets.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>Bootstrap 部件-导航</li>
+                            <li>Bootstrap 部件-导航条</li>
+                            <li>Bootstrap 部件-路径导航(面包屑)</li>
+                            <li>Bootstrap 部件-分页</li>
+                            <li>Bootstrap 部件-标签和徽章</li>
+                            <li>Bootstrap 部件-缩略图</li>
+                            <li>Bootstrap 部件-警告框</li>
+                            <li>Bootstrap 部件-进度条</li>
+                            <li>Bootstrap 部件-媒体对象</li>
+                            <li>Bootstrap 部件-列表组</li>
+                            <li>Bootstrap 部件-面版</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">2. 组件添加</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>placeholder</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">3. UIGeneral.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>AdminLTE-主题色块</li>
+                            <li>AdminLTE-背景及前景色</li>
+                            <li>Bootstrap-过渡效果</li>
+                            <li>Bootstrap-模态框</li>
+                            <li>Bootstrap-滚动监听</li>
+                            <li>Bootstrap-标签页</li>
+                            <li>Bootstrap-工具提示</li>
+                            <li>Bootstrap-弹出框</li>
+                            <li>Bootstrap-警告信息</li>
+                            <li>Bootstrap-折叠</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="time-label"><span class="bg-olive">2016-04-08</span></li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">1. UIGeneral.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>Bootstrap-轮播</li>
+                            <li>Bootstrap-附加导航</li>
+                            <li>Bootstrap-滚动监听</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">2. base.css</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>添加Affix相关内容，并且关联滚动监听，使得附加导航有绚丽的效果</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">3. base.js</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>添加Affix相关内容</li>
+                            <li>为附加导航添加 slimScroll 滚动栏，适应较小的屏幕高度</li>
+                            <li>todo) slimScroll 一旦生效，则无法再次更改滚动条高度（这是由于滚动条的添加使得附加导航的高度变化了，由于正常使用的情况下一般很难产生，因此暂时不考虑修复该问题，待以后改进）</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="time-label"><span class="bg-olive">2016-04-11</span></li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">1. UIIcon.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>FontAwesome 图标</li>
+                            <li>Bootstrap glyphicon 图标</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">2. base.css</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>修正分列式下拉菜单按钮组的分裂按钮大小问题</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">3. UIButton.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>AdminLTE Button</li>
+                            <li>b36btn Button</li>
+                            <li>buttons Button</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="time-label"><span class="bg-olive">2016-04-12</span></li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">1. UISliderAndModal.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>jquery slider</li>
+                            <li>bootstrap slider</li>
+                            <li>bootstrap modal</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">2. base.css</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>增加 bootstrap slider primary/success/info/warning/danger/purple 6种颜色主题</li>
+                            <li>增加 jquery slider primary/success/info/warning/danger/defaolt 6种颜色主题</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">3. UITimeLine.html</h3>
+                        <div class="timeline-body">
+                          <ol></div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">4. FormGeneral.html</h3>
+                        <div class="timeline-body">
+                          <ol></div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">5. FormEditor.html</h3>
+                        <div class="timeline-body">
+                          <ol></div>
+                      </div>
+                    </li>
+
+                    <li class="time-label"><span class="bg-olive">2016-04-13</span></li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">1. FormEditor.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>bootstrap-wysiwyg.js 功能定制</li>
+                            <li>bootstrap-wysiwyg.js 功能扩展</li>
+                            <ol>
+                              <li>添加 createToolBar 方法，自动生成工具栏，并且定义工具栏按钮的方法</li>
+                              <li>添加 fontItems 选项，使得字体列表可以定制化</li>
+                              <li>添加 toolbarItems 选项，使得工具栏可以定制化</li>
+                              <li>由于原来的 bindHotkeys 方法有问题，所以重新改写了这个方法</li>
+                              <li>添加更改前景色和背景色按钮</li>
+                            </ol>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">2. UIIcon.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>为图标添加上关键字</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="time-label"><span class="bg-olive">2016-04-14</span></li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">1. FormEditor.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>bootstrap-wysiwyg.js 优化及bug修复</li>
+                            <li>生成 bootstrap-wysiwyg.css 文件</li>
+                            <li>书写 wysiwyg 文档</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">2. simpletable</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>重写所有代码，将该js封装成jquery插件</li>
+                            <li>大幅度修改所有css样式，增加6种颜色主题，并优化显示效果，同时测试并修复各个浏览器的兼容性</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">3. Table.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>simpletable</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="time-label"><span class="bg-olive">2016-04-15</span></li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">1. simpletable</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>添加 addHover/addColumn/rowspan/colspan/rowdisable 方法。</li>
+                            <li>修改对齐方式，添加针对 text-* 的对齐判断</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">2. Table.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>DataTables</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">3. CalendarAndTime.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>Bootstartp DateTimePicker</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">4. Examples-WelcomePage.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>修改一些前期存在的问题</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">5. Examples-Login.html</h3>
+                        <div class="timeline-body">
+                          <ol></div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">6. Examples-Empty.html</h3>
+                        <div class="timeline-body">
+                          <ol></div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">7. Plugins.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>fastclick</li>
+                            <li>iCheck</li>
+                            <li>highlight</li>
+                            <li>已经介绍过的插件</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="time-label"><span class="bg-olive">2016-04-16</span></li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">1. Plugins.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>iCheck</li>
+                            <li>placeholder</li>
+                            <li>segment-letters</li>
+                            <li>vivus</li>
+                            <li>slimScroll</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">2. Readme.html</h3>
+                        <div class="timeline-body">
+                          <ol>
+                            <li>版权及基础版本</li>
+                            <li>基础依赖</li>
+                            <li>关于菜单</li>
+                            <li>关于Django中的应用</li>
+                            <li>文件结构</li>
+                            <li>wiki</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <i class="fa fa-clock-o bg-gray"></i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="box" id="Files">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">文件结构</h3>
+                </div>
+                <div class="box-body">
+                  <pre>AdminSE<br />└─static<br />&nbsp;&nbsp;&nbsp;&nbsp;├─dist<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  └─skins<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─img<br />&nbsp;&nbsp;&nbsp;&nbsp;│  └─js<br />&nbsp;&nbsp;&nbsp;&nbsp;│      └─pages<br />&nbsp;&nbsp;&nbsp;&nbsp;├─plugins<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─b36btn<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─bootstrap<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  ├─fonts<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  └─js<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─bootstrap-datetimepicker<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  └─locales<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─bootstrap-slider<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─bootstrap-wysiwyg<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─buttons<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  └─dist<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─chartjs<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─datatables<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  ├─extensions<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  ├─AutoFill<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─examples<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─images<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  └─js<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  ├─ColReorder<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─examples<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─images<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  └─js<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  ├─ColVis<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─examples<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  └─js<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  ├─FixedColumns<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─examples<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  └─js<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  ├─FixedHeader<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─examples<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  └─js<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  ├─KeyTable<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─examples<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  └─js<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  ├─Responsive<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─examples<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  │  ├─child-rows<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  │  ├─display-control<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  │  ├─initialisation<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  │  └─styling<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  └─js<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  ├─Scroller<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─examples<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  │  └─data<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  ├─images<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  │  └─js<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │  └─TableTools<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │      ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │      ├─examples<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │      ├─images<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │      │  └─psd<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │      ├─js<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  │      └─swf<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  └─images<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─fastclick<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─font-awesome<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  ├─css<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  └─fonts<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─highlight<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  └─styles<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─iCheck<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  ├─flat<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  ├─futurico<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  ├─line<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  ├─minimal<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  ├─polaris<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  └─square<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─jquery<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─jquery-ui<br />&nbsp;&nbsp;&nbsp;&nbsp;│  │  └─images<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─placeholder<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─plotly<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─segment-letters<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─simpletable<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─slimScroll<br />&nbsp;&nbsp;&nbsp;&nbsp;│  ├─toastr<br />&nbsp;&nbsp;&nbsp;&nbsp;│  └─vivus<br />&nbsp;&nbsp;&nbsp;&nbsp;└─update</pre>
+                </div>
+              </div>
+
+            </section>
+            <div class="Affix">
+              <ul class="nav nav-tabs nav-stacked">
+                <li><a href="#Version">版权及基础版本</a></li>
+                <li><a href="#RelayOn">基础依赖</a></li>
+                <li><a href="#menus">关于菜单</a></li>
+                <li><a href="#Django">关于Django中的应用</a></li>
+                <li><a href="#Wiki">Wiki</a></li>
+                <li><a href="#Files">文件结构</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </section><!-- end content -->
+      </div>
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> <span>1.0</span>
+        </div>
+        <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+      </footer>
+      
+      <!-- 右侧配置栏 -->      
+      <aside class="control-sidebar control-sidebar-dark">                
+        <!-- 组合表 -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <!-- 默认包含一个control-sidebar-theme-setting-tab，通过theme_setting.js控制 -->
+          <!-- 另外，control-sidebar-home-tab是必须存在的，因为是默认表的依赖 -->
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home fa-fw"></i></a></li>
+        </ul>
+        <!-- 表内容 -->
+        <div class="tab-content">
+          <!-- 第一个表主体 -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">附加信息</h3>
+            <ul class='control-sidebar-menu'>
+              <li>
+                <p style="margin: 10px;">
+                  <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+
+                </p>
+              </li>
+            </ul>
+          </div><!-- end 第一个表主体 -->
+        </div>
+      </aside><!-- end 右侧配置栏 -->
+      <div class='control-sidebar-bg'></div>
+    </div><!-- ./wrapper -->
+
+    <div class="modal fade modal-danger" id="ErrorModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">错误</h4>
+          </div>
+          <div class="modal-body" id="ErrorModalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="location.reload()">刷新页面</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 开始加载js脚本 -->
+    <script src="static/plugins/jquery/jquery.min.js"></script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src='static/plugins/fastclick/fastclick.min.js'></script>
+    <script src='static/plugins/iCheck/icheck.min.js'></script>
+    <script src="static/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+    <script src="static/plugins/highlight/highlight.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/base.js" type="text/javascript"></script>
+    <script src="static/dist/js/mainmenu.js" type="text/javascript"></script>
+
+    <!-- 页面专属js -->
+    <script src="static/dist/js/pages/Readme.js" type="text/javascript"></script>
+
+    <!-- 基础功能及皮肤js，由于依赖的关系，需要页面完全生成完毕才能加载，故放在最后 -->
+    <script src="static/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/theme_setting.min.js" type="text/javascript"></script>
+  </body>
+</html>

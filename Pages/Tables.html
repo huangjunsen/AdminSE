@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminSE</title>
+    <!-- 站点定义 -->
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <style type="text/css">body{font-family:"Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;}</style>
+    <!-- 浏览器版本检测 -->
+    <script type="text/javascript">
+    var browser=navigator.appName;
+    var b_version=navigator.appVersion;
+    var version=parseFloat(b_version);
+    if ((browser=="Microsoft Internet Explorer") && (version<5))
+        location.href = 'BrownerToUpdate.html';
+    </script>
+
+    <!-- 第三方css -->
+    <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/highlight/styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- 页面专属css -->
+    <link href="static/plugins/simpletable/simpletable.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <style>
+    #wysiwygEditor {overflow:scroll; max-height:300px;height:300px}
+    </style>
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="overlay" style="display:none;">
+      <div class="loading">
+        <div class="loading-center">
+          <div class="loading-center-absolute">
+            <div class="object object_four"></div>
+            <div class="object object_three"></div>
+            <div class="object object_two"></div>
+            <div class="object object_one"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-mini" title="AdminSE"><b>AdminSE</b></span>
+          <span class="logo-lg"><b>Admin</b>SE</span>
+        </a>
+        <!-- 导航头部 -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- 左侧边栏触发按钮-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="收缩/展开">
+            <span class="sr-only">收缩/展开导航</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- 用户帐户栏 -->
+              <li class="dropdown user user-menu">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="static/dist/img/DefaultHead.png" class="user-image" alt="头像"/>
+                  <span class="hidden-xs">用户名</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- 用户简介 -->
+                  <li class="user-header">
+                    <a href="#" style="background-color: transparent" title="更换头像">
+                      <img src="static/dist/img/DefaultHead.png" class="img-circle" alt="User Image" />
+                    </a>
+                    <p>
+                      自定义用户信息
+                      <small>备注等内容</small>
+                    </p>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-primary">编辑</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-primary">注销</a>
+                    </div>
+                  </li>
+                </ul>
+              </li> <!-- end 用户帐户栏 -->
+              <!-- 右侧边栏触发按钮 -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li> <!-- end 右侧边栏触发按钮 -->
+            </ul>
+          </div>
+        </nav> <!-- end 导航头部 -->
+      </header>
+
+      <!-- 左侧菜单栏 -->
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- 搜索栏 -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group" title="功能未开放">
+              <input type="text" name="q" class="form-control" placeholder="请输入搜索内容"/>
+              <span class="input-group-btn">
+                <button type='button' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form><!-- end 搜索栏 -->
+
+          <!-- 菜单栏主体 -->
+          <ul class="sidebar-menu"></ul>
+
+        </section>
+      </aside> <!-- end 左侧菜单栏 -->
+
+      <!-- 页面主体内容 -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            表格
+          </h1>
+        </section>
+
+        <!-- content -->
+        <section class="content">
+          <div class="row">
+            <section class="col-xs-12">
+              <div class="box" id="SimpleTable">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">Simple table</h3>
+                </div>
+                <div class="box-body">
+                  <p>
+                    这是一个简易的表格样式，具有如下特点：<br />
+                    <ol>
+                      <li>轻量：js文件4kb，css文件10kb。</li>
+                      <li>使用简单：采用js生成方式仅需一行代码（当然，必要的table Dom还是需要的）。</li>
+                      <li>可以采用非JS方式：所有实现结果都是通过CSS实现，因此可以通过非js生成。</li>
+                    </ol>
+                  </p>
+                  <br />
+                  <p>1. 使用方法：</p>
+                  <p>
+                    1. 添加CSS及JS文件<br />
+                    <pre><code class="Html">&lt;link href="static/plugins/simpletable/simpletable.min.css" rel="stylesheet" type="text/css" /&gt;<br />&lt;script src="static/plugins/simpletable/simpletable.min.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+                    2. 书写 Table Dom<br />
+                    <pre><code class="Html">&lt;table id="SimpleTable"&gt;<br />&nbsp;&nbsp;&lt;thead&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;th&gt;...&lt;/th&gt;&lt;/tr&gt;<br />&nbsp;&nbsp;&lt;/thead&gt;<br />&nbsp;&nbsp;&lt;tbody&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;...&lt;/td&gt;&lt;/tr&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;...&lt;/td&gt;&lt;/tr&gt;<br />&nbsp;&nbsp;&lt;/tbody&gt;<br />&nbsp;&nbsp;&lt;tfoot&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;th&gt;...&lt;/th&gt;&lt;/tr&gt;<br />&nbsp;&nbsp;&lt;/tfoot&gt;<br />&lt;/table&gt;</code></pre>
+                    3. 采用js方式生成：<br />
+                    <pre><code class="JavaScript">$('#SimpleTable').SimpleTable(<span class="text-red">options</span>);</code></pre>
+                  </p>
+                  <br />
+                  <p>2. 非js方式生成：</p>
+                  <p>2.1 朴素 SimpleTable ： 为 table 添加 .simpletable 类即可。</p>
+                  <p>2.2 激活状态： 为 tr 添加 .tr-active 类即可产生改行的激活状态。</p>
+                  <p>2.3 禁用状态： 为 tr 添加 .tr-disable 类即可产生改行的禁用状态。</p>
+                  <p>2.4 6种主题： 为 .simpletable 类添加 .tab-* 即可产生5种色彩主题（*可以为primary/success/info/warning/danger）。</p>
+                  <p>2.5 无边框样式：为 .simpletable 类添加 .noborder 类可以产生无边框的表格效果。</p>
+                  <p>2.6 极其简单的Dom： table 中可以仅仅含有 tr th td 等元素而不必含有 thead tbody tfoot 等元素（尽管推荐使用这些标签）。</p>
+                  <p>2.7 对齐状态：为 .simpletable 类添加 .text-* 即可不同的对齐状态（*可以为left/center/right）。</p>
+                  <p>2.8 响应式表格：为表格外层添加一个div，并附上 .table-responsive 类，可以达到响应式的效果（依赖bootstrap）。</p>
+                  <br />
+                  <div class="table-responsive">
+                    <table class="simpletable tab-primary text-center">
+                      <tr class=""><th>表头1</th><th>表头2</th><th>表头3</th></tr>
+                      <tr><td>这是</td><td>一行</td><td>普通行</td></tr>
+                      <tr class="tr-disable"><td>这是</td><td>一行</td><td>禁用状态的行</td></tr>
+                      <tr class="tr-active"><td>这是</td><td>一行</td><td>激活状态的行</td></tr>
+                    </table>
+                  </div>
+                  <br />
+                  <div>
+                    <button class="btn btn-primary" name="ToggleNext">Show/Hide Code</button>
+                    <pre style="display:None"><code class="Html">&lt;table class="simpletable tab-primary"&gt;<br />&nbsp;&nbsp;&lt;tr class=""&gt;&lt;th&gt;表头1&lt;/th&gt;&lt;th&gt;表头2&lt;/th&gt;&lt;th&gt;表头3&lt;/th&gt;&lt;/tr&gt;<br />&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;这是&lt;/td&gt;&lt;td&gt;一行&lt;/td&gt;&lt;td&gt;普通行&lt;/td&gt;&lt;/tr&gt;<br />&nbsp;&nbsp;&lt;tr class="tr-disable"&gt;&lt;td&gt;这是&lt;/td&gt;&lt;td&gt;一行&lt;/td&gt;&lt;td&gt;禁用状态的行&lt;/td&gt;&lt;/tr&gt;<br />&nbsp;&nbsp;&lt;tr class="tr-active"&gt;&lt;td&gt;这是&lt;/td&gt;&lt;td&gt;一行&lt;/td&gt;&lt;td&gt;激活状态的行&lt;/td&gt;&lt;/tr&gt;<br />&lt;/table&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>4. 参数(options)：</p>
+                  <div class="table-responsive">
+                    <table id="SimpleTable">
+                      <thead>
+                        <tr class="tr-disable"><th>参数</th><th>默认值</th><th>描述</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>hover</td><td>false</td><td>是否产生鼠标经过效果：false/true</td></tr>
+                        <tr><td>padding</td><td>false</td><td>是否产生紧缩的表格样式：false/'no'/'tiny'/'tight'</td></tr>
+                        <tr><td>border</td><td>true</td><td>是否有边框：true/false</td></tr>
+                        <tr><td>color</td><td>''</td><td>颜色主题：''/'primary'/'success'/'info'/'warning'/'danger'</td></tr>
+                        <tr><td>algin</td><td>'center'</td><td>对齐状态：'left'/'center'/'right'</td></tr>
+                      </tbody>
+                      <tfoot>
+                        <tr><th>参数</th><th>默认值</th><th>描述</th></tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <br />
+                  <p>
+                    3. js方法：采用纯粹 Html 方式虽然能展现出效果不错的表格，但是一些需要js支持的功能却无法使用，这是一种遗憾。<br />
+                    因此在插件中添加几个较为有用的方法，提供使用：
+                  </p>
+                  <div class="table-responsive">
+                    <table id="SimpleTable2">
+                      <thead>
+                        <tr><th>方法</th><th>示例</th><th>描述</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>addHover</td>
+                          <td><pre><code class="JavaScript">.SimpleTable('addHover');</code></pre></td>
+                          <td>为表格添加鼠标经过样式</td>
+                        </tr>
+                        <tr>
+                          <td>addColumn</td>
+                          <td><pre><code class="JavaScript">.SimpleTable('addColumn',options);</code></pre></td>
+                          <td>
+                            批量为表添加列，参数options介绍（以下为默认值）：<br />
+                            <code class="JavaScript">{<br />&nbsp;&nbsp;colCount:1,    //需要添加的列数<br />&nbsp;&nbsp;contents: [],  //嵌套数组，用于存放需要添加的内容<br />&nbsp;&nbsp;hasID: false,  //是否需要为每个单元格添加id属性<br />&nbsp;&nbsp;headIDPrefix: 'H', //th的id前缀<br />&nbsp;&nbsp;lineIDPrefix: 'L', //td的id前缀<br />&nbsp;&nbsp;startID: 0     //id的起始序号<br />}</code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>rowspan</td>
+                          <td><pre><code class="JavaScript">.SimpleTable('rowspan','all');</code><code class="JavaScript">.SimpleTable('rowspan',0);</code></pre></td>
+                          <td>合并内容相同的单元格为跨行单元格：'all'/行号(起始为0)</td>
+                        </tr>
+                        <tr>
+                          <td>colspan</td>
+                          <td><pre><code class="JavaScript">.SimpleTable('colspan','all');</code><code class="JavaScript">.SimpleTable('colspan',0);</code></pre></td>
+                          <td>合并内容相同的单元格为跨行单元格：'all'/列号(起始为0)</td>
+                        </tr>
+                        <tr>
+                          <td>rowactive</td>
+                          <td><pre><code class="JavaScript">.SimpleTable('rowactive','all');</code><code class="JavaScript">.SimpleTable('rowactive',0);</code></pre></td>
+                          <td>
+                            将全部行/制定行置为禁用状态：'all'/行号(起始为0)<br />
+                            <span class="text-red">注意，对标题行不能生效。</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>rowdisable</td>
+                          <td><pre><code class="JavaScript">.SimpleTable('rowdisable','all');</code><code class="JavaScript">.SimpleTable('rowdisable',0);</code></pre></td>
+                          <td>将全部行/制定行置为禁用状态：'all'/行号(起始为0)</td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr><th>方法</th><th>示例</th><th>描述</th></tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <br />
+                  <p>合并单元格示例：</p>
+                  <button type="button" class="btn btn-primary" name="ToggleNext">显示/隐藏</button>
+                  <div class="table-responsive" style="display:none;">
+                    <table id="SimpleTable3">
+                      <thead>
+                        <tr><th>H1.1</th><th>H2</th><th>H1.3</th><th>H1.3</th></tr>
+                        <tr><th>H2.1</th><th>H2</th><th>H2.3</th><th>H2.4</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>TD1.1</td><td>TD1.1</td><td>TD1.1</td><td>TD1.4</td></tr>
+                        <tr><td>TD2.1</td><td>TD2.2</td><td>TD2.3</td><td>TD2.4</td></tr>
+                        <tr><td>TD3.1</td><td>TD2.2</td><td>TD2.3</td><td>TD3.4</td></tr>
+                        <tr><td>TD4.1</td><td>TD2.2</td><td>TD4.3</td><td>TD4.3</td></tr>
+                        <tr><td>TD5.1</td><td>TD5.2</td><td>TD4.3</td><td>TD4.3</td></tr>
+                        <tr><td>TD6.1</td><td>TD6.2</td><td>TD4.3</td><td>TD4.3</td></tr>
+                      </tbody>
+                      <tfoot>
+                        <tr><th>H2.1</th><th>H2</th><th>H2.3</th><th>H2.4</th></tr>
+                        <tr><th>H1.1</th><th>H2</th><th>H1.3</th><th>H1.3</th></tr>
+                      </tfoot>
+                    </table>
+                    <pre>Code: <br /><code class="JavaScript">$('#SimpleTable3').SimpleTable('rowspan','all');<br />$('#SimpleTable3').SimpleTable('colspan','all');</code></pre>
+                    <p>
+                      特别需要注意以下内容：<br />
+                      1. 由于“被合并”的单元格<span class="text-red">并非实际删除</span>，而仅仅只是<span class="text-red">隐藏</span>了（加上了display:none;），因此每一行的数据依然还是存在的，在进行单元格操作的时候注意别忘了这个单元格。<br />
+                      2. 一般情况下只会存在<span class="text-red">跨行或者跨列</span>的情况，不会存在<span class="text-red">既跨行又跨列</span>的情况，这个在Html中是没有办法通过简单方式实现的，如果存在跨越多行及多列的情况，切记一定要保证<span class="text-red">所有跨越的行和列都是同一个值</span>（如例子中的TD4.3），否则将产生不可预知的错位。<br />
+                      3.  th 和 td 之间<span class="text-red">不能跨越</span>，所以请保证数据首行（或者尾行）与 标题行没有相同的单元格。
+                    </p>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div class="box" id="DataTable">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">DataTable</h3>
+                </div>
+                <div class="box-body">
+                  <p>Datatables是一款jquery表格插件。它是一个高度灵活的工具，可以将任何HTML表格添加高级的交互功能。</p>
+                  <ul>
+                    <li>分页，即时搜索和排序</li>
+                    <li>几乎支持任何数据源：DOM， javascript， Ajax 和 服务器处理</li>
+                    <li>支持不同主题 DataTables, jQuery UI, Bootstrap, Foundation</li>
+                    <li>各式各样的扩展: Editor, TableTools, FixedColumns ……</li>
+                    <li>丰富多样的option和强大的API</li>
+                    <li>支持国际化</li>
+                    <li>超过2900+个单元测试</li>
+                    <li>免费开源 （ MIT license ）！ 商业支持</li>
+                    <li>更多特性请到官网查看</li>
+                  </ul>
+                  <p>
+                    <span class="text-red">
+                      【特别备注】<br />
+                      当前集成到AdminSE中的DataTables是经过了本地化的插件，已经将常见的几个英文语句汉化了，而且不可逆。<br />
+                      如果不喜欢定制化的东西，请上官网去下载。
+                    </span>
+                  </p>
+                  <p>
+                    1. 使用：<br />
+                    1.1 CSS及JS：<br />
+                    <pre><code class="Html">&lt;link href="static/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css"/&gt;<br />&lt;script src="static/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+                    2. 书写 Table Dom<br />
+                    同SimpleTable，不再赘述。<br />
+                    3. 初始化DataTable <br />
+                    <pre><code class="JavaScript">$('#DataTable').DataTable(<span class="text-red">options</span>);</code></pre>
+                  </p>
+                  <p>2. 参数(options)：</p>
+                  <p>这个工具是强大的，所有参数非常之多，这里不进行详细描述，仅列举常用的几个。<br />
+                    有需要去中文网看选项：<a href="http://datatables.club/reference/option/">DataTable选项</a></p>
+                  <div class="table-responsive">
+                    <table id="DataTable" class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>参数</th><th>默认值</th><th>描述</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>autoWidth</td><td>true</td><td>控制Datatables是否自适应宽度：true/false</td></tr>
+                        <tr><td>info</td><td>true</td><td>控制是否显示表格左下角的信息：true/false</td></tr>
+                        <tr><td>jQueryUI</td><td>false</td><td>控制是否使用jquerui的样式（需要引入jqueryui的css）：true/false</td></tr>
+                        <tr><td>lengthChange</td><td>true</td><td>是否允许用户改变表格每页显示的记录数：true/false</td></tr>
+                        <tr><td>ordering</td><td>true</td><td>是否允许Datatables开启排序：true/false</td></tr>
+                        <tr><td>paging</td><td>true</td><td>是否开启本地分页：true/false</td></tr>
+                        <tr><td>scrollX</td><td>false</td><td>设置水平滚动：true/false</td></tr>
+                        <tr><td>scrollY</td><td>false</td><td>设置垂直滚动：true/false</td></tr>
+                        <tr><td>searching</td><td>true</td><td>是否允许Datatables开启本地搜索：true/false</td></tr>
+                        <tr><td>stateSave</td><td>false</td><td>保存状态 - 在页面重新加载的时候恢复状态（页码等内容）：true/false</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <br />
+                  <p>【彩蛋】：DataTable注重更多的是功能而非样式，而SimpleTable注重的是样式多过功能，两者可以搭配起来使用：</p>
+                  <div class="table-responsive">
+                    <table id="DataTable2">
+                      <thead>
+                        <tr>
+                          <th>H1</th><th>H2</th><th>H3</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>TD1</td><td>TD2</td><td>TD3</td></tr>
+                        <tr><td>TD1</td><td>TD2</td><td>TD3</td></tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>H1</th><th>H2</th><th>H3</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+
+                  </div>
+                  <br />
+                  <p>内容太多，建议有需要上官网去查看：<a href="http://datatables.club/index.html">DataTables中文网</a></p>
+                </div>
+              </div>
+
+            </section>
+
+          </div>
+
+        </section><!-- end content -->
+      </div>
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> <span>1.0</span>
+        </div>
+        <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+      </footer>
+      
+      <!-- 右侧配置栏 -->      
+      <aside class="control-sidebar control-sidebar-dark">                
+        <!-- 组合表 -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <!-- 默认包含一个control-sidebar-theme-setting-tab，通过theme_setting.js控制 -->
+          <!-- 另外，control-sidebar-home-tab是必须存在的，因为是默认表的依赖 -->
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home fa-fw"></i></a></li>
+        </ul>
+        <!-- 表内容 -->
+        <div class="tab-content">
+          <!-- 第一个表主体 -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">附加信息</h3>
+            <ul class='control-sidebar-menu'>
+              <li>
+                <p style="margin: 10px;">
+                  <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+
+                </p>
+              </li>
+            </ul>
+          </div><!-- end 第一个表主体 -->
+        </div>
+      </aside><!-- end 右侧配置栏 -->
+      <div class='control-sidebar-bg'></div>
+    </div><!-- ./wrapper -->
+
+    <div class="modal fade modal-danger" id="ErrorModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">错误</h4>
+          </div>
+          <div class="modal-body" id="ErrorModalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="location.reload()">刷新页面</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 开始加载js脚本 -->
+    <script src="static/plugins/jquery/jquery.min.js"></script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src='static/plugins/fastclick/fastclick.min.js'></script>
+    <script src='static/plugins/iCheck/icheck.min.js'></script>
+    <script src="static/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+    <script src="static/plugins/highlight/highlight.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/base.js" type="text/javascript"></script>
+    <script src="static/dist/js/mainmenu.js" type="text/javascript"></script>
+
+    <!-- 页面专属js -->
+    <script src="static/plugins/simpletable/simpletable.min.js" type="text/javascript"></script>
+    <script src="static/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/pages/Tables.js" type="text/javascript"></script>
+
+    <!-- 基础功能及皮肤js，由于依赖的关系，需要页面完全生成完毕才能加载，故放在最后 -->
+    <script src="static/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/theme_setting.min.js" type="text/javascript"></script>
+  </body>
+</html>

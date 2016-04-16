@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminSE</title>
+    <!-- 站点定义 -->
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <style type="text/css">body{font-family:"Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;}</style>
+    <!-- 浏览器版本检测 -->
+    <script type="text/javascript">
+    var browser=navigator.appName;
+    var b_version=navigator.appVersion;
+    var version=parseFloat(b_version);
+    if ((browser=="Microsoft Internet Explorer") && (version<5))
+        location.href = 'BrownerToUpdate.html';
+    </script>
+
+    <!-- 第三方css -->
+    <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/highlight/styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- 页面专属css -->
+    <style>
+    form{border:2px #ddd solid;padding:10px}
+    </style>
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="overlay" style="display:none;">
+      <div class="loading">
+        <div class="loading-center">
+          <div class="loading-center-absolute">
+            <div class="object object_four"></div>
+            <div class="object object_three"></div>
+            <div class="object object_two"></div>
+            <div class="object object_one"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-mini" title="AdminSE"><b>AdminSE</b></span>
+          <span class="logo-lg"><b>Admin</b>SE</span>
+        </a>
+        <!-- 导航头部 -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- 左侧边栏触发按钮-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="收缩/展开">
+            <span class="sr-only">收缩/展开导航</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- 用户帐户栏 -->
+              <li class="dropdown user user-menu">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="static/dist/img/DefaultHead.png" class="user-image" alt="头像"/>
+                  <span class="hidden-xs">用户名</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- 用户简介 -->
+                  <li class="user-header">
+                    <a href="#" style="background-color: transparent" title="更换头像">
+                      <img src="static/dist/img/DefaultHead.png" class="img-circle" alt="User Image" />
+                    </a>
+                    <p>
+                      自定义用户信息
+                      <small>备注等内容</small>
+                    </p>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-primary">编辑</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-primary">注销</a>
+                    </div>
+                  </li>
+                </ul>
+              </li> <!-- end 用户帐户栏 -->
+              <!-- 右侧边栏触发按钮 -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li> <!-- end 右侧边栏触发按钮 -->
+            </ul>
+          </div>
+        </nav> <!-- end 导航头部 -->
+      </header>
+
+      <!-- 左侧菜单栏 -->
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- 搜索栏 -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group" title="功能未开放">
+              <input type="text" name="q" class="form-control" placeholder="请输入搜索内容"/>
+              <span class="input-group-btn">
+                <button type='button' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form><!-- end 搜索栏 -->
+
+          <!-- 菜单栏主体 -->
+          <ul class="sidebar-menu"></ul>
+
+        </section>
+      </aside> <!-- end 左侧菜单栏 -->
+
+      <!-- 页面主体内容 -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            表单
+          </h1>
+        </section>
+
+        <!-- content -->
+        <section class="content">
+          <div class="row">
+            <section class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <!-- <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button> -->
+                  <h3 class="box-title">表单样式</h3>
+                </div>
+                <div class="box-body">
+                  <p>1. 基本实例</p>
+                  <p>单独的表单控件会被自动赋予一些全局样式。所有设置了 .form-control 类的 &lt;input&gt;、&lt;textarea&gt; 和 &lt;select&gt; 元素都将被默认设置宽度属性为 width: 100%;。 将 label 元素和前面提到的控件包裹在 .form-group 中可以获得最好的排列。</p>
+                  <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputFile">File input</label>
+                      <input type="file" id="exampleInputFile">
+                      <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> Check me out
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="html">&lt;form&gt;<br />&nbsp;&nbsp;&lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="exampleInputEmail1"&gt;Email address&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="exampleInputPassword1"&gt;Password&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="exampleInputFile"&gt;File input&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="file" id="exampleInputFile"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="help-block"&gt;Example block-level help text here.&lt;/p&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;div class="checkbox"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="checkbox"&gt; Check me out<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;<br />&lt;/form&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>2. 内联表单</p>
+                  <p>为 &lt;form&gt; 元素添加 .form-inline 类可使其内容左对齐并且表现为 inline-block 级别的控件。只适用于视口（viewport）至少在 768px 宽度时（视口宽度再小的话就会使表单折叠）。</p>
+                  <p>在 Bootstrap 中，输入框和单选/多选框控件默认被设置为 width: 100%; 宽度。在内联表单，我们将这些元素的宽度设置为 width: auto;，因此，多个控件可以排列在同一行。根据你的布局需求，可能需要一些额外的定制化组件。</p>
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <label for="exampleInputName2">Name</label>
+                      <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail2">Email</label>
+                      <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send invitation</button>
+                  </form>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="html">&lt;form class="form-inline"&gt;<br />&nbsp;&nbsp;&lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="exampleInputName2"&gt;Name&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe"&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="exampleInputEmail2"&gt;Email&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com"&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;button type="submit" class="btn btn-primary"&gt;Send invitation&lt;/button&gt;<br />&lt;/form&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>3. 水平排列的表单</p>
+                  <p>通过为表单添加 .form-horizontal 类，并联合使用 Bootstrap 预置的栅格类，可以将 label 标签和控件组水平并排布局。这样做将改变 .form-group 的行为，使其表现为栅格系统中的行（row），因此就无需再额外添加 .row 了。</p>
+                  <form class="form-horizontal">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox"> Remember me
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Sign in</button>
+                      </div>
+                    </div>
+                  </form>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="html">&lt;form class="form-horizontal"&gt;<br />&nbsp;&nbsp;&lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="inputEmail3" class="col-sm-2 control-label"&gt;Email&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-sm-10"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="email" class="form-control" id="inputEmail3" placeholder="Email"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="inputPassword3" class="col-sm-2 control-label"&gt;Password&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-sm-10"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="password" class="form-control" id="inputPassword3" placeholder="Password"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-sm-offset-2 col-sm-10"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="checkbox"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="checkbox"&gt; Remember me<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-sm-offset-2 col-sm-10"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button type="submit" class="btn btn-default"&gt;Sign in&lt;/button&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&lt;/form&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>4. form-control/form-control-static/control-label</p>
+                  <p>
+                    为了更好地居中对齐，需要添加如下样式：<br />
+                    为 label 添加 .control-label <br />
+                    为 input/textarea/select 添加 .form-control <br />
+                    为 纯文本 添加 .form-control-static
+                  </p>
+                  <br />
+                  <p>5. 多选和单选框</p>
+                  <p>
+                    同上，也是为了对齐：<br />
+                    为 多选框 的外层添加 .checkbox(排列在多行)/.checkbox-inline(排列在一行) <br />
+                    为 单选框 的外层添加 .radio(排列在多行)/.radio-inline(排列在一行) <br />
+                  </p>
+                  <br />
+                  <p>6. 校验状态</p>
+                  <p>Bootstrap 对表单控件的校验状态，如 error、warning 和 success 状态，都定义了样式。使用时，添加 .has-warning、.has-error 或 .has-success 类到这些控件的父元素即可。任何包含在此元素之内的 .control-label、.form-control 和 .help-block 元素都将接受这些校验状态的样式。</p>
+                  <form>
+                    <div class="form-group has-success">
+                      <label class="control-label" for="inputSuccess1">Input with success</label>
+                      <input type="text" class="form-control" id="inputSuccess1">
+                    </div>
+                    <div class="form-group has-warning">
+                      <label class="control-label" for="inputWarning1">Input with warning</label>
+                      <input type="text" class="form-control" id="inputWarning1">
+                    </div>
+                    <div class="form-group has-error">
+                      <label class="control-label" for="inputError1">Input with error</label>
+                      <input type="text" class="form-control" id="inputError1">
+                    </div>
+                    <div class="has-success">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" id="checkboxSuccess" value="option1">
+                          Checkbox with success
+                        </label>
+                      </div>
+                    </div>
+                    <div class="has-warning">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" id="checkboxWarning" value="option1">
+                          Checkbox with warning
+                        </label>
+                      </div>
+                    </div>
+                    <div class="has-error">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" id="checkboxError" value="option1">
+                          Checkbox with error
+                        </label>
+                      </div>
+                    </div>
+                  </form>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="html">&lt;div class="form-group has-success"&gt;<br />&nbsp;&nbsp;&lt;label class="control-label" for="inputSuccess1"&gt;Input with success&lt;/label&gt;<br />&nbsp;&nbsp;&lt;input type="text" class="form-control" id="inputSuccess1"&gt;<br />&lt;/div&gt;<br />&lt;div class="form-group has-warning"&gt;<br />&nbsp;&nbsp;&lt;label class="control-label" for="inputWarning1"&gt;Input with warning&lt;/label&gt;<br />&nbsp;&nbsp;&lt;input type="text" class="form-control" id="inputWarning1"&gt;<br />&lt;/div&gt;<br />&lt;div class="form-group has-error"&gt;<br />&nbsp;&nbsp;&lt;label class="control-label" for="inputError1"&gt;Input with error&lt;/label&gt;<br />&nbsp;&nbsp;&lt;input type="text" class="form-control" id="inputError1"&gt;<br />&lt;/div&gt;<br />&lt;div class="has-success"&gt;<br />&nbsp;&nbsp;&lt;div class="checkbox"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="checkbox" id="checkboxSuccess" value="option1"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checkbox with success<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&lt;/div&gt;<br />&lt;div class="has-warning"&gt;<br />&nbsp;&nbsp;&lt;div class="checkbox"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="checkbox" id="checkboxWarning" value="option1"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checkbox with warning<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&lt;/div&gt;<br />&lt;div class="has-error"&gt;<br />&nbsp;&nbsp;&lt;div class="checkbox"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="checkbox" id="checkboxError" value="option1"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checkbox with error<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&lt;/div&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>7. 添加额外的图标</p>
+                  <form>
+                    <div class="form-group has-success has-feedback">
+                      <label class="control-label" for="inputSuccess2">Input with success</label>
+                      <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+                      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                      <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                    </div>
+                    <div class="form-group has-warning has-feedback">
+                      <label class="control-label" for="inputWarning2">Input with warning</label>
+                      <input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status">
+                      <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+                      <span id="inputWarning2Status" class="sr-only">(warning)</span>
+                    </div>
+                    <div class="form-group has-error has-feedback">
+                      <label class="control-label" for="inputError2">Input with error</label>
+                      <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status">
+                      <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                      <span id="inputError2Status" class="sr-only">(error)</span>
+                    </div>
+                    <div class="form-group has-success has-feedback">
+                      <label class="control-label" for="inputGroupSuccess1">Input group with success</label>
+                      <div class="input-group">
+                        <span class="input-group-addon">@</span>
+                        <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+                      </div>
+                      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                      <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+                    </div>
+                  </form>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="html">&lt;div class="form-group has-success has-feedback"&gt;<br />&nbsp;&nbsp;&lt;label class="control-label" for="inputSuccess2"&gt;Input with success&lt;/label&gt;<br />&nbsp;&nbsp;&lt;input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status"&gt;<br />&nbsp;&nbsp;&lt;span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"&gt;&lt;/span&gt;<br />&nbsp;&nbsp;&lt;span id="inputSuccess2Status" class="sr-only"&gt;(success)&lt;/span&gt;<br />&lt;/div&gt;<br />&lt;div class="form-group has-warning has-feedback"&gt;<br />&nbsp;&nbsp;&lt;label class="control-label" for="inputWarning2"&gt;Input with warning&lt;/label&gt;<br />&nbsp;&nbsp;&lt;input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status"&gt;<br />&nbsp;&nbsp;&lt;span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"&gt;&lt;/span&gt;<br />&nbsp;&nbsp;&lt;span id="inputWarning2Status" class="sr-only"&gt;(warning)&lt;/span&gt;<br />&lt;/div&gt;<br />&lt;div class="form-group has-error has-feedback"&gt;<br />&nbsp;&nbsp;&lt;label class="control-label" for="inputError2"&gt;Input with error&lt;/label&gt;<br />&nbsp;&nbsp;&lt;input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status"&gt;<br />&nbsp;&nbsp;&lt;span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"&gt;&lt;/span&gt;<br />&nbsp;&nbsp;&lt;span id="inputError2Status" class="sr-only"&gt;(error)&lt;/span&gt;<br />&lt;/div&gt;<br />&lt;div class="form-group has-success has-feedback"&gt;<br />&nbsp;&nbsp;&lt;label class="control-label" for="inputGroupSuccess1"&gt;Input group with success&lt;/label&gt;<br />&nbsp;&nbsp;&lt;div class="input-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-group-addon"&gt;@&lt;/span&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status"&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"&gt;&lt;/span&gt;<br />&nbsp;&nbsp;&lt;span id="inputGroupSuccess1Status" class="sr-only"&gt;(success)&lt;/span&gt;<br />&lt;/div&gt;</code></pre>
+                  </div>
+                  <br />
+                  <p>8. 控件尺寸</p>
+                  <p>通过 .input-lg 类似的类可以为控件设置高度，通过 .col-lg-* 类似的类可以为控件设置宽度。</p>
+                  <form>
+                    <input class="form-control input-lg" type="text" placeholder=".input-lg"><br />
+                    <input class="form-control" type="text" placeholder="Default input"><br />
+                    <input class="form-control input-sm" type="text" placeholder=".input-sm">
+                  </form>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+                    <pre style="display:None"><code class="html">&lt;input class="form-control input-lg" type="text" placeholder=".input-lg"&gt;<br />&lt;input class="form-control" type="text" placeholder="Default input"&gt;<br />&lt;input class="form-control input-sm" type="text" placeholder=".input-sm"&gt;</code></pre>
+                  </div>
+
+                </div>
+              </div>
+
+            </section>
+
+          </div>
+
+        </section><!-- end content -->
+      </div>
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> <span>1.0</span>
+        </div>
+        <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+      </footer>
+      
+      <!-- 右侧配置栏 -->      
+      <aside class="control-sidebar control-sidebar-dark">                
+        <!-- 组合表 -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <!-- 默认包含一个control-sidebar-theme-setting-tab，通过theme_setting.js控制 -->
+          <!-- 另外，control-sidebar-home-tab是必须存在的，因为是默认表的依赖 -->
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home fa-fw"></i></a></li>
+        </ul>
+        <!-- 表内容 -->
+        <div class="tab-content">
+          <!-- 第一个表主体 -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">附加信息</h3>
+            <ul class='control-sidebar-menu'>
+              <li>
+                <p style="margin: 10px;">
+                  <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+
+                </p>
+              </li>
+            </ul>
+          </div><!-- end 第一个表主体 -->
+        </div>
+      </aside><!-- end 右侧配置栏 -->
+      <div class='control-sidebar-bg'></div>
+    </div><!-- ./wrapper -->
+
+    <div class="modal fade modal-danger" id="ErrorModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">错误</h4>
+          </div>
+          <div class="modal-body" id="ErrorModalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="location.reload()">刷新页面</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 开始加载js脚本 -->
+    <script src="static/plugins/jquery/jquery.min.js"></script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src='static/plugins/fastclick/fastclick.min.js'></script>
+    <script src='static/plugins/iCheck/icheck.min.js'></script>
+    <script src="static/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+    <script src="static/plugins/highlight/highlight.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/base.js" type="text/javascript"></script>
+    <script src="static/dist/js/mainmenu.js" type="text/javascript"></script>
+
+    <!-- 页面专属js -->
+    <script src="static/dist/js/pages/FormGeneral.js" type="text/javascript"></script>
+
+    <!-- 基础功能及皮肤js，由于依赖的关系，需要页面完全生成完毕才能加载，故放在最后 -->
+    <script src="static/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/theme_setting.min.js" type="text/javascript"></script>
+  </body>
+</html>

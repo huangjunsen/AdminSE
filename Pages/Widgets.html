@@ -1,0 +1,1297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminSE</title>
+    <!-- 站点定义 -->
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <style type="text/css">body{font-family:"Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;}</style>
+    <!-- 浏览器版本检测 -->
+    <script type="text/javascript">
+    var browser=navigator.appName;
+    var b_version=navigator.appVersion;
+    var version=parseFloat(b_version);
+    if ((browser=="Microsoft Internet Explorer") && (version<5))
+        location.href = 'BrownerToUpdate.html';
+    </script>
+
+    <!-- 第三方css -->
+    <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/highlight/styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- 页面专属css -->
+    <style>
+    #BGColorList [class^=bg-], #TEXTColorList [class^=text-]{margin:5px 0;padding:5px;}
+    </style>
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="overlay" style="display:none;">
+      <div class="loading">
+        <div class="loading-center">
+          <div class="loading-center-absolute">
+            <div class="object object_four"></div>
+            <div class="object object_three"></div>
+            <div class="object object_two"></div>
+            <div class="object object_one"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-mini" title="AdminSE"><b>AdminSE</b></span>
+          <span class="logo-lg"><b>Admin</b>SE</span>
+        </a>
+        <!-- 导航头部 -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- 左侧边栏触发按钮-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="收缩/展开">
+            <span class="sr-only">收缩/展开导航</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- 用户帐户栏 -->
+              <li class="dropdown user user-menu">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="static/dist/img/DefaultHead.png" class="user-image" alt="头像"/>
+                  <span class="hidden-xs">用户名</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- 用户简介 -->
+                  <li class="user-header">
+                    <a href="#" style="background-color: transparent" title="更换头像">
+                      <img src="static/dist/img/DefaultHead.png" class="img-circle" alt="User Image" />
+                    </a>
+                    <p>
+                      自定义用户信息
+                      <small>备注等内容</small>
+                    </p>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-primary">编辑</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-primary">注销</a>
+                    </div>
+                  </li>
+                </ul>
+              </li> <!-- end 用户帐户栏 -->
+              <!-- 右侧边栏触发按钮 -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li> <!-- end 右侧边栏触发按钮 -->
+            </ul>
+          </div>
+        </nav> <!-- end 导航头部 -->
+      </header>
+
+      <!-- 左侧菜单栏 -->
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- 搜索栏 -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group" title="功能未开放">
+              <input type="text" name="q" class="form-control" placeholder="请输入搜索内容"/>
+              <span class="input-group-btn">
+                <button type='button' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form><!-- end 搜索栏 -->
+
+          <!-- 菜单栏主体 -->
+          <ul class="sidebar-menu"></ul>
+
+        </section>
+      </aside> <!-- end 左侧菜单栏 -->
+
+      <!-- 页面主体内容 -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            部件
+          </h1>
+        </section>
+
+        <!-- content -->
+        <section class="content" id="DashBoardCharts">
+          <div class="row">
+            <section class="col-xs-12">
+              <div class="box" id="AdminLTE-Box">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">AdminLTE Box</h3>
+                </div>
+                <div class="box-body bg-info">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="info-box">
+                        <span class="info-box-icon bg-aqua">
+                          <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <div class="info-box-content">
+                          <span class="info-box-text">info-box</span>
+                          <span class="info-box-number">1,410</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="info-box bg-green">
+                        <span class="info-box-icon">
+                          <i class="fa fa-thumbs-o-up"></i>
+                        </span>
+                        <div class="info-box-content">
+                          <span class="info-box-text">info-box</span>
+                          <span class="info-box-number">41,410</span>
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
+                          </div>
+                              <span class="progress-description">
+                                70% Increase in 30 Days
+                              </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="small-box bg-yellow">
+                        <div class="inner">
+                          <h3>44</h3>
+                          <p>small-box</p>
+                        </div>
+                        <div class="icon">
+                          <i class="fa fa-user-plus"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                          More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="box box-default collapsed-box">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Box</h3>
+                          <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                              <i class="fa fa-plus"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="box-body">
+                          1. 展开、收缩：图标 fa-plus 和 collapsed-box 是配套使用的；fa-minus对应不使用 collapsed-box 的情况。<br />
+                          2. 为box加上 fa-times 图标，并使 data-widget="remove" ，则box可关闭（从DOM中移除）。
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="html">&lt;div class="info-box"&gt;
+  &lt;span class="info-box-icon bg-aqua"&gt;
+    &lt;i class="fa fa-envelope-o"&gt;&lt;/i&gt;
+  &lt;/span&gt;
+  &lt;div class="info-box-content"&gt;
+    &lt;span class="info-box-text"&gt;Messages&lt;/span&gt;
+    &lt;span class="info-box-number"&gt;1,410&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                    </div>
+                    <div class="col-sm-3">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="html">&lt;div class="info-box bg-green"&gt;
+  &lt;span class="info-box-icon"&gt;
+    &lt;i class="fa fa-thumbs-o-up"&gt;&lt;/i&gt;
+  &lt;/span&gt;
+  &lt;div class="info-box-content"&gt;
+    &lt;span class="info-box-text"&gt;Likes&lt;/span&gt;
+    &lt;span class="info-box-number"&gt;41,410&lt;/span&gt;
+    &lt;div class="progress"&gt;
+      &lt;div class="progress-bar" style="width: 70%"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+      &lt;span class="progress-description"&gt;
+        70% Increase in 30 Days
+      &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                    </div>
+                    <div class="col-sm-3">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="html">&lt;div class="small-box bg-yellow"&gt;
+  &lt;div class="inner"&gt;
+    &lt;h3&gt;44&lt;/h3&gt;
+    &lt;p&gt;User Registrations&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="icon"&gt;
+    &lt;i class="ion ion-person-add"&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;a href="#" class="small-box-footer"&gt;
+    More info &lt;i class="fa fa-arrow-circle-right"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+                    </div>
+                    <div class="col-sm-3">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="html">&lt;div class="box box-default collapsed-box"&gt;
+  &lt;div class="box-header with-border"&gt;
+    &lt;h3 class="box-title"&gt;Box&lt;/h3&gt;
+    &lt;div class="box-tools pull-right"&gt;
+      &lt;button type="button" class="btn btn-box-tool" data-widget="collapse"&gt;
+        &lt;i class="fa fa-plus"&gt;&lt;/i&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="box-body"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                    </div>
+                  </div>
+                  <p>&nbsp;</p>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="box box-widget widget-user">
+                        <div class="widget-user-header bg-aqua-active">
+                          <h3 class="widget-user-username">用户部件1</h3>
+                          <h5 class="widget-user-desc">box-widget widget-user</h5>
+                        </div>
+                        <div class="widget-user-image">
+                          <img class="img-circle" src="static/dist/img/HeadImg02.png" alt="User Avatar">
+                        </div>
+                        <div class="box-footer">
+                          <div class="row">
+                            <div class="col-sm-4 border-right">
+                              <div class="description-block">
+                                <h5 class="description-header">3,200</h5>
+                                <span class="description-text">SALES</span>
+                              </div>
+                            </div>
+                            <div class="col-sm-4 border-right">
+                              <div class="description-block">
+                                <h5 class="description-header">13,000</h5>
+                                <span class="description-text">FOLLOWERS</span>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="description-block">
+                                <h5 class="description-header">35</h5>
+                                <span class="description-text">PRODUCTS</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="box box-widget widget-user-2">
+                        <!-- Add the bg color to the header using any of the bg-* classes -->
+                        <div class="widget-user-header bg-yellow">
+                          <div class="widget-user-image">
+                            <img class="img-circle" src="static/dist/img/HeadImg01.png" alt="User Avatar">
+                          </div>
+                          <!-- /.widget-user-image -->
+                          <h3 class="widget-user-username">用户部件2</h3>
+                          <h5 class="widget-user-desc">box-widget widget-user-2</h5>
+                        </div>
+                        <div class="box-footer no-padding">
+                          <ul class="nav nav-stacked">
+                            <li><a href="#">Projects <span class="pull-right badge bg-blue">31</span></a></li>
+                            <li><a href="#">Completed Projects <span class="pull-right badge bg-green">12</span></a></li>
+                            <li><a href="#">Followers <span class="pull-right badge bg-red">842</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="html">&lt;div class="box box-widget widget-user"&gt;
+  &lt;div class="widget-user-header bg-aqua-active"&gt;
+    &lt;h3 class="widget-user-username"&gt;用户部件1&lt;/h3&gt;
+    &lt;h5 class="widget-user-desc"&gt;box-widget widget-user&lt;/h5&gt;
+  &lt;/div&gt;
+  &lt;div class="widget-user-image"&gt;
+    &lt;img class="img-circle" src="static/dist/img/HeadImg02.png" alt="User Avatar"&gt;
+  &lt;/div&gt;
+  &lt;div class="box-footer"&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-sm-4 border-right"&gt;
+        &lt;div class="description-block"&gt;
+          &lt;h5 class="description-header"&gt;3,200&lt;/h5&gt;
+          &lt;span class="description-text"&gt;SALES&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="col-sm-4 border-right"&gt;
+        &lt;div class="description-block"&gt;
+          &lt;h5 class="description-header"&gt;13,000&lt;/h5&gt;
+          &lt;span class="description-text"&gt;FOLLOWERS&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="col-sm-4"&gt;
+        &lt;div class="description-block"&gt;
+          &lt;h5 class="description-header"&gt;35&lt;/h5&gt;
+          &lt;span class="description-text"&gt;PRODUCTS&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="html">&lt;div class="box box-widget widget-user-2"&gt;
+  &lt;div class="widget-user-header bg-yellow"&gt;
+    &lt;div class="widget-user-image"&gt;
+      &lt;img class="img-circle" src="static/dist/img/HeadImg01.png" alt="User Avatar"&gt;
+    &lt;/div&gt;
+    &lt;h3 class="widget-user-username"&gt;用户部件2&lt;/h3&gt;
+    &lt;h5 class="widget-user-desc"&gt;box-widget widget-user-2&lt;/h5&gt;
+  &lt;/div&gt;
+  &lt;div class="box-footer no-padding"&gt;
+    &lt;ul class="nav nav-stacked"&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Projects &lt;span class="pull-right badge bg-blue"&gt;31&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Completed Projects &lt;span class="pull-right badge bg-green"&gt;12&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Followers &lt;span class="pull-right badge bg-red"&gt;842&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-xs-6" id="BGColorList">
+                      bg-颜色列表：<br />
+                      <hr />
+                      <div class="bg-red">bg-red</div>
+                      <div class="bg-yellow">bg-yellow</div>
+                      <div class="bg-aqua">bg-aqua</div>
+                      <div class="bg-blue">bg-blue</div>
+                      <div class="bg-light-blue">bg-light-blue</div>
+                      <div class="bg-green">bg-green</div>
+                      <div class="bg-navy">bg-navy</div>
+                      <div class="bg-teal">bg-teal</div>
+                      <div class="bg-olive">bg-olive</div>
+                      <div class="bg-lime">bg-lime</div>
+                      <div class="bg-orange">bg-orange</div>
+                      <div class="bg-fuchsia">bg-fuchsia</div>
+                      <div class="bg-purple">bg-purple</div>
+                      <div class="bg-maroon">bg-maroon</div>
+                      <div class="bg-black">bg-black</div>
+                      <div class="bg-red-active">bg-red-active</div>
+                      <div class="bg-yellow-active">bg-yellow-active</div>
+                      <div class="bg-aqua-active">bg-aqua-active</div>
+                      <div class="bg-blue-active">bg-blue-active</div>
+                      <div class="bg-light-blue-active">bg-light-blue-active</div>
+                      <div class="bg-green-active">bg-green-active</div>
+                      <div class="bg-navy-active">bg-navy-active</div>
+                      <div class="bg-teal-active">bg-teal-active</div>
+                      <div class="bg-olive-active">bg-olive-active</div>
+                      <div class="bg-lime-active">bg-lime-active</div>
+                      <div class="bg-orange-active">bg-orange-active</div>
+                      <div class="bg-fuchsia-active">bg-fuchsia-active</div>
+                      <div class="bg-purple-active">bg-purple-active</div>
+                      <div class="bg-maroon-active">bg-maroon-active</div>
+                      <div class="bg-black-active">bg-black-active</div>
+                      <div class="bg-teal-gradient">bg-teal-gradient</div>
+                      <div class="bg-light-blue-gradient">bg-light-blue-gradient</div>
+                      <div class="bg-blue-gradient">bg-blue-gradient</div>
+                      <div class="bg-aqua-gradient">bg-aqua-gradient</div>
+                      <div class="bg-yellow-gradient">bg-yellow-gradient</div>
+                      <div class="bg-purple-gradient">bg-purple-gradient</div>
+                      <div class="bg-green-gradient">bg-green-gradient</div>
+                      <div class="bg-red-gradient">bg-red-gradient</div>
+                      <div class="bg-black-gradient">bg-black-gradient</div>
+                      <div class="bg-maroon-gradient">bg-maroon-gradient</div>
+                    </div>
+                    <div class="col-xs-6" id="TEXTColorList">
+                      text-颜色列表：<br />
+                      <hr />
+                      <div class="text-red">text-red</div>
+                      <div class="text-yellow">text-yellow</div>
+                      <div class="text-aqua">text-aqua</div>
+                      <div class="text-blue">text-blue</div>
+                      <div class="text-light-blue">text-light-blue</div>
+                      <div class="text-green">text-green</div>
+                      <div class="text-navy">text-navy</div>
+                      <div class="text-teal">text-teal</div>
+                      <div class="text-olive">text-olive</div>
+                      <div class="text-lime">text-lime</div>
+                      <div class="text-orange">text-orange</div>
+                      <div class="text-fuchsia">text-fuchsia</div>
+                      <div class="text-purple">text-purple</div>
+                      <div class="text-maroon">text-maroon</div>
+                      <div class="text-black">text-black</div>
+                      <div class="text-gray">text-gray</div>
+                      <hr />
+                      box样式：<br />
+                      <hr />
+                      <div class="box box-default"><div class="box-header"><h4 class="box-title">box-default</h4></div></div>
+                      <div class="box box-primary"><div class="box-header"><h4 class="box-title">box-primary</h4></div></div>
+                      <div class="box box-info"><div class="box-header"><h4 class="box-title">box-info</h4></div></div>
+                      <div class="box box-danger"><div class="box-header"><h4 class="box-title">box-danger</h4></div></div>
+                      <div class="box box-warning"><div class="box-header"><h4 class="box-title">box-warning</h4></div></div>
+                      <div class="box box-success"><div class="box-header"><h4 class="box-title">box-success</h4></div></div>
+                      <div class="box box-default box-solid"><div class="box-header"><h4 class="box-title">box-default box-solid</h4></div></div>
+                      <div class="box box-primary box-solid"><div class="box-header"><h4 class="box-title">box-primary box-solid</h4></div></div>
+                      <div class="box box-info box-solid"><div class="box-header"><h4 class="box-title">box-info box-solid</h4></div></div>
+                      <div class="box box-danger box-solid"><div class="box-header"><h4 class="box-title">box-danger box-solid</h4></div></div>
+                      <div class="box box-warning box-solid"><div class="box-header"><h4 class="box-title">box-warning box-solid</h4></div></div>
+                      <div class="box box-success box-solid"><div class="box-header"><h4 class="box-title">box-success box-solid</h4></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="box">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <div class="box-title">Bootstrap 组件</div>
+                </div>
+                <div class="box-body">
+                  <h4 id="dropdown">一、下拉菜单</h4>
+                  将下拉菜单触发器和下拉菜单都包裹在 .dropdown 里，或者另一个声明了 position: relative; 的元素。然后加入组成菜单的 HTML 代码。<br />
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                          下拉菜单
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li><a href="#">Separated link</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-xs-3">
+                      <div class="dropup">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          向上显示的下拉菜单
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                          <li class="dropdown-header">标题1</li>
+                          <li><a href="#">Action1.1</a></li>
+                          <li><a href="#">Action1.2</a></li>
+                          <li><a href="#">Action1.3</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li class="dropdown-header">标题2</li>
+                          <li><a href="#">Action2.1</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div class="dropdown"&gt;
+  &lt;button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"&gt;
+    下拉菜单
+    &lt;span class="caret"&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenu1"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+                    </div>
+                    <div class="col-xs-3">
+                      <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div class="dropup"&gt;
+   &lt;button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+     向上显示的下拉菜单
+     &lt;span class="caret"&gt;&lt;/span&gt;
+   &lt;/button&gt;
+   &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenu2"&gt;
+     &lt;li class="dropdown-header"&gt;标题1&lt;/li&gt;
+     &lt;li&gt;&lt;a href="#"&gt;Action1.1&lt;/a&gt;&lt;/li&gt;
+     &lt;li&gt;&lt;a href="#"&gt;Action1.2&lt;/a&gt;&lt;/li&gt;
+     &lt;li&gt;&lt;a href="#"&gt;Action1.3&lt;/a&gt;&lt;/li&gt;
+     &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+     &lt;li class="dropdown-header"&gt;标题2&lt;/li&gt;
+     &lt;li&gt;&lt;a href="#"&gt;Action2.1&lt;/a&gt;&lt;/li&gt;
+   &lt;/ul&gt;
+ &lt;/div&gt;
+</code></pre>
+                    </div>
+                  </div>
+                  <p>
+                    如果通过js，可以执行如下语句展开下拉菜单：
+                    <pre><code class="JavaScript">$('JQselecter').dropdown('toggle');</code></pre>
+                    下拉菜单的事件：
+                    <div class="table-responsive">
+                      <table class="table table-bordered table-striped bs-events-table">
+                        <thead>
+                          <tr>
+                            <th>事件名</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>show.bs.dropdown</td>
+                            <td>当下拉菜单开始显示之时执行事件。</td>
+                          </tr>
+                          <tr>
+                            <td>shown.bs.dropdown</td>
+                            <td>当下拉菜单显示完成之后执行事件（包括css过渡）。</td>
+                          </tr>
+                          <tr>
+                            <td>hide.bs.dropdown</td>
+                            <td>当下拉菜单开始关闭之时执行事件。</td>
+                          </tr>
+                          <tr>
+                            <td>hidden.bs.dropdown</td>
+                            <td>当下拉菜单关闭完成之后执行事件（包括css过渡）。</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    使用方法：<br />
+                    <pre><code class="JavaScript">$('JQSelector').on('show.bs.dropdown', function () {
+  // do something…
+})</code></pre>
+                  </p>
+                  <p>&nbsp;</p>
+                  <h4 id="nav">二、导航</h4>
+                  <a href="UIGeneral.html">高级用法</a><br />
+                  1. 标签页：在ul元素上添加 .nav .nav-tabs 样式即可<br />
+                  <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation"><a href="#">Profile</a></li>
+                    <li role="presentation"><a href="#">Messages</a></li>
+                  </ul>
+                  <br />
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;ul class="nav nav-tabs"&gt;
+  &lt;li role="presentation" class="active"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li role="presentation"&gt;&lt;a href="#"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+  &lt;li role="presentation"&gt;&lt;a href="#"&gt;Messages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+                  </div>
+                  <p>&nbsp;</p>
+                  2. 胶囊式标签页：在ul元素上添加 .nav .nav-pills 样式即可<br />
+                  <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation"><a href="#">Profile</a></li>
+                    <li role="presentation"><a href="#">Messages</a></li>
+                  </ul>
+                  <br />
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;ul class="nav nav-pills"&gt;
+  &lt;li role="presentation" class="active"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li role="presentation"&gt;&lt;a href="#"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+  &lt;li role="presentation"&gt;&lt;a href="#"&gt;Messages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+                  </div>
+                  <br />
+                  2.1. 胶囊是标签页也是可以垂直方向堆叠排列的。只需添加 .nav-stacked 类。<br />
+                  <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation"><a href="#">Profile</a></li>
+                    <li role="presentation"><a href="#">Messages</a></li>
+                  </ul>
+                  <p>&nbsp;</p>
+                  3. 导航条<br />
+                  3.1 默认样式的导航条：<br />
+                  <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                      <!-- Brand and toggle get grouped for better mobile display -->
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Brand</a>
+                      </div>
+
+                      <!-- Collect the nav links, forms, and other content for toggling -->
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                          <li><a href="#">Link</a></li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Action</a></li>
+                              <li><a href="#">Another action</a></li>
+                              <li><a href="#">Something else here</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">Separated link</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">One more separated link</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                        <form class="navbar-form navbar-left" role="search">
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                          </div>
+                          <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                          <li><a href="#">Link</a></li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Action</a></li>
+                              <li><a href="#">Another action</a></li>
+                              <li><a href="#">Something else here</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">Separated link</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                  </nav>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;nav class="navbar navbar-default"&gt;
+  &lt;div class="container-fluid"&gt;
+    &lt;div class="navbar-header"&gt;
+      &lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"&gt;
+        &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;a class="navbar-brand" href="#"&gt;Brand&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt;
+      &lt;ul class="nav navbar-nav"&gt;
+        &lt;li class="active"&gt;&lt;a href="#"&gt;Link &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="dropdown"&gt;
+          &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"&gt;Dropdown &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+          &lt;ul class="dropdown-menu"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+            &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;One more separated link&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;form class="navbar-form navbar-left" role="search"&gt;
+        &lt;div class="form-group"&gt;
+          &lt;input type="text" class="form-control" placeholder="Search"&gt;
+        &lt;/div&gt;
+        &lt;button type="submit" class="btn btn-default"&gt;Submit&lt;/button&gt;
+      &lt;/form&gt;
+      &lt;ul class="nav navbar-nav navbar-right"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="dropdown"&gt;
+          &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"&gt;Dropdown &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+          &lt;ul class="dropdown-menu"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
+  &lt;/div&gt;&lt;!-- /.container-fluid --&gt;
+&lt;/nav&gt;
+</code></pre>
+                  </div>
+                  <br />
+                  3.2 反色的导航条：<br />
+                  通过添加 .navbar-inverse 类可以改变导航条的外观。<br />
+                  <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                      <!-- Brand and toggle get grouped for better mobile display -->
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Brand</a>
+                      </div>
+
+                      <!-- Collect the nav links, forms, and other content for toggling -->
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                        <ul class="nav navbar-nav">
+                          <li class="active"><a href="#">Home</a></li>
+                          <li><a href="#">Link</a></li>
+                          <li><a href="#">Link</a></li>
+                        </ul>
+                      </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                  </nav>
+                  <br />
+                  3.3 固定在顶部：<br />
+                  添加 .navbar-fixed-top 类可以让导航条固定在顶部，还可包含一个 .container 或 .container-fluid 容器，从而让导航条居中，并在两侧添加内补（padding）。<br />
+                  <br />
+                  3.4 固定在底部：<br />
+                  同3.3，只是添加的类为 .navbar-fixed-bottom 。<br />
+                  <p>&nbsp;</p>
+                  <h4 id="breadcrumb">三、 路径导航(面包屑)</h4>
+                  在一个带有层次的导航结构中标明当前页面的位置。各路径间的分隔符已经自动通过 CSS 的 :before 和 content 属性添加了。<br />
+                  <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li class="active">Data</li>
+                  </ol>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;ol class="breadcrumb"&gt;
+  &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="active"&gt;Data&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+                  </div>
+                  <p>&nbsp;</p>
+                  <h4 id="pagination">四、 分页</h4>
+                  4.1 默认分页<br />
+                  <nav>
+                    <ul class="pagination">
+                      <li>
+                        <a href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li>
+                        <a href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;nav&gt;
+  &lt;ul class="pagination"&gt;
+    &lt;li&gt;
+      &lt;a href="#" aria-label="Previous"&gt;
+        &lt;span aria-hidden="true"&gt;&amp;laquo;&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href="#" aria-label="Next"&gt;
+        &lt;span aria-hidden="true"&gt;&amp;raquo;&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+                  </div>
+                  <br />
+                  4.2 禁用和激活状态<br />
+                  链接在不同情况下可以定制。你可以给不能点击的链接添加 .disabled 类、给当前页添加 .active 类。<br />
+                  <nav>
+                    <ul class="pagination">
+                      <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                   </ul>
+                 </nav>
+                 <br />
+                  4.3 尺寸<br />
+                  .pagination-lg 或 .pagination-sm 类提供了额外可供选择的尺寸。<br />
+                  <nav>
+                    <ul class="pagination pagination-lg">
+                      <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    </ul>
+                  </nav>
+                  <nav>
+                    <ul class="pagination">
+                      <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    </ul>
+                  </nav>
+                  <nav>
+                    <ul class="pagination pagination-sm">
+                      <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    </ul>
+                  </nav>
+                  <br />
+                  4.4 翻页<br />
+                  用简单的标记和样式，就能做个上一页和下一页的简单翻页。<br />
+                  <nav>
+                    <ul class="pager">
+                      <li><a href="#">Previous</a></li>
+                      <li><a href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;nav&gt;
+  &lt;ul class="pager"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Previous&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Next&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+                  </div>
+                  <br />
+                  4.3 翻页对齐<br />
+                  .previous 和 .next 类可以把翻页向两端对齐<br />
+                  <nav>
+                    <ul class="pager">
+                      <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+                      <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                    </ul>
+                  </nav>
+                  <p>&nbsp;</p>
+                  <h4 id="badge">五、标签和徽章</h4>
+                  标签：<br />
+                  <div>Example heading <span class="label label-default">New</span></div>
+                  徽章：<br />
+                  <a href="#">Inbox <span class="badge">42</span></a>
+                  <button class="btn btn-success" type="button">
+                    Messages <span class="badge">4</span>
+                  </button>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div&gt;Example heading &lt;span class="label label-default"&gt;New&lt;/span&gt;&lt;/div&gt;
+&lt;a href="#"&gt;Inbox &lt;span class="badge"&gt;42&lt;/span&gt;&lt;/a&gt;
+&lt;button class="btn btn-success" type="button"&gt;
+  Messages &lt;span class="badge"&gt;4&lt;/span&gt;
+&lt;/button&gt;
+</code></pre>
+                  </div>
+                  <p>&nbsp;</p>
+                  <h4 id="thumbnail">六、缩略图</h4>
+                  可以认为这个是 栅格系统 的扩展，用于展示栅格样式的图像、视频、文本等内容。<br />
+                  如果想要达到瀑布流的效果，需要第三方插件，如<a href="http://masonry.desandro.com">Masonry</a>、<a href="http://isotope.metafizzy.co">Isotope</a> 或 <a href="http://salvattore.com">Salvattore</a>。<br />
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <a href="#" class="thumbnail">
+                        <img options="size=256x128" class="placeholder" alt="Generic placeholder thumbnail">
+                      </a>
+                    </div>
+                    <div class="col-xs-6">
+                      <div class="thumbnail">
+                        <img options="size=256x128" class="placeholder">
+                        <div class="caption">
+                          <h3>自定义内容</h3>
+                          <p>带自定义内容的缩略图，这里可以输入你想要展示的段落</p>
+                          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p>&nbsp;</p>
+                  <h4 id="alert">七、警告框</h4>
+                  <div class="alert alert-info" role="alert">简朴的警告框，可使用5种基础主题（剔除default，默认为primary）</div>
+                  <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    带关闭按钮的警告框，关闭了就没了。
+                  </div>
+                  <div class="alert alert-danger" role="alert">
+                    带<a href="" class="alert-link">链接</a>的警告框
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div class="alert alert-info" role="alert"&gt;简朴的警告框，可使用5种基础主题&lt;/div&gt;
+&lt;div class="alert alert-success" role="alert"&gt;
+  &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;/button&gt;
+  带关闭按钮的警告框，关闭了就没了。
+&lt;/div&gt;
+&lt;div class="alert alert-danger" role="alert"&gt;
+  带&lt;a href="" class="alert-link"&gt;链接&lt;/a&gt;的警告框
+&lt;/div&gt;
+</code></pre>
+                  </div>
+                  <p>&nbsp;</p>
+                  <h4 id="progress">八、进度条</h4>
+                  <div class="bg-gray">
+                    <br />
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        <span class="sr-only">60% Complete</span>
+                      </div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        带标签：60%
+                      </div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                        &lt;=IE9不支持
+                      </div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-cuccess progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                        动画效果,&lt;=IE9不支持
+                      </div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" style="width: 35%">
+                        堆叠
+                      </div>
+                      <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%">
+                        效果
+                      </div>
+                      <div class="progress-bar progress-bar-danger" style="width: 10%">
+                        展示
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+                  1. 在展示很低的百分比时，如果需要让文本提示能够清晰可见，可以为进度条style设置 min-width 属性，如min-width: 2em;。<br />
+                  2. 可以使用5种主题（剔除default，默认为primary）。<br />
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div class="progress"&gt;
+  &lt;div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"&gt;
+    &lt;span class="sr-only"&gt;60% Complete&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress"&gt;
+  &lt;div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"&gt;
+    带标签：60%
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress"&gt;
+  &lt;div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"&gt;
+    &amp;lt;=IE9不支持
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress"&gt;
+  &lt;div class="progress-bar progress-bar-cuccess progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%"&gt;
+    动画效果,&amp;lt;=IE9不支持
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress"&gt;
+  &lt;div class="progress-bar progress-bar-success" style="width: 35%"&gt;
+    堆叠
+  &lt;/div&gt;
+  &lt;div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%"&gt;
+    效果
+  &lt;/div&gt;
+  &lt;div class="progress-bar progress-bar-danger" style="width: 10%"&gt;
+    展示
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                  </div>
+                  <p>&nbsp;</p>
+                  <h4 id="media">九、媒体对象</h4>
+                  这是一个抽象的样式，用以构建不同类型的组件，这些组件都具有在文本内容的左或右侧对齐的图片（就像博客评论或 Twitter 消息等）。<br />
+                  9.1 基本：<br />
+                  <div class="media">
+                    <div class="media-left">
+                      <a href="#">
+                        <img options="size=64x64" class="placeholder media-object">
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading">媒体标题</h4>
+                      媒体内容
+                    </div>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div class="media"&gt;
+  &lt;div class="media-left"&gt;
+    &lt;a href="#"&gt;
+      &lt;img options="size=64x64" class="placeholder media-object"&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class="media-body"&gt;
+    &lt;h4 class="media-heading"&gt;媒体标题&lt;/h4&gt;
+    媒体内容
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                  </div>
+                  <br />
+                  9.2 对齐。图片或其他媒体类型可以顶部、中部或底部对齐。默认是顶部对齐。<br />
+                  为 .media-left 类添加 .media-middle、.media-bottom 类可以获取中部、底部对齐效果<br />
+                  <br />
+                  9.3 列表。将 .media 的div更改为 li 外层套上 &lt;ul class="media-list"&gt; 就能在列表内使用媒体对象组件（对评论或文章列表很有用）。<br />
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;ul class="media-list"&gt;
+  &lt;li class="media"&gt;
+    &lt;div class="media-left"&gt;
+      &lt;a href="#"&gt;
+        &lt;img class="media-object" src="..." alt="..."&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="media-body"&gt;
+      &lt;h4 class="media-heading"&gt;Media heading&lt;/h4&gt;
+      ...
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+                  </div>
+                  <p>&nbsp;</p>
+                  <h4 id="list-group">十、列表组<h4>
+                  最简单的列表组仅仅是一个带有多个列表条目的无序列表，显示效果类似于打竖放置的导航。<br />
+                  <div class="row bg-gray">
+                    <div class="col-xs-4">
+                      朴素列表组，使用 ul-li(.list-group .list-group-item) 组合即可。<br />
+                      <ul class="list-group">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                      </ul>
+                    </div>
+                    <div class="col-xs-4">
+                      可以使用 div-a 组合产生列表组， .active 类产生选中效果 .disabled 类产生禁用效果。<br />
+                      <div class="list-group">
+                        <a href="#" class="list-group-item active">
+                          选中状态
+                        </a>
+                        <a href="#" class="list-group-item">正常</a>
+                        <a href="#" class="list-group-item disabled">禁用状态</a>
+                        <a href="#" class="list-group-item">
+                          <h4 class="list-group-item-heading">定制标题</h4>
+                          <p class="list-group-item-text">定制的内容</p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                          <span class="badge">14</span>
+                          产生徽标
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-xs-4">
+                      可以使用 div-a 组合产生 button 列表组，注意不要使用标准的 .btn 类！<br />
+                      <div class="list-group">
+                        <button type="button" class="list-group-item">Cras justo odio</button>
+                        <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
+                        <button type="button" class="list-group-item">Morbi leo risus</button>
+                        <button type="button" class="list-group-item">Porta ac consectetur ac</button>
+                        <button type="button" class="list-group-item">Vestibulum at eros</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-4">
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;ul class="list-group"&gt;
+  &lt;li class="list-group-item"&gt;Cras justo odio&lt;/li&gt;
+  &lt;li class="list-group-item"&gt;Dapibus ac facilisis in&lt;/li&gt;
+  &lt;li class="list-group-item"&gt;Morbi leo risus&lt;/li&gt;
+  &lt;li class="list-group-item"&gt;Porta ac consectetur ac&lt;/li&gt;
+  &lt;li class="list-group-item"&gt;Vestibulum at eros&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+                    </div>
+                    <div class="col-xs-4">
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div class="list-group"&gt;
+  &lt;a href="#" class="list-group-item active"&gt;
+    选中状态
+  &lt;/a&gt;
+  &lt;a href="#" class="list-group-item"&gt;正常&lt;/a&gt;
+  &lt;a href="#" class="list-group-item disabled"&gt;禁用状态&lt;/a&gt;
+  &lt;a href="#" class="list-group-item"&gt;
+    &lt;h4 class="list-group-item-heading"&gt;定制标题&lt;/h4&gt;
+    &lt;p class="list-group-item-text"&gt;定制的内容&lt;/p&gt;
+  &lt;/a&gt;
+  &lt;a href="#" class="list-group-item"&gt;
+    &lt;span class="badge"&gt;14&lt;/span&gt;
+    产生徽标
+  &lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+                    </div>
+                    <div class="col-xs-4">
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div class="list-group"&gt;
+  &lt;button type="button" class="list-group-item"&gt;Cras justo odio&lt;/button&gt;
+  &lt;button type="button" class="list-group-item"&gt;Dapibus ac facilisis in&lt;/button&gt;
+  &lt;button type="button" class="list-group-item"&gt;Morbi leo risus&lt;/button&gt;
+  &lt;button type="button" class="list-group-item"&gt;Porta ac consectetur ac&lt;/button&gt;
+  &lt;button type="button" class="list-group-item"&gt;Vestibulum at eros&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+                    </div>
+                  </div>
+                  <p>&nbsp;</p>
+                  <h4 id="panel">十一、面版</h4>
+                  一个类似于 AdminLTE 的 Box 部件，不做过多解释<br />
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">面版标题栏</div>
+                    <div class="panel-body">
+                      面版主体内容
+                    </div>
+                    <div class="panel-footer">面版脚部</div>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary" name="ShowCode">Show/Hide Code</button>
+<pre style="display:None"><code class="Html">&lt;div class="panel panel-primary"&gt;
+  &lt;div class="panel-heading"&gt;面版标题栏&lt;/div&gt;
+  &lt;div class="panel-body"&gt;
+    面版主体内容
+  &lt;/div&gt;
+  &lt;div class="panel-footer"&gt;面版脚部&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                  </div>
+                  <p>&nbsp;</p>
+
+                </div>
+              </div>
+
+            </section>
+            <div class="Affix">
+              <ul class="nav nav-tabs nav-stacked">
+                <li><a href="#AdminLTE-Box">AdminLTE Box</a></li>
+                <li><a href="#dropdown">下拉菜单</a></li>
+                <li><a href="#nav">导航</a></li>
+                <li><a href="#breadcrumb">路径导航(面包屑)</a></li>
+                <li><a href="#pagination">分页</a></li>
+                <li><a href="#badge">标签和徽章</a></li>
+                <li><a href="#thumbnail">缩略图</a></li>
+                <li><a href="#alert">警告框</a></li>
+                <li><a href="#progress">进度条</a></li>
+                <li><a href="#media">媒体对象</a></li>
+                <li><a href="#list-group">列表组</a></li>
+                <li><a href="#panel">面版</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </section><!-- end content -->
+      </div>
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> <span>1.0</span>
+        </div>
+        <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+      </footer>
+      
+      <!-- 右侧配置栏 -->      
+      <aside class="control-sidebar control-sidebar-dark">                
+        <!-- 组合表 -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <!-- 默认包含一个control-sidebar-theme-setting-tab，通过theme_setting.js控制 -->
+          <!-- 另外，control-sidebar-home-tab是必须存在的，因为是默认表的依赖 -->
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        </ul>
+        <!-- 表内容 -->
+        <div class="tab-content">
+          <!-- 第一个表主体 -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">附加信息</h3>
+            <ul class='control-sidebar-menu'>
+              <li>
+                <p style="margin: 10px;">
+                  <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+
+                </p>
+              </li>
+            </ul>
+          </div><!-- end 第一个表主体 -->
+        </div>
+      </aside><!-- end 右侧配置栏 -->
+      <div class='control-sidebar-bg'></div>
+    </div><!-- ./wrapper -->
+
+    <div class="modal fade modal-danger" id="ErrorModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">错误</h4>
+          </div>
+          <div class="modal-body" id="ErrorModalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="location.reload()">刷新页面</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 开始加载js脚本 -->
+    <script src="static/plugins/jquery/jquery.min.js"></script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src='static/plugins/fastclick/fastclick.min.js'></script>
+    <script src='static/plugins/iCheck/icheck.min.js'></script>
+    <script src="static/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+    <script src="static/plugins/highlight/highlight.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/base.js" type="text/javascript"></script>
+    <script src="static/dist/js/mainmenu.js" type="text/javascript"></script>
+
+    <!-- 页面专属js -->
+    <script src="static/plugins/placeholder/placeholder.min.js"></script>
+    <script src="static/dist/js/pages/Widgets.js" type="text/javascript"></script>
+
+    <!-- 基础功能及皮肤js，由于依赖的关系，需要页面完全生成完毕才能加载，故放在最后 -->
+    <script src="static/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/theme_setting.min.js" type="text/javascript"></script>
+  </body>
+</html>

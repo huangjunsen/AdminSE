@@ -1,0 +1,4 @@
+[name="wysiwygEditor"] .clearfix{clear:both;}
+[name="wysiwygEditor"] .breaker{border:1px #ddd solid;width:0;padding:0;height:34px;display:block;}
+[name="wysiwygEditor"] .dropdown-menu{padding:0;}
+[name="wysiwygEditor"] div.btn-group>ul>li{text-align:center;cursor:pointer;}
