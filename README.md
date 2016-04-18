@@ -1,11 +1,12 @@
 # AdminSE
-<p>============</p>
+============
 
-<p>A Html5 template, which is base on Jquery, Bootstrap and AdminLTE </p>
-<p>I am a Chinese, and this template is derive from a Chinese project. [中文Readme帮助文档](README-zh.md)</p>
-<p>Many info has been write in [项目帮助文档](Pages/Readme.html)</p>
+A Html5 template, which is base on Jquery, Bootstrap and AdminLTE <br/>
+I am a Chinese, and this template is derive from a Chinese project. [中文Readme帮助文档](README-zh.md)<br/>
+So, If your are poor in Chinese, I'm sorry to tell you that this version of AdminSE is not match your project.:(<br/>
+Many info has been write in [Project Readme](Pages/Readme.html)<br/>
 
-<p>Frame base on:</p>
-<p>1. Jquery V2.1.4</p>
-<p>2. Bootstrap V3.3.5</p>
-<p>3. AdminLTE V2.1.1</p>
+Frame base on:<br/>
+1. Jquery V2.1.4<br/>
+2. Bootstrap V3.3.5<br/>
+3. AdminLTE V2.1.1<br/>

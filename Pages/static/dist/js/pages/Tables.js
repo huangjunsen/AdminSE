@@ -25,7 +25,7 @@ $(function(){
       }
     });
 
-    $('#SimpleTable').SimpleTable({
+    $('#SimpleTable1').SimpleTable({
       hover: true,
       padding: false,
       border: true,
@@ -45,7 +45,7 @@ $(function(){
     $('#SimpleTable3').SimpleTable('rowspan','ALL');
     $('#SimpleTable3').SimpleTable('colspan','ALL');
 
-    $('#DataTable').DataTable();
+    $('#DataTable1').DataTable();
 
     $('#DataTable2').DataTable();
     $('#DataTable2').SimpleTable({
