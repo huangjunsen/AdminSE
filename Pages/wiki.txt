@@ -168,3 +168,9 @@ AdminSE 模板编写WiKi
     4）关于Django中的应用
     5）文件结构
     6）wiki
+
+2016-04-18
+1. 按照 markdown 语法编写 Github Readme 文件
+    1）README.md
+    2）README-zh.md
+2. 截了几个预览图片
