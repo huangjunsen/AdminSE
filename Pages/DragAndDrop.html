@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminSE</title>
+    <!-- 站点定义 -->
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/dist/img/icon.ico" type="image/x-icon" />
+    <style type="text/css">body{font-family:"Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;}</style>
+    <!-- 浏览器版本检测 -->
+    <script type="text/javascript">
+    var browser=navigator.appName;
+    var b_version=navigator.appVersion;
+    var version=parseFloat(b_version);
+    if ((browser=="Microsoft Internet Explorer") && (version<5))
+        location.href = 'BrownerToUpdate.html';
+    </script>
+
+    <!-- 第三方css -->
+    <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/plugins/highlight/styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="static/dist/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- 页面专属css -->
+    <style>
+    #dropzone {padding:20px;background:gray;min-height:100px;margin-bottom:20px;z-index:0;border-radius:10px;}
+    .dz-active {outline:2px red solid;}
+    .dz-hover {outline:2px blue solid;}
+    .drop-item {cursor:pointer;background-color:white;padding:10px 40px 10px 10px;border-radius:5px;border:1px solid #0F0;position:relative;}
+    .drop-item button[name="remove"] {position:absolute;top:4px;right:4px;}
+    #dropzone .drop-item .row, #dropzone .drop-item [class^='col-xs-']{padding:0;margin:0;}
+    </style>
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="overlay" style="display:none;">
+      <div class="loading">
+        <div class="loading-center">
+          <div class="loading-center-absolute">
+            <div class="object object_four"></div>
+            <div class="object object_three"></div>
+            <div class="object object_two"></div>
+            <div class="object object_one"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-mini" title="AdminSE"><b>AdminSE</b></span>
+          <span class="logo-lg"><b>Admin</b>SE</span>
+        </a>
+        <!-- 导航头部 -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- 左侧边栏触发按钮-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="收缩/展开">
+            <span class="sr-only">收缩/展开导航</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- 用户帐户栏 -->
+              <li class="dropdown user user-menu">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="static/dist/img/DefaultHead.png" class="user-image" alt="头像"/>
+                  <span class="hidden-xs">用户名</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- 用户简介 -->
+                  <li class="user-header">
+                    <a href="#" style="background-color: transparent" title="更换头像">
+                      <img src="static/dist/img/DefaultHead.png" class="img-circle" alt="User Image" />
+                    </a>
+                    <p>
+                      自定义用户信息
+                      <small>备注等内容</small>
+                    </p>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-primary">编辑</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-primary">注销</a>
+                    </div>
+                  </li>
+                </ul>
+              </li> <!-- end 用户帐户栏 -->
+              <!-- 右侧边栏触发按钮 -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li> <!-- end 右侧边栏触发按钮 -->
+            </ul>
+          </div>
+        </nav> <!-- end 导航头部 -->
+      </header>
+
+      <!-- 左侧菜单栏 -->
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- 搜索栏 -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group" title="功能未开放">
+              <input type="text" name="q" class="form-control" placeholder="请输入搜索内容"/>
+              <span class="input-group-btn">
+                <button type='button' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form><!-- end 搜索栏 -->
+
+          <!-- 菜单栏主体 -->
+          <ul class="sidebar-menu"></ul>
+
+        </section>
+      </aside> <!-- end 左侧菜单栏 -->
+
+      <!-- 页面主体内容 -->
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>
+            拖动和放置
+          </h1>
+        </section>
+
+        <!-- content -->
+        <section class="content">
+          <div class="row">
+            <section class="col-xs-3" name="sortableGird">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">可拖动的box</h3>
+                </div>
+                <div class="box-body bg-blue">
+                </div>
+              </div>
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">可拖动的box</h3>
+                </div>
+                <div class="box-body bg-red">
+                </div>
+              </div>
+            </section>
+            <section class="col-xs-4" name="sortableGird">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">可拖动的box</h3>
+                </div>
+                <div class="box-body bg-green">
+                </div>
+              </div>
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">可拖动的box</h3>
+                </div>
+                <div class="box-body bg-black">
+                </div>
+              </div>
+            </section>
+            <section class="col-xs-5" name="sortableGird">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">可拖动的box</h3>
+                </div>
+                <div class="box-body bg-purple">
+                </div>
+              </div>
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">可拖动的box</h3>
+                </div>
+                <div class="box-body bg-teal">
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="row">
+            <section class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">JuqeryUI Sortable</h3>
+                </div>
+                <div class="box-body">
+                  <h3>1. 使用方法</h3>
+                  <p>1.1 添加js：</p>
+                  <pre><code class="Html">&lt;script src="static/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+                  <p>
+                    <span class="text-red">【注意】: </span><br />
+                    <span class="text-red">1. 添加JqueryUI将会与bootstrap的一些控件相冲突，因此，请注意JqueryUI需要早于Bootstrap引用</span><br />
+                    <span class="text-red">2. 本模板的sortable 存在一个滚动异位的bug，已经修复的了，与官网的不同，所以用官网的脚本有bug别找我。</span><br />
+                    <span class="text-red">修复的内容参见：</span><a href="http://blog.csdn.net/samed/article/details/50703704">JqueryUI sortable Bug修复</a>
+                  </p>
+                  <p>1.2 书写dom</p>
+                  <p>忽略</p>
+                  <p>1.3 激活排序：</p>
+                  <pre><code class="JavaScript">$('[name="dragableBox"]').sortable(options);</code></pre>
+                  <br />
+                  <p>因为是基于JqueryUI产生的效果，因此不作过多介绍，仅使用常用的参数即可，有需要请看说明文档：<a href="http://www.runoob.com/jqueryui/api-sortable.html">jQuery UI API - 可排序小部件（Sortable Widget）</a></p>
+                  <p>常用参数：</p>
+                  <p>1. connectWith: 默认 false , 此参数接受一个selector，默认情况下sortable仅能在其内部进行排序，如果要在多个sortable间进行拖动和放置，则需要使用该参数</p>
+                  <p>2. handle: 默认 false , 此参数接受一个selector，表示哪个selector才能进行拖动操作。</p>
+                  <p>3. items: 默认 '> *' , 此参数接受一个selector，表示具有何种selector的情况才能进行拖动操作。实际测试过程中发现，一旦初始化，则不能去除这种已经指定的关系。</p>
+                  <br />
+                  <p>常用方法：</p>
+                  <p>1. destroy: 销毁</p>
+                  <p>2. disable: 禁用排序</p>
+                  <p>3. enable: 相对于disable</p>
+                  <p>4. refresh: 刷新整个列表</p>
+                  <br />
+                  <p>常用事件（可以作为参数传入回调函数）：</p>
+                  <p>1. sort: 排序过程中触发。</p>
+                  <p>2. start: 开始排序触发一次。</p>
+                  <p>3. stop: 停止排序触发一次。</p>
+                  <p>4. update: 停止排序且发生位置变化触发一次。</p>
+                  <br />
+                  <p>本页开头的示例源码：</p>
+                  <div>
+                    <button class="btn btn-primary" name="ToggleNext">Show/Hide Code</button>
+                    <div style="display:None">
+                      <p>1. Html Dom</p>
+                      <pre><code class="Html">&lt;div class="row"&gt;<br />&nbsp;&nbsp;&lt;section class="col-xs-3" name="sortableGird"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-header"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 class="box-title"&gt;可拖动的box&lt;/h3&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-body bg-blue"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-header"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 class="box-title"&gt;可拖动的box&lt;/h3&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-body bg-red"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;/section&gt;<br />&nbsp;&nbsp;&lt;section class="col-xs-4" name="sortableGird"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-header"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 class="box-title"&gt;可拖动的box&lt;/h3&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-body bg-green"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-header"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 class="box-title"&gt;可拖动的box&lt;/h3&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-body bg-black"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;/section&gt;<br />&nbsp;&nbsp;&lt;section class="col-xs-5" name="sortableGird"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-header"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 class="box-title"&gt;可拖动的box&lt;/h3&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-body bg-purple"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-header"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 class="box-title"&gt;可拖动的box&lt;/h3&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box-body bg-teal"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;/section&gt;<br />&lt;/div&gt;</code></pre>
+                      <p>2. js:</p>
+                      <pre><code class="JavaScript">var sortableUpdate = function(){<br />&nbsp;&nbsp;$('[name="sortableGird"]').sortable();<br />&nbsp;&nbsp;$('[name="sortableGird"]').sortable('destroy');<br />&nbsp;&nbsp;$.each($('[name="sortableGird"]'), function(i, sortableGird) {<br />&nbsp;&nbsp;&nbsp;&nbsp;if($(this).children('div.box').length === 1){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).children('div.box').removeAttr('name');<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).find('.box-title').html('不可拖动的box');<br />&nbsp;&nbsp;&nbsp;&nbsp;}else{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).children('div.box').attr('name', 'dragableBox');<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).find('.box-title').html('可拖动的box');<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;});<br />&nbsp;&nbsp;$('[name="sortableGird"]').sortable({<br />&nbsp;&nbsp;&nbsp;&nbsp;connectWith: '[name="sortableGird"]',<br />&nbsp;&nbsp;&nbsp;&nbsp;handle: '.box-header',<br />&nbsp;&nbsp;&nbsp;&nbsp;items: '[name="dragableBox"]',<br />&nbsp;&nbsp;&nbsp;&nbsp;update: sortableUpdate,<br />&nbsp;&nbsp;});<br />}<br />sortableUpdate();<br />$('[name="sortableGird"]&gt;div.box').attr('name', 'dragableBox');</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="box">
+                <div class="box-header">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <h3 class="box-title">Sortable应用：表单编辑器</h3>
+                </div>
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="row">
+                        <div class="col-sm-12 bg-black-gradient">
+                          <h4>布局管理</h4>
+                          <div id="LayoutManager" class="allinoneline">
+                            <p>单列样式：</p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">12</a></p>
+
+                            <p>两列样式：</p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">2 10</a></p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">3 9</a></p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">4 8</a></p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">6 6</a></p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">8 4</a></p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">9 3</a></p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">10 2</a></p>
+
+                            <p>三列样式：</p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">2 8 2</a></p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">3 6 3</a></p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">4 4 4</a></p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">5 2 5</a></p>
+
+                            <p>四列样式：</p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">3 3 3 3</a></p>
+
+                            <p>自定义：</p>
+                            <p class="lineitem" name="drag"><a class="btn btn-default">自定义</a></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-9">
+                      <button class="btn btn-primary pull-right" id="PreViewBtn">预览</button>
+                      <h4>表单布局</h4>
+                      <div id="dropzone"></div>
+                    </div>
+
+                  </div>
+                  <br />
+                  <div>
+                    <button class="btn btn-primary" name="ToggleNext">Show/Hide Code</button>
+                    <div style="display:None">
+                      <p>1. Html Dom</p>
+                      <pre><code class="Html">&lt;div class="row"&gt;<br />&nbsp;&nbsp;&lt;div class="col-sm-3"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="row"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-sm-12 bg-black-gradient"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;布局管理&lt;/h4&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="LayoutManager" class="allinoneline"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;单列样式：&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;12&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;两列样式：&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;2 10&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;3 9&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;4 8&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;6 6&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;8 4&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;9 3&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;10 2&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;三列样式：&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;2 8 2&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;3 6 3&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;4 4 4&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;5 2 5&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;四列样式：&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;3 3 3 3&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;自定义：&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="lineitem" name="drag"&gt;&lt;a class="btn btn-default"&gt;自定义&lt;/a&gt;&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;div class="col-sm-9"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="btn btn-primary pull-right" id="PreViewBtn"&gt;预览&lt;/button&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;表单布局&lt;/h4&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="dropzone"&gt;&lt;/div&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&lt;/div&gt;</code></pre>
+                      <p>2. js:</p>
+                      <pre><code class="JavaScript">$('#LayoutManager p[name="drag"]').draggable({ <br />&nbsp;&nbsp;appendTo: '#dropzone',<br />&nbsp;&nbsp;helper: 'clone'<br />});<br />$('#dropzone').droppable({<br />&nbsp;&nbsp;activeClass: 'dz-active',<br />&nbsp;&nbsp;hoverClass: 'dz-hover',<br />&nbsp;&nbsp;accept: ':not(.ui-sortable-helper)',<br />&nbsp;&nbsp;drop: function(e, ui){<br />&nbsp;&nbsp;&nbsp;&nbsp;var ThisStyle = ui.draggable.text().split(' '), GridStr='&lt;div class="row"&gt;';<br />&nbsp;&nbsp;&nbsp;&nbsp;if(ThisStyle[0] == "自定义"){   /*如果拖动是是自定义按钮，添加一整行，让用户自行输入*/<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GridStr += '&lt;div class="col-xs-12"&gt;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ '&lt;button type="button" class="btn btn-primary" name="EditLayout"&gt;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ '&lt;i class="fa fa-plus"&gt;&lt;/i&gt;&lt;/button&gt;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ '&lt;/div&gt;';<br />&nbsp;&nbsp;&nbsp;&nbsp;}else{   /*否则，就是固定的模板样式，直接生成就好*/<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.each(ThisStyle, function(i, gridNum) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GridStr += '&lt;div class="col-xs-'+gridNum+'"&gt;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ '&lt;button type="button" class="btn btn-primary btn-block" name="AddKey"'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ ' data-toggle="popover" data-placement="bottom"&gt;添加内容&lt;/button&gt;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ '&lt;/div&gt;';<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;GridStr += '&lt;/div&gt;';<br />&nbsp;&nbsp;&nbsp;&nbsp;var HtmlStr = '&lt;div class="drop-item"&gt;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ GridStr<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ '&lt;button type="button" class="btn btn-danger" name="remove"&gt;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ '&lt;i class="fa fa-trash-o"&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;',<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HtmlObj = $(HtmlStr);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HtmlObj.find('button[name="remove"]').click(function(event) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).closest('div.drop-item').remove();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br />&nbsp;&nbsp;&nbsp;&nbsp;$(this).append(HtmlObj);<br />&nbsp;&nbsp;}<br />}).sortable({<br />&nbsp;&nbsp;items: '.drop-item',<br />&nbsp;&nbsp;sort: function(){<br />&nbsp;&nbsp;&nbsp;&nbsp;$( this ).removeClass( "dz-active" );<br />&nbsp;&nbsp;}<br />});<br />$('#PreViewBtn').click(function(event) {<br />&nbsp;&nbsp;/*添加预览脚本*/<br />});</code></pre>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </section>
+          </div>
+
+        </section><!-- end content -->
+      </div>
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> <span>1.0</span>
+        </div>
+        <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+      </footer>
+      
+      <!-- 右侧配置栏 -->      
+      <aside class="control-sidebar control-sidebar-dark">                
+        <!-- 组合表 -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <!-- 默认包含一个control-sidebar-theme-setting-tab，通过theme_setting.js控制 -->
+          <!-- 另外，control-sidebar-home-tab是必须存在的，因为是默认表的依赖 -->
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        </ul>
+        <!-- 表内容 -->
+        <div class="tab-content">
+          <!-- 第一个表主体 -->
+          <div class="tab-pane" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">附加信息</h3>
+            <ul class='control-sidebar-menu'>
+              <li>
+                <p style="margin: 10px;">
+                  <div><a href="https://github.com/huangjunse/AdminSE">Fork On Github</a></div>
+
+                </p>
+              </li>
+            </ul>
+          </div><!-- end 第一个表主体 -->
+        </div>
+      </aside><!-- end 右侧配置栏 -->
+      <div class='control-sidebar-bg'></div>
+    </div><!-- ./wrapper -->
+
+    <div class="modal fade modal-danger" id="ErrorModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">错误</h4>
+          </div>
+          <div class="modal-body" id="ErrorModalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="location.reload()">刷新页面</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 开始加载js脚本 -->
+    <script src="static/plugins/jquery/jquery.min.js"></script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src='static/plugins/fastclick/fastclick.min.js'></script>
+    <script src='static/plugins/iCheck/icheck.min.js'></script>
+    <script src="static/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+    <script src="static/plugins/highlight/highlight.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/base.js" type="text/javascript"></script>
+    <script src="static/dist/js/mainmenu.js" type="text/javascript"></script>
+
+    <!-- 页面专属js -->
+    <script src="static/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/pages/DragAndDrop.js" type="text/javascript"></script>
+
+    <!-- 基础功能及皮肤js，由于依赖的关系，需要页面完全生成完毕才能加载，故放在最后 -->
+    <script src="static/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="static/dist/js/theme_setting.min.js" type="text/javascript"></script>
+  </body>
+</html>

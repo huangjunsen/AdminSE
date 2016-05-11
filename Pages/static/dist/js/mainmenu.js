@@ -215,6 +215,16 @@ var LocalMenuAsJson = [
         "pid": null,
         "id": 21,
         "icon": "file-text"
+    },
+    {
+        "typename": "treeview",
+        "url": "DragAndDrop.html",
+        "name": "DragAndDrop",
+        "namecn": "拖动和放置",
+        "idpath": "3>22",
+        "pid": 3,
+        "id": 22,
+        "icon": "hand-spock-o"
     }
 ];
 
